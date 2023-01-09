@@ -50,6 +50,16 @@ const AdditionalResouces = () => {
                 Elastic Search vs MongoDB Atlas Search
               </a>
             </div>
+            <div className="COMPARISON text-lg ml-20">
+              <a
+                className="ml-4 text-center underline decoration-indigo-800"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.mongodb.com/developer/products/atlas/analyzing-analyzers-build-search-index-app/"
+              >
+                Analyzing Analyzers to Build the Right Search Index for Your App
+              </a>
+            </div>
           </div>
           <div className="DEMOS space-y-4 mt-10 w-1/2">
             <div className="text-lg ml-20">
