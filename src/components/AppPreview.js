@@ -2,7 +2,7 @@ import Mflix from "../images/Mflix.png";
 
 const AppPreview = () => {
   return (
-    <div className="w-1/3 text-center">
+    <div className="w-full text-center">
       <a
         className="font-noto text-center text-3xl text-forestgreen"
         target="_blank"

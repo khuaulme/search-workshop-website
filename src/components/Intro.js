@@ -1,14 +1,15 @@
 import Title from "./Title";
 import SearchHero from "../images/Spot_Search.png";
 import Presenters from "../components/Presenters";
+import AppPreview from "./AppPreview";
+import Instructions from "./Instructions";
 
-const Intro = () => {
+const Intro = ({ showSetUpPDF, setShowSetUpPDF }) => {
   return (
-    <div className="flex mx-auto mb-8 items-center w-full">
-      <img src={SearchHero} alt="search hero" className="mx-6 mt-8 w-1/4" />
-      <div className="mx-auto text-center items-center justify-center w-1/2">
+    <div className="flex mx-auto mb-8 justify-evenly w-full">
+      <div className="mx-auto text-center items-center w-2/5">
         <Title />
-        <div className="mx-4 text-lg mt-4">
+        <div className="mx-4 text-lg my-4 w-full">
           With Atlas Search, we have made it even easier to work with data by
           allowing you to build powerful, flexible, and sophisticated search
           capabilities into your MongoDB applications!
@@ -27,9 +28,22 @@ const Intro = () => {
           autocomplete, highlighting and many other search features. Along the
           way, we'll also go deep on Lucene analyzers and indexes.
         </div>
+        <hr
+          style={{
+            color: "green",
+            backgroundColor: "green",
+            height: 2,
+            borderColor: "green",
+          }}
+        />
+        <Instructions
+          showSetUpPDF={showSetUpPDF}
+          setShowSetUpPDF={setShowSetUpPDF}
+        />
       </div>
-      <div className="w-1/4">
-        <Presenters />
+      <div className="w-2/5">
+        <AppPreview />
+        {/* <Presenters /> */}
       </div>
     </div>
   );
