@@ -5,10 +5,12 @@ import Footer from "./components/Footer";
 import Header from "./components/Header";
 import Intro from "./components/Intro";
 import Instructions from "./components/Instructions";
-import Promotion from "./components/Promotion";
+
 import AppPreview from "./components/AppPreview";
-import Presenters from "./components/Presenters";
+
 import AdditionalResouces from "./components/AdditionalResouces";
+
+import samplePDF from "./images/AtlasSearchWorkshop.pdf";
 
 function App() {
   return (
@@ -22,8 +24,18 @@ function App() {
             <Instructions />
             <AppPreview />
           </div>
+          <div>
+            {" "}
+            <hr />
+            <iframe
+              className="w-4/5 h-[70vh] mx-auto my-10"
+              title="pdf"
+              src={samplePDF}
+              style={{ border: 0 }}
+            ></iframe>
+            <hr />
+          </div>
         </div>
-        <div className="w-1/4">{/* <Promotion /> */}</div>
       </div>
 
       <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/AtlasSearchWorkshop2022/tree/main/?fontsize=14&hidenavigation=1&theme=dark" />
