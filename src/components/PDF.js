@@ -1,4 +1,4 @@
-import samplePDF from "../images/AtlasSearchWorkshop.pdf";
+import samplePDF from "../images/AtlasSearchWorkshopSetUp.pdf";
 
 const PDF = () => {
   return (

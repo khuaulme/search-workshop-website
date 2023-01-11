@@ -9,7 +9,7 @@ const Header = () => {
         <img className=" my-auto py-2 h-16" src={LOGO} alt="logo" />
       </Link>
 
-      <Link to="/Section1" className="flex text-3xl text-white font-noto">
+      <Link to="/Lesson1" className="flex text-3xl text-white font-noto">
         Atlas Search Workshop
       </Link>
 
