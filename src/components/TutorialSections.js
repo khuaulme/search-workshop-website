@@ -11,7 +11,7 @@ const TutorialSections = () => {
   };
   return (
     <>
-      <div className="bg-gradient-to-r from-green-900 to-emerald-700 py-10 place-items-center shadow-xl">
+      <div className="bg-gradient-to-r from-emerald-700 to-green-600 py-10 place-items-center shadow-xl">
         <div className="grid grid-cols-2 gap-x-8 gap-y-4 px-10 w-full">
           {lessonData.map((data, index) => {
             return (
