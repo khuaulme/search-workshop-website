@@ -11,7 +11,7 @@ const TutorialSections = () => {
   };
   return (
     <>
-      <div className="bg-[#3d3db9] py-10 place-items-center text-white">
+      <div className="bg-gradient-to-r from-green-900 to-emerald-700 py-10 place-items-center shadow-xl">
         <div className="px-40 w-full">
           {lessonData.map((data, index) => {
             return (
@@ -45,6 +45,11 @@ const lessonData = [
   },
   {
     title: "Lesson 3: Hook API Into Movie Application",
+    description:
+      "In this workshop, we will build out our very own Netflix Clone using the sample_mflix database in the Atlas sample dataset. We will quickly construct and combine varied search parameters while implementing fuzzy-matching, autocomplete, highlighting and many other search features. Along the way, we'll also go deep on Lucene analyzers and indexes.",
+  },
+  {
+    title: "Lesson 4: Autocomplete",
     description:
       "In this workshop, we will build out our very own Netflix Clone using the sample_mflix database in the Atlas sample dataset. We will quickly construct and combine varied search parameters while implementing fuzzy-matching, autocomplete, highlighting and many other search features. Along the way, we'll also go deep on Lucene analyzers and indexes.",
   },

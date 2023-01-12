@@ -10,6 +10,7 @@ module.exports = {
       },
       colors: {
         slateblue: "#001E2B",
+        rhino: "#343F71",
         springgreen: "#00ED64",
         forestgreen: "#00684A",
         evergreen: "#023430",
@@ -19,7 +20,7 @@ module.exports = {
         darkblue: "#0D427C",
         chromeyellow: "#FF9F10",
         violet: "#5400F8",
-        mauve: "#B45AF2",
+        denim: "#48527F",
         clearblue: "#006EFF",
       },
       fontFamily: {

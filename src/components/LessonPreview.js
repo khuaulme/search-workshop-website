@@ -6,7 +6,7 @@ const LessonPreview = ({ open, toggle, title, description }) => {
   return (
     <div className="pt-10">
       <div
-        className="bg-white py-12 px-10 flex justify-between items-center cursor-pointer "
+        className="bg-zinc-100 py-12 px-10 flex justify-between items-center cursor-pointer shadow-2xl "
         onClick={toggle}
       >
         <p className="text-2xl  text-black font-semibold">{title}</p>
