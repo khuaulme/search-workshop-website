@@ -7,6 +7,7 @@ import TutorialSections from "../components/TutorialSections";
 import PDF from "../components/PDF";
 
 import SearchSpot from "../images/SearchDocs.png";
+import Instructions from "../components/Instructions";
 
 function Home() {
   const [showSetUpPDF, setShowSetUpPDF] = useState(false);
@@ -21,9 +22,12 @@ function Home() {
 
           {showSetUpPDF && <PDF />}
 
-          <div className="flex w-full justify-evenly items-center">
+          <div className="flex w-full justify-evenly ">
             <div className="w-1/4">
-              <img src={SearchSpot} alt="searchIcon" />
+              <Instructions
+                showSetUpPDF={showSetUpPDF}
+                setShowSetUpPDF={setShowSetUpPDF}
+              />
             </div>
             <div className="w-3/4">
               <TutorialSections />

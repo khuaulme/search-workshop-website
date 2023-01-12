@@ -36,10 +36,10 @@ const Intro = ({ showSetUpPDF, setShowSetUpPDF }) => {
             borderColor: "green",
           }}
         />
-        <Instructions
+        {/* <Instructions
           showSetUpPDF={showSetUpPDF}
           setShowSetUpPDF={setShowSetUpPDF}
-        />
+        /> */}
       </div>
       <div className="w-2/5">
         <AppPreview />
