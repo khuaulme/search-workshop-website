@@ -47,7 +47,7 @@ const Instructions = ({ showSetUpPDF, setShowSetUpPDF }) => {
       </div>
       {!showSetUpPDF ? (
         <button
-          className="w-96 mx-auto h-16 bg-green-500 rounded-md flex items-center px-4 drop-shadow-2xl mb-4 justify justify-evenly uppercase"
+          className="w-96 mx-auto py-4 px-6 bg-fuchsia-800 rounded-md flex items-center drop-shadow-2xl mb-4 justify justify-evenly uppercase"
           onClick={() => setShowSetUpPDF(!showSetUpPDF)}
         >
           <div className="text-white text-center">
