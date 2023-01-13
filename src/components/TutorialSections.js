@@ -49,29 +49,36 @@ export default TutorialSections;
 const lessonData = [
   {
     title: "1. Create Basic Index and 1st $search Text Query",
-    description:
-      "With Atlas Search, we have made it even easier to work with data by allowing you to build powerful, flexible, and sophisticated search capabilities into your MongoDB applications!",
+    description: `Creating a search index on our movie data is the first step to get up and running.
+       We'll start with the default dynamically mapped index to build our basic search movie engine. 
+       Then a few lines of code using the $search stage in an aggregation pipeline
+      allows us to look for topics in the plot fields in our movie dataset.`,
     linkedPage: "Lesson1",
     iconImage: Fuzzy,
   },
   {
     title: "2. Create RESTful API to Access Data",
-    description:
-      "In this workshop, we will build out our very own Netflix Clone using the sample_mflix database in the Atlas sample dataset. We will quickly construct and combine varied search parameters while implementing fuzzy-matching, autocomplete, highlighting and many other search features. Along the way, we'll also go deep on Lucene analyzers and indexes.",
+    description: `Now that we have the heart of our movie search engine in the form of an aggregation pipeline, 
+    how will we use it in an application? There are lots of ways to do this, but we will simply create a RESTful API 
+    using Atlas App Services, MongoDB's serverless platform, to expose this data. The beauty of a REST API is that it 
+    provides the flexibility to consume the movie data in so many ways and can be called from just about anywhere. `,
     linkedPage: "Lesson2",
     iconImage: Webhooks,
   },
   {
     title: "3. Call API from Movie Application Front-End",
-    description:
-      "In this workshop, we will build out our very own Netflix Clone using the sample_mflix database in the Atlas sample dataset. We will quickly construct and combine varied search parameters while implementing fuzzy-matching, autocomplete, highlighting and many other search features. Along the way, we'll also go deep on Lucene analyzers and indexes.",
+    description: ` Now that we have this endpoint, it takes a single call from the front-end application using the Fetch API 
+    to retrieve this data. In this lesson, we will use our hosted Code Sandbox. Typing in a search bar will bring us movies about 
+    whatever topic comes to mind. `,
     linkedPage: "Lesson3",
     iconImage: Platform,
   },
   {
     title: "4. Relevance-based Scoring and Custom Score Modifiers",
-    description:
-      "In this workshop, we will build out our very own Netflix Clone using the sample_mflix database in the Atlas sample dataset. We will quickly construct and combine varied search parameters while implementing fuzzy-matching, autocomplete, highlighting and many other search features. Along the way, we'll also go deep on Lucene analyzers and indexes.",
+    description: `Atlas Search computes a score for every movie in our data collection based on relevance. Scoring is the whole reason we get our search results back in  order
+       so it is important to understand. In this lesson, not only do we unravel the meaning of "relevance", but we will also play around 
+       with special score modifiers: constant - boost -function to change the score and therefore your search results, so you can get the right results to ou
+       users.`,
     linkedPage: "Lesson4",
     iconImage: Score,
   },
