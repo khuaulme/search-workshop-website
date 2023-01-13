@@ -1,4 +1,3 @@
-import Compass from "../images/Compass.png";
 import SearchSpot from "../images/SearchDocs.png";
 
 const Instructions = ({ showSetUpPDF, setShowSetUpPDF }) => {

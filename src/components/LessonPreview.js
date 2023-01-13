@@ -4,7 +4,7 @@ import { Collapse } from "react-collapse";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { HiOutlineChevronRight } from "react-icons/hi";
 
-const LessonPreview = ({ open, toggle, title, description, index }) => {
+const LessonPreview = ({ open, toggle, title, description, index, icon }) => {
   return (
     <div className="py-2 ">
       <div
@@ -18,7 +18,8 @@ const LessonPreview = ({ open, toggle, title, description, index }) => {
       </div>
       <Collapse isOpened={open}>
         <div className="bg-zinc-100 text-rhino font-barlow px-12 pb-6 relative">
-          <div className=" mb-4">{description}</div>
+          <div className="mb-2">{description}</div>
+          <img className="w-20 mx-auto" src={icon} alt="icon" />
           <Link
             to={`/Lesson${index + 1}`}
             className="flex  space-x-8  items-center  bg-fuchsia-800 rounded-lg x-32 text-white py-2 px-4 absolute -bottom-2 -right-4"

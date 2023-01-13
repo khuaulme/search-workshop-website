@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { AnimatePresence, motion as m } from "framer-motion";
+
 //components
 import CodeSandbox from "../components/CodeSandbox";
 
@@ -7,7 +7,6 @@ import Intro from "../components/Intro";
 import TutorialSections from "../components/TutorialSections";
 import PDF from "../components/PDF";
 
-import SearchSpot from "../images/SearchDocs.png";
 import Instructions from "../components/Instructions";
 
 function Home() {
