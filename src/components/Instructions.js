@@ -3,7 +3,7 @@ import SearchSpot from "../images/SearchDocs.png";
 const Instructions = ({ showSetUpPDF, setShowSetUpPDF }) => {
   return (
     <div className="flex flex-col font-barlow text-xl">
-      <div className="mx-4 mt-10 w-full text-lg items-center">
+      <div className="mx-4 w-full text-lg items-center">
         <div className="text-2xl text-fuchsia-700 text-center my-4">
           To Get Started...
         </div>
