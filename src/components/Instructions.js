@@ -3,9 +3,12 @@ import SearchSpot from "../images/SearchDocs.png";
 
 const Instructions = ({ showSetUpPDF, setShowSetUpPDF }) => {
   return (
-    <div className="flex flex-col">
+    <div className="flex flex-col font-barlow text-xl">
       <div className="mx-4 mt-10 w-full text-lg items-center">
-        <div className="text-left">
+        <div className="text-2xl text-fuchsia-700 text-center my-4">
+          To Get Started...
+        </div>
+        <div className="text-left font-barlow">
           The following hardware and installations are required to complete this
           workshop:
         </div>
@@ -49,7 +52,7 @@ const Instructions = ({ showSetUpPDF, setShowSetUpPDF }) => {
       <img className="my-8" src={SearchSpot} alt="searchIcon" />
       {!showSetUpPDF ? (
         <button
-          className="w-96 mx-auto py-4 px-6 bg-fuchsia-800 rounded-md flex items-center drop-shadow-2xl mb-4 justify justify-evenly uppercase"
+          className="w-4/5 mx-auto py-4 px-6 bg-fuchsia-800 rounded-md flex items-center drop-shadow-2xl mb-4 justify justify-evenly uppercase"
           onClick={() => setShowSetUpPDF(!showSetUpPDF)}
         >
           <div className="text-white text-center">
@@ -73,7 +76,7 @@ const Instructions = ({ showSetUpPDF, setShowSetUpPDF }) => {
         </button>
       ) : (
         <button
-          className="w-96 mx-auto h-16 bg-indigo-900 rounded-md flex items-center px-4 drop-shadow-2xl mb-4 justify justify-evenly uppercase "
+          className="w-4/5 mx-auto h-16 bg-indigo-900 rounded-md flex items-center px-4 drop-shadow-2xl mb-4 justify justify-evenly uppercase "
           onClick={() => setShowSetUpPDF(!showSetUpPDF)}
         >
           <div className="text-white text-center">Hide Set Up Instructions</div>

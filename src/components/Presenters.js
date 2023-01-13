@@ -3,7 +3,7 @@ import Karen from "../images/Karen.JPG";
 
 const Presenters = () => {
   return (
-    <div className="flex w-full items-center text-black px-12">
+    <div className="flex w-full items-center text-black p-4 ">
       <Presenter
         bio_pic={Karen}
         name="Karen Huaulmé"

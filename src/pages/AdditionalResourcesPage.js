@@ -1,6 +1,7 @@
 import React from "react";
 import LOGO from "../images/Logomark.svg";
 import GitHub from "../images/GitHub-Mark.png";
+import Presenters from "../components/Presenters";
 
 const AdditionalResourcesPage = () => {
   return (
@@ -9,6 +10,7 @@ const AdditionalResourcesPage = () => {
         <img className="mr-2 my-auto h-16" src={LOGO} alt="logo" />
         <div className="my-auto">Additional Learning Resources</div>
       </div>
+
       <hr
         style={{
           color: "green",
@@ -135,6 +137,9 @@ const AdditionalResourcesPage = () => {
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
           allowfullscreen
         ></iframe>
+      </div>
+      <div className="absolute bottom-0 right-0 bg-white border border-green-600 rounded-tl-full">
+        <Presenters />
       </div>
     </>
   );

@@ -11,12 +11,13 @@ const TutorialSections = () => {
   };
   return (
     <>
-      <div className="bg-gradient-to-r from-emerald-700 to-green-600 py-10 place-items-center shadow-xl">
-        <div className="grid grid-cols-2 gap-x-8 gap-y-4 px-10 w-full">
+      <div className="bg-gradient-to-r from-emerald-700 to-green-600 py-10 place-items-center shadow-xl ">
+        <div className="grid grid-cols-2 gap-x-8 px-10 w-full">
           {lessonData.map((data, index) => {
             return (
               <LessonPreview
                 key={index}
+                index={index}
                 title={data.title}
                 description={data.description}
                 open={index === open}
