@@ -4,6 +4,7 @@ import HomeButton from "../images/HomeBtn.png";
 import SearchIcon from "../images/SearchIcon.png";
 import IndexCreation from "../images/Lesson1/IndexCreation.gif";
 import Showtime from "../images/Lesson1/showtime.gif";
+import Footer from "../components/Footer";
 
 import MoreAboutCard from "../components/MoreAboutCard";
 
@@ -23,7 +24,7 @@ const Lesson1 = () => {
          px-4 rounded-full border-8 border-green-500 mx-auto`}
             >
               {" "}
-              Lesson 1. Creating Basic Search Queries
+              Lesson 1. Creating Basic Search Index
             </div>
             <div className="mb-8">
               Search adds document data to a full-text search index to make data

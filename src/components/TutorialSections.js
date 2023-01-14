@@ -111,7 +111,7 @@ const lessonData = [
     iconImage: SearchParameters,
   },
   {
-    title: ".9 Indexes and Analyzers",
+    title: "9. Indexes and Analyzers",
     description:
       "With Atlas Search, we have made it even easier to work with data by allowing you to build powerful, flexible, and sophisticated search capabilities into your MongoDB applications!",
     linkedPage: "Lesson8",
