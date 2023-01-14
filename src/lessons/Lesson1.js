@@ -4,10 +4,15 @@ import HomeButton from "../images/HomeBtn.png";
 import SearchIcon from "../images/SearchIcon.png";
 import IndexCreation from "../images/Lesson1/IndexCreation.gif";
 import Showtime from "../images/Lesson1/showtime.gif";
-import MoreInfoCard from "../components/MoreInfoCard";
+
+import MoreAboutCard from "../components/MoreAboutCard";
 
 const Lesson1 = () => {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
+
+  const toggle = (showMoreInfo) => {
+    setShowMoreInfo(!showMoreInfo);
+  };
   return (
     <div className="h-screen bg-white px-20 py-10 relative font-barlow text-xl text-center">
       <div className="flex justify-evenly items-center mb-4">
@@ -97,23 +102,21 @@ const Lesson1 = () => {
           those changes in your schema and adds that new data to the Atlas
           Search index automatically.
         </div>
-        <div
+        {/* <div
           className="mx-auto p-4 text-white h-24 bg-fuchsia-800 rounded-md flex items-center px-4 drop-shadow-2xl mb-4 uppercase "
           onClick={() => setShowMoreInfo(!showMoreInfo)}
         >
           More About Indexes
-        </div>
+        </div> */}
       </div>
-      {showMoreInfo && (
-        <MoreInfoCard handleClose={setShowMoreInfo}>
+      <div className="flex justify-center w-full">
+        <MoreAboutCard open={showMoreInfo} toggle={toggle} subject="Indexes">
           <div>
             Indexes are special data structures that enable ultra-fast querying
-            and retrieval of documents based on certain identifiers. Bear in
-            mind that Atlas Search indexes are different from regular MongoDB
-            indexes.
-            <br></br>
-            Whereas the traditional MongoDB index is a b-tree index, Atlas
-            Search uses{" "}
+            and retrieval of documents based on certain identifiers. <br></br>
+            <br></br>Bear in mind that Atlas Search indexes are different from
+            regular MongoDB indexes. Whereas the traditional MongoDB index is a
+            b-tree index, Atlas Search uses{" "}
             <span className="italic font-bold text-green-700 uppercase">
               inverted indexes
             </span>{" "}
@@ -122,8 +125,9 @@ const Lesson1 = () => {
             Atlas Search indexes are{" "}
             <span className="italic font-bold">FAST!</span>
           </div>
-        </MoreInfoCard>
-      )}
+        </MoreAboutCard>
+      </div>
+
       <Link
         to="/"
         className=" border-8 border-green-500 rounded-full fixed bottom-10  right-20 z-10  w-60 bg-slateblue "
