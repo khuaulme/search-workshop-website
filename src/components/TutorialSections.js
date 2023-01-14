@@ -48,11 +48,11 @@ export default TutorialSections;
 
 const lessonData = [
   {
-    title: "1. Create Basic Index and 1st $search Text Query",
-    description: `Creating a search index on our movie data is the first step to get up and running.
-       We'll start with the default dynamically mapped index to build our basic search movie engine. 
-       Then a few lines of code using the $search stage in an aggregation pipeline
-      allows us to look for topics in the plot fields in our movie dataset.`,
+    title: "1. Creating Basic Search Queries",
+    description: `In our first lesson, a few simple clicks in the Atlas UI builds the default search index to dynamically map 
+      our movie data documents. After that, we will play around with a few different operators and options using the 
+      $search stage in an aggregation pipeline
+       to look for topics in the plot fields in our movie dataset.`,
     linkedPage: "Lesson1",
     iconImage: Fuzzy,
   },

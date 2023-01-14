@@ -24,7 +24,7 @@ const LessonPreview = ({ open, toggle, title, description, index, icon }) => {
             to={`/Lesson${index + 1}`}
             className="flex  space-x-8  items-center  bg-fuchsia-800 rounded-lg x-32 text-white py-2 px-4 absolute -bottom-2 -right-4"
           >
-            <div>Go to lesson {index + 1}.</div>
+            <div>Go to lesson {index + 1}</div>
             <HiOutlineChevronRight />
           </Link>
         </div>
