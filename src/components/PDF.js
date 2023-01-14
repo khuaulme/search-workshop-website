@@ -5,7 +5,7 @@ const PDF = () => {
     <div className="w-full">
       {" "}
       <iframe
-        className="w-full h-[50vh] mx-auto my-10 "
+        className="w-full h-[60vh] mx-auto"
         title="pdf"
         src={samplePDF}
         style={{ border: 0 }}
