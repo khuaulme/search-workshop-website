@@ -2,9 +2,9 @@ import React from "react";
 
 const MoreInfoCard = (props) => {
   return (
-    <div className="flex font-barlow items-center border border-indigo-700 mt-4 relative drop-shadow-2xl rounded">
-      <div className="w-1/6 text-4xl">🤔</div>
-      <div className="w-3/4 my-8 text-indigo-900 font-thin">
+    <div className="flex font-barlow items-center border bg-zinc-100 border-slate-700 mt-4 relative drop-shadow-2xl rounded">
+      <div className="w-1/6 text-6xl">🤔</div>
+      <div className="w-3/4 my-8 text-slate-800 font-thin">
         {props.children}
       </div>
       <div className="w-1/4 ">
