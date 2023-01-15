@@ -1,7 +1,4 @@
 import React, { useState } from "react";
-import { Transition, Popover } from "@headlessui/react";
-import { HiOutlineChevronRight } from "react-icons/hi";
-import { usePopper } from "react-popper";
 
 //components
 import CodeSandbox from "../components/CodeSandbox";

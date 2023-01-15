@@ -1,19 +1,20 @@
-import Title from "./Title";
-import SearchHero from "../images/Spot_Search.png";
-import Presenters from "../components/Presenters";
 import AppPreview from "./AppPreview";
-import SearchIcon from "../images/SearchIcon.png";
+
+import SearchSpot from "../images/SearchDocs.png";
 
 const Intro = ({ showSetUpPDF, setShowSetUpPDF }) => {
   return (
-    <div className="flex mx-auto mb-8 justify-around w-full">
-      <div className="mx-auto text-center items-center w-1/2 p-10 mt-12 text-xl font-barlow">
-        <div className="flex">
-          {" "}
-          <img src={SearchIcon} alt="search hero" className="mx-2 w-24" />
-          <div className="">
-            In this workshop, we will build out our very own Netflix Clone using
-            the{" "}
+    <div className="flex mx-auto mb-8 justify-around w-full items-center">
+      <div className="mx-auto text-center items-center w-1/2 pr-10 mt-12 text-lg font-barlow">
+        <div className="flex items-center">
+          <img
+            src={SearchSpot}
+            alt="search hero"
+            className="object-contain w-1/2"
+          />
+          <div>
+            In this workshop, we will learn about Atlas Search by building out
+            our very own Netflix clone using the{" "}
             <a
               className="underline decoration-indigo-500"
               target="_blank"
@@ -22,13 +23,27 @@ const Intro = ({ showSetUpPDF, setShowSetUpPDF }) => {
             >
               sample_mflix
             </a>{" "}
-            database in the Atlas sample dataset. We will quickly construct and
-            combine varied search parameters while implementing fuzzy-matching,
-            autocomplete, highlighting and many other search features. Along the
-            way, we'll also go deep on Lucene analyzers and indexes.
+            database in the Atlas sample dataset. In no time you'll implement:
+            <br></br>
+            <div className="ml-10 text-left pl-6 text mt-4 mb-2">
+              <ul>
+                <li>✅ fuzzy matching</li>
+                <li>✅ autocomplete</li>
+                <li>✅ highlighting</li>
+                <li>✅ relevance-based scoring</li>
+                <li>✅ facets and counts</li>
+                <li>✅ synonyms</li>
+              </ul>
+            </div>
+            as well as many other advanced features.
           </div>
         </div>
-
+        <div className="mt-4">
+          Along the way, we'll also combine these varied search parameters
+          across a wide variety of data types as we look for just the right
+          movie. Expect deeper dives on Lucene analyzers and indexes, too.
+        </div>
+        <div className="text-center text-4xl">🍿{"  "} 🎥</div>
         <div className="mx-4  mt-4 mb-10 w-full">
           Because this workshop is broken down into different lessons, you can
           start from the absolute beginning or jump directly to the more

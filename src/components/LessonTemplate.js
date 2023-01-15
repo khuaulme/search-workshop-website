@@ -14,7 +14,10 @@ const LessonTemplate = ({ title, children }) => {
           {" "}
           {title}
         </div>
-        <div className="bg-fuchsia-800 text-white px-6 flex justify-evenly items-center cursor-pointer shadow-2xl h-8 rounded-xl ">
+        <Link
+          to="/Lesson2"
+          className="bg-fuchsia-800 text-white px-6 flex justify-evenly items-center cursor-pointer shadow-2xl h-8 rounded-xl "
+        >
           <p className="text-lg font-barlow  font-semibold ">Next Lesson</p>
           <div className="text-3xl text-white">
             <svg
@@ -32,7 +35,7 @@ const LessonTemplate = ({ title, children }) => {
               />
             </svg>
           </div>
-        </div>
+        </Link>
       </div>
       <div>{children}</div>
 

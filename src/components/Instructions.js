@@ -1,4 +1,4 @@
-import SearchSpot from "../images/SearchDocs.png";
+import SearchIcon from "../images/SearchIcon.png";
 
 const Instructions = ({ showSetUpPDF, setShowSetUpPDF }) => {
   return (
@@ -48,7 +48,7 @@ const Instructions = ({ showSetUpPDF, setShowSetUpPDF }) => {
           </ul>
         </div>
       </div>
-      <img className="my-8" src={SearchSpot} alt="searchIcon" />
+      <img className="my-4 w-20 mx-auto" src={SearchIcon} alt="searchIcon" />
       {!showSetUpPDF ? (
         <button
           className="w-4/5 mx-auto py-4 px-6 bg-fuchsia-800 rounded-md flex items-center drop-shadow-2xl mb-4 justify justify-evenly uppercase"
@@ -75,7 +75,7 @@ const Instructions = ({ showSetUpPDF, setShowSetUpPDF }) => {
         </button>
       ) : (
         <button
-          className="w-4/5 mx-auto h-16 bg-indigo-900 rounded-md flex items-center px-4 drop-shadow-2xl mb-4 justify justify-evenly uppercase "
+          className="w-4/5 mx-auto h-16 bg-rhino rounded-md flex items-center px-4 drop-shadow-2xl mb-4 justify justify-evenly uppercase "
           onClick={() => setShowSetUpPDF(!showSetUpPDF)}
         >
           <div className="text-white text-center">Hide Set Up Instructions</div>
