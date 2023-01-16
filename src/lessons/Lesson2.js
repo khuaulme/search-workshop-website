@@ -3,18 +3,21 @@ import LessonTemplate from "../components/LessonTemplate";
 
 const Lesson2 = () => {
   return (
-    <div className="flex">
-      <LessonTemplate title="Lesson 2. Creating Basic Search Queries">
-        {" "}
-        <div className="mb-8 text-black">
-          Search adds document data to a full-text search index to make data
-          searchable in a highly performant, scalable manner. In this first
-          lesson, we will create a full-text search index on our sample_mflix
-          movie data. Then we will query on this index to filter, rank and sort
-          through those movies to quickly surface movies by topic.
+    <LessonTemplate
+      title="Lesson 2. Creating Basic Search Queries"
+      next="/Lesson3"
+    >
+      <div className="LESSON PAGE font-barlow text-base mx-20">
+        <div className="mb-8 text-black ml-auto w-2/3">
+          The next step in building our movie 📽️ search engine is to build our
+          queries. Atlas Search queries take the form of an aggregation pipeline
+          stage using the{" "}
+          <span className="text-xl font-bold text-green-600">$search</span>{" "}
+          pipeline stage. To build our pipeline, let’s use the Aggregation
+          Pipeline builder in the Atlas Collections tab.
         </div>
-      </LessonTemplate>
-    </div>
+      </div>
+    </LessonTemplate>
   );
 };
 

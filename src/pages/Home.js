@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import Header from "../components/Header";
 
 //components
 import CodeSandbox from "../components/CodeSandbox";
@@ -14,6 +15,7 @@ function Home() {
 
   return (
     <div className="h-screen bg-white">
+      <Header />
       <div className="flex px-20">
         <div className="flex flex-col pt-10 text-lg">
           <Intro

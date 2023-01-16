@@ -14,11 +14,12 @@ const Lesson1 = () => {
   const toggle = (showMoreInfo) => {
     setShowMoreInfo(!showMoreInfo);
   };
+
   return (
-    <LessonTemplate title="Lesson 1. Building a Basic Search Index">
-      <div className="LESSON PAGE">
-        <div className="TOP-INTRO-PART flex px-20 items-center text-base space-x-12 justify-evenly mb-8 w-2/3 ml-auto">
-          <div>
+    <LessonTemplate title="Lesson 1. Create a Search Index" next="/Lesson2">
+      <div className="LESSON PAGE font-barlow">
+        <div className="TOP-INTRO-PART flex px-20 mt-4 items-center text-base space-x-8 justify-evenly mb-4 w-3/5 mx-auto ">
+          <div className="text">
             Search adds document data to a full-text search index to make data
             searchable in a highly performant, scalable manner. In this first
             lesson, we will create a full-text search index on our sample_mflix
@@ -115,8 +116,8 @@ const Lesson1 = () => {
                 >
                   Create Index
                 </span>
-                . That's all you need to do to start taking advantage of Search
-                in your MongoDB Atlas data! 👊
+                . With that we are ready to move to lesson 2 and build our first
+                search queries!
               </div>
             </div>{" "}
             {/******************************* END STEP 3 ********************************/}
@@ -130,15 +131,11 @@ const Lesson1 = () => {
           </div>
         </div>{" "}
         {/******************************* END STEPS-GIF-BLOCK ********************************/}
-        <hr
-          style={{
-            color: "green",
-            backgroundColor: "green",
-            height: 2,
-            borderColor: "green",
-            margin: 8,
-          }}
-        />
+        <div className="bg-slateblue text-white mt-6 text-center py-2">
+          NOW WE HAVE AN ATLAS CLUSTER, SAMPLE DATA AND SEARCH INDEX!! <br></br>
+          And that’s all you need to do to start taking advantage of Apache
+          Lucene on top of your MongoDB Atlas data! 👊
+        </div>
         <div className="MAPPING DESCRIPTION mx-20">
           <div className="DYNAMIC text-base w-full my-8 flex">
             <div className="w-1/3">

@@ -1,21 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import LOGO from "../images/Logo_Spring-Green.png";
 
 import { GiBookshelf } from "react-icons/gi";
 import { TfiHome } from "react-icons/tfi";
 
-//
-
-const Header = () => {
+const HeaderLesson = ({ title }) => {
   return (
-    <div className="flex w-full justify-between items-center bg-slateblue text-white px-20">
-      <Link to="/" className="flex text-xl">
-        <img className=" my-auto py-2 h-14" src={LOGO} alt="logo" />
-      </Link>
-      <Link to="/Lesson1" className="flex text-2xl text-white font-noto">
+    <div className="relative flex w-full justify-between items-center bg-slateblue text-white px-20 py-2">
+      <div
+        className={`font-bold  uppercase  text-green-500 
+          text-2xl`}
+      >
+        {title}
+      </div>
+      <div className=" absolute absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-white font-noto">
         Atlas Search Workshop
-      </Link>
+      </div>
       <div className="space-x-6 text-white font-thin flex items-center text-4xl">
         <Link to="/" className="">
           <TfiHome />
@@ -28,4 +28,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderLesson;

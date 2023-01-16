@@ -1,22 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import HeaderLesson from "./HeaderLesson";
 
 import Footer from "./Footer";
 
-const LessonTemplate = ({ title, children }) => {
+const LessonTemplate = ({ title, next, children }) => {
   return (
-    <div className="h-screen flex flex-col justify-between bg-white pt-10 relative font-barlow text-xl text-center">
-      <div
-        className={`font-bold mb-6 uppercase  text-white bg-slateblue py-2 
-          rounded-full border-8 border-green-500 px-4 fixed top-20 left-20`}
-      >
-        {" "}
-        {title}
-      </div>
+    <div className="h-screen flex flex-col justify-between bg-white relative font-barlow text-xl text-center">
+      <HeaderLesson title={title} />
+
       <div>{children}</div>
 
       <Link
-        to="/Lesson2"
+        to={next}
         className="fixed bottom-8 p-4  right-20 z-10 bg-slateblue border-4 border-green-500 text-white px-6 flex justify-evenly items-center cursor-pointer shadow-2xl h-10 rounded-xl "
       >
         <p className="text-lg font-barlow  font-semibold ">Next Lesson</p>
