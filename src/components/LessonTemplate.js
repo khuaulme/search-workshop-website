@@ -6,10 +6,10 @@ import Footer from "./Footer";
 
 const LessonTemplate = ({ title, next, children }) => {
   return (
-    <div className="h-screen flex flex-col justify-between bg-white relative font-barlow text-xl text-center">
+    <div className="relative h-screen flex flex-col justify-between bg-white font-barlow text-xl text-center">
       <HeaderLesson title={title} />
 
-      <div>{children}</div>
+      <div className="absolute top-20 left-0">{children}</div>
 
       <Link
         to={next}
@@ -33,7 +33,6 @@ const LessonTemplate = ({ title, next, children }) => {
           </svg>
         </div>
       </Link>
-      <Footer />
     </div>
   );
 };

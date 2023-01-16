@@ -14,7 +14,7 @@ const AppPreview = () => {
       <img
         src={Mflix}
         alt="App"
-        className="mx-auto items-center shadow-xl rounded-xl w-full mt-4"
+        className="mx-auto items-center shadow-xl rounded-xl w-full mt-4  shadow-black"
       />
     </div>
   );

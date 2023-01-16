@@ -5,24 +5,25 @@ import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { FaRegCopy } from "react-icons/fa";
 import { HiOutlineDocumentCheck } from "react-icons/hi2";
 
-const CodeSnippetsCopy = ({ copyTextObject }) => {
+const CodeSnippetsCopy = ({ copyTextObject, type = "text" }) => {
+  let copyText = "";
+  if (type === "date") {
+    copyText = `{
+      index: "default",
+      near: {
+        path: "released",
+        origin: ISODate("1915-09-13T"),
+        pivot: 7776000000,
+      },
+    }`;
+  } else copyText = JSON.stringify(copyTextObject, null, 2);
+
   const [isCopied, setIsCopied] = useState(false);
 
-  let stageObject = {
-    index: "TESTINGIndex",
-    autocomplete: {
-      query: "cat",
-      path: "name_long",
-      fuzzy: { maxEdits: 1 },
-    },
-  };
-
-  const copyText = JSON.stringify(copyTextObject, null, 2);
-
   return (
-    <div className="text-base relative">
+    <div className="text-sm relative">
       <CopyToClipboard text={copyText} onCopy={() => setIsCopied(true)}>
-        <button className=" text-white absolute right-1 top-1 hover:text-green-500">
+        <button className=" text-white absolute right-2 top-2 hover:text-green-500">
           <span>{isCopied ? <HiOutlineDocumentCheck /> : <FaRegCopy />}</span>
         </button>
       </CopyToClipboard>

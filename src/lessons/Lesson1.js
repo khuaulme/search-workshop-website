@@ -7,6 +7,7 @@ import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import LessonTemplate from "../components/LessonTemplate";
 
 import MoreAboutCard from "../components/MoreAboutCard";
+import Footer from "../components/Footer";
 
 const Lesson1 = () => {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
@@ -81,9 +82,13 @@ const Lesson1 = () => {
                 Step 2. Name and Source Movie Dataset
               </div>
               <div className="instructions">
-                Give your index a name and confirm the correct collection
-                (movies) to index is selected. You can leave the default
-                settings here and click on the{" "}
+                Give your index a name (we'll keep the name{" "}
+                <span className="font-bold text-lg text-indigo-800">
+                  default
+                </span>
+                ) and confirm the correct collection (movies) to index is
+                selected. You can leave the default settings here and click on
+                the{" "}
                 <span
                   className="
               font-bold
@@ -122,11 +127,11 @@ const Lesson1 = () => {
             </div>{" "}
             {/******************************* END STEP 3 ********************************/}
           </div>{" "}
-          <div className="intro-image w-2/5 ">
+          <div className="intro-image w-2/5  ">
             <img
               src={IndexCreation}
               alt="creating an index"
-              className="rounded mx-auto w-3/4 border-4 border-slate-800 drop-shadow-xl"
+              className="rounded mx-auto w-3/4 border-4 border-slate-800 shadow-slateblue shadow"
             />
           </div>
         </div>{" "}
@@ -136,9 +141,9 @@ const Lesson1 = () => {
           And that’s all you need to do to start taking advantage of Apache
           Lucene on top of your MongoDB Atlas data! 👊
         </div>
-        <div className="MAPPING DESCRIPTION mx-20">
-          <div className="DYNAMIC text-base w-full my-8 flex">
-            <div className="w-1/3">
+        <div className="MAPPING DESCRIPTION mx-20 space-x-8">
+          <div className="DYNAMIC text-base text-left w-full my-8 flex">
+            <div className="w-1/3 px-8 shadow shadow-gray-500">
               When creating an Atlas Search index, you can specify the fields to
               index using either{" "}
               <span className="text-green-600 text-lg">static </span> or
@@ -149,7 +154,7 @@ const Lesson1 = () => {
               be tremendously helpful for performance. We will revisit this in a
               future lesson.
             </div>
-            <div className="mx-6 items-center w-1/4">
+            <div className="mx-6 items-center w-1/3 px-8 shadow shadow-gray-500">
               <div>
                 In this tutorial however we accepted the default settings which
                 <span className="font-bold text-green-700">
@@ -162,7 +167,7 @@ const Lesson1 = () => {
               <CodeSnippetsCopy copyTextObject={copyTextObject} />
             </div>
 
-            <div className="w-1/3">
+            <div className="w-1/3 px-8 shadow shadow-gray-500">
               {" "}
               Mapping is simply how we define how the fields on our documents
               are indexed and stored. If a field's value looks like a string,
@@ -198,6 +203,7 @@ const Lesson1 = () => {
         </div>
       </div>{" "}
       {/******************************* END LESSON PAGE ********************************/}
+      <Footer />
     </LessonTemplate>
   );
 };

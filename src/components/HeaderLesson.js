@@ -8,12 +8,12 @@ const HeaderLesson = ({ title }) => {
   return (
     <div className="relative flex w-full justify-between items-center bg-slateblue text-white px-20 py-2">
       <div
-        className={`font-bold  uppercase  text-green-500 
+        className={`font-bold  uppercase  text-green-500 bg-slateblue z-10
           text-2xl`}
       >
         {title}
       </div>
-      <div className=" absolute absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-white font-noto">
+      <div className=" absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-2xl text-white font-noto">
         Atlas Search Workshop
       </div>
       <div className="space-x-6 text-white font-thin flex items-center text-4xl">

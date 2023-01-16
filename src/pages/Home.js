@@ -36,7 +36,7 @@ function Home() {
                   <PDF />
                 </div>
               ) : (
-                <div className="transition duration-1000 ease-in-out translate-x-12 ">
+                <div className="transition duration-1000 ease-in-out translate-x-12 shadow-green-900 shadow-lg ">
                   <TutorialSections />
                 </div>
               )}
@@ -53,20 +53,3 @@ function Home() {
 }
 
 export default Home;
-
-/*
- <Popover>
-                <Popover.Button className="w-4/5 mx-auto py-4 px-6 text-white bg-fuchsia-800 rounded-md flex items-center drop-shadow-2xl mb-4 justify justify-evenly uppercase">
-                  Show set-up instructions PDF
-                  <HiOutlineChevronRight className="ui-open:rotate-180 ui-open:transform" />
-                </Popover.Button>
-                <Popover.Panel
-                  className="absolute z-10"
-                  ref={setPopperElement}
-                  style={styles.popper}
-                  {...attributes.popper}
-                >
-                  <PDF />
-                </Popover.Panel>
-              </Popover>
-              */
