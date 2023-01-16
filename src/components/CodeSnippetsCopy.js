@@ -1,41 +1,35 @@
 import React, { useState } from "react";
+import CopyToClipboard from "react-copy-to-clipboard";
+import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
+import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { FaRegCopy } from "react-icons/fa";
+import { HiOutlineDocumentCheck } from "react-icons/hi2";
 
-const CodeSnippetsCopy = ({ copyText }) => {
+const CodeSnippetsCopy = ({ copyTextObject }) => {
   const [isCopied, setIsCopied] = useState(false);
 
-  async function copyTextToClipboard(text) {
-    if ("clipboard" in navigator) {
-      return await navigator.clipboard.writeText(text);
-    } else {
-      return document.execCommand("copy", true, text);
-    }
-  }
-
-  // onClick handler function for the copy button
-  const handleCopyClick = () => {
-    // Asynchronously call copyTextToClipboard
-    copyTextToClipboard(copyText)
-      .then(() => {
-        // If successful, update the isCopied state value
-        setIsCopied(true);
-        setTimeout(() => {
-          setIsCopied(false);
-        }, 1500);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+  let stageObject = {
+    index: "TESTINGIndex",
+    autocomplete: {
+      query: "cat",
+      path: "name_long",
+      fuzzy: { maxEdits: 1 },
+    },
   };
 
+  const copyText = JSON.stringify(copyTextObject, null, 2);
+
   return (
-    <div>
-      <input type="text" value={copyText} readOnly />
-      <button
-        onClick={handleCopyClick}
-        className="px-2 py-2 text-white bg-green-600 rounded"
-      >
-        <span>{isCopied ? "Copied!" : "Copy"}</span>
-      </button>
+    <div className="text-base relative">
+      <CopyToClipboard text={copyText} onCopy={() => setIsCopied(true)}>
+        <button className=" text-white absolute right-1 top-1 hover:text-green-500">
+          <span>{isCopied ? <HiOutlineDocumentCheck /> : <FaRegCopy />}</span>
+        </button>
+      </CopyToClipboard>
+
+      <SyntaxHighlighter language="javascript" style={atomDark}>
+        {copyText}
+      </SyntaxHighlighter>
     </div>
   );
 };

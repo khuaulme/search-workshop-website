@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
-import HomeButton from "../images/HomeBtn.png";
+
 import SearchIcon from "../images/SearchIcon.png";
 import IndexCreation from "../images/Lesson1/IndexCreation.gif";
-import Showtime from "../images/Lesson1/showtime.gif";
+import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import LessonTemplate from "../components/LessonTemplate";
 
 import MoreAboutCard from "../components/MoreAboutCard";
@@ -17,26 +17,16 @@ const Lesson1 = () => {
   return (
     <LessonTemplate title="Lesson 1. Building a Basic Search Index">
       <div className="LESSON PAGE">
-        <div className="TOP-INTRO-PART flex px-20 items-center text-base justify-evenly ">
-          <div className="mb-8 w-1/2">
+        <div className="TOP-INTRO-PART flex px-20 items-center text-base space-x-12 justify-evenly mb-8 w-2/3 ml-auto">
+          <div>
             Search adds document data to a full-text search index to make data
             searchable in a highly performant, scalable manner. In this first
             lesson, we will create a full-text search index on our sample_mflix
             movie data. Then we will query on this index to filter, rank and
             sort through those movies to quickly surface movies by topic.
           </div>
-          <div className="flex items-center justify-center space-x-12 mb-4 w-1/2">
-            {" "}
-            <div className="  my-4 text-center">
-              So without further adieu...{" "}
-              <span className="font-bold text-2xl">It's Showtime!</span>
-            </div>
-            <img
-              src={Showtime}
-              alt="showtime"
-              className="rounded-lg mx-auto w-48"
-            />
-          </div>
+
+          <img src={SearchIcon} alt="icon" className="w-24 object-contain" />
         </div>
         {/******************************* END INTRO TOP BLOCK ********************************/}
         <div className="flex px-10 items-center justify-evenly">
@@ -92,7 +82,7 @@ const Lesson1 = () => {
               <div className="instructions">
                 Give your index a name and confirm the correct collection
                 (movies) to index is selected. You can leave the default
-                settings here and click on{" "}
+                settings here and click on the{" "}
                 <span
                   className="
               font-bold
@@ -139,35 +129,51 @@ const Lesson1 = () => {
             />
           </div>
         </div>{" "}
-        {/******************************* STEPS-BLOCK ********************************/}
-        <div className="MAPPING DESCRIPTION">
-          <div className="DYNAMIC text-base w-1/2 ml-auto">
-            <div className="">
-              By accepting the default settings when we created the Search
-              index, we
-              <span className="font-bold text-green-700">
-                {" "}
-                dynamically mapped
-              </span>{" "}
-              all the fields in the collection as indicated in the default index
-              configuration:{" "}
+        {/******************************* END STEPS-GIF-BLOCK ********************************/}
+        <hr
+          style={{
+            color: "green",
+            backgroundColor: "green",
+            height: 2,
+            borderColor: "green",
+            margin: 8,
+          }}
+        />
+        <div className="MAPPING DESCRIPTION mx-20">
+          <div className="DYNAMIC text-base w-full my-8 flex">
+            <div className="w-1/3">
+              When creating an Atlas Search index, you can specify the fields to
+              index using either{" "}
+              <span className="text-green-600 text-lg">static </span> or
+              <span className="text-green-600 text-lg"> dynamic </span> mapping.
+              To use static mapping, you have to explicitly choose the fields to
+              index and specify the data type of that field. Since indexes take
+              up space, choosing to index only those specific fields you use can
+              be tremendously helpful for performance. We will revisit this in a
+              future lesson.
             </div>
-            <div className="flex">
-              <img
-                src={SearchIcon}
-                alt="icon"
-                className="w-24 object-contain"
-              />
+            <div className="mx-6 items-center w-1/4">
               <div>
-                {" "}
-                Mapping is simply how we define how the fields on our documents
-                are indexed and stored. If a field's value looks like a string,
-                we'll treat it as a full-text field, similarly for numbers and
-                dates. This suits MongoDB's flexible data model perfectly. As
-                you add new data to your collection and your schema evolves,
-                dynamic mapping accommodates those changes in your schema and
-                adds that new data to the Atlas Search index automatically.
+                In this tutorial however we accepted the default settings which
+                <span className="font-bold text-green-700">
+                  {" "}
+                  dynamically mapped
+                </span>{" "}
+                all the fields in the collection as indicated in the default
+                index configuration:{" "}
               </div>
+              <CodeSnippetsCopy copyTextObject={copyTextObject} />
+            </div>
+
+            <div className="w-1/3">
+              {" "}
+              Mapping is simply how we define how the fields on our documents
+              are indexed and stored. If a field's value looks like a string,
+              we'll treat it as a full-text field, similarly for numbers and
+              dates. This suits MongoDB's flexible data model perfectly. As you
+              add new data to your collection and your schema evolves, dynamic
+              mapping accommodates those changes in your schema and adds that
+              new data to the Atlas Search index automatically.
             </div>
           </div>
         </div>
@@ -197,6 +203,12 @@ const Lesson1 = () => {
       {/******************************* END LESSON PAGE ********************************/}
     </LessonTemplate>
   );
+};
+
+let copyTextObject = {
+  mappings: {
+    dynamic: true,
+  },
 };
 
 export default Lesson1;

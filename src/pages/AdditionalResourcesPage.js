@@ -2,6 +2,7 @@ import React from "react";
 import LOGO from "../images/Logomark.svg";
 import GitHub from "../images/GitHub-Mark.png";
 import Presenters from "../components/Presenters";
+import Footer from "../components/Footer";
 
 const AdditionalResourcesPage = () => {
   return (
@@ -141,6 +142,7 @@ const AdditionalResourcesPage = () => {
       <div className="absolute bottom-0 right-0 bg-white border border-green-600 rounded-tl-full">
         <Presenters />
       </div>
+      <Footer />
     </>
   );
 };
