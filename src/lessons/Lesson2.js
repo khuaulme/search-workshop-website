@@ -13,7 +13,7 @@ import Export from "../images/Lesson2/ExportPipeline.gif";
 import CodeReveal from "../components/CodeReveal";
 
 const Lesson2 = () => {
-  const [showFinalAggregation, setShowFinalAggregation] = useState(true);
+  const [showFinalAggregation, setShowFinalAggregation] = useState(false);
 
   const toggle = (showFinalAggregation) => {
     setShowFinalAggregation(!showFinalAggregation);
@@ -241,6 +241,7 @@ const Lesson2 = () => {
                 />
                 <CodeReveal
                   title="Reveal Full Aggregation"
+                  negTitle="Hide Full Aggregation"
                   open={showFinalAggregation}
                   toggle={toggle}
                   copyTextObject={Final}
