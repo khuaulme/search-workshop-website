@@ -89,7 +89,7 @@ const Lesson2 = () => {
                         className="text-green-600"
                         href="https://www.practical-mongodb-aggregations.com/"
                       >
-                        Practical MongoDB Aggregatons{" "}
+                        Practical MongoDB Aggregations{" "}
                       </a>
                     </div>{" "}
                   </TipCard>
