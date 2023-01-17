@@ -73,7 +73,7 @@ const lessonData = [
     iconImage: Webhooks,
   },
   {
-    title: "4. Call API from Movie Application Front-End",
+    title: "4. Call API from Movie Application the Front End",
     description: ` Now that we have this endpoint, it takes a single call from the front-end application using the Fetch API 
     to retrieve this data. In this lesson, we will use our hosted Code Sandbox. Typing in a search bar will bring us movies about 
     whatever topic comes to mind. `,

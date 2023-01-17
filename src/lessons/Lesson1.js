@@ -7,7 +7,6 @@ import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import LessonTemplate from "../components/LessonTemplate";
 
 import MoreAboutCard from "../components/MoreAboutCard";
-import Footer from "../components/Footer";
 
 const Lesson1 = () => {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
@@ -203,7 +202,6 @@ const Lesson1 = () => {
         </div>
       </div>{" "}
       {/******************************* END LESSON PAGE ********************************/}
-      <Footer />
     </LessonTemplate>
   );
 };

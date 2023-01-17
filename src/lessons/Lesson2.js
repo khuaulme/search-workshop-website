@@ -1,16 +1,19 @@
 import React, { useState } from "react";
+
+//components
 import LessonTemplate from "../components/LessonTemplate";
-import Footer from "../components/Footer";
 import TipCard from "../components/TipCard";
 import Step from "../components/Step";
 import Compass from "../images/Compass.png";
-import BasicFuzzy from "../images/Lesson2/BasicFuzzy.gif";
 import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import KeyWord from "../components/KeyWord";
+import CodeReveal from "../components/CodeReveal";
+
+//images
+import BasicFuzzy from "../images/Lesson2/BasicFuzzy.gif";
 import AggSlide from "../images/Lesson2/AggSlide.png";
 import ProjectScore from "../images/Lesson2/ProjectScore.gif";
 import Export from "../images/Lesson2/ExportPipeline.gif";
-import CodeReveal from "../components/CodeReveal";
 
 const Lesson2 = () => {
   const [showFinalAggregation, setShowFinalAggregation] = useState(false);
@@ -23,7 +26,7 @@ const Lesson2 = () => {
       title="Lesson 2. Creating Basic Search Queries"
       next="/Lesson3"
     >
-      <div className="flex flex-col LESSON PAGE font-barlow text-base justify-between px-20">
+      <div className="flex flex-col LESSON PAGE font-barlow text-base justify-between px-20 mt-10">
         <div className="flex">
           <div className="w-1/4 mx-auto">
             <img
@@ -216,9 +219,12 @@ const Lesson2 = () => {
                     $limit is important in search because speed is important in
                     search. For this reason we will add the $limit stage.
                     Remember that the results are returned with the scores in
-                    descending order. $limit: 10 will therefore bring the 10
-                    most relevant movie documents to your search query. Without
-                    $limit:10, we would pull all 23k movies. We don't need that.
+                    descending order. <KeyWord>{`{ $limit: 12 }`}</KeyWord> will
+                    therefore bring the 12 most relevant movie documents to your
+                    search query. Without <KeyWord>$limit</KeyWord>, we would
+                    pull all 23k movies. We don't need that. In the pipeline
+                    builder for the next stage, select <KeyWord>$limit</KeyWord>{" "}
+                    and enter the number 12.
                   </div>
                   <div className="w-1/2 mx-auto">
                     <CodeSnippetsCopy
@@ -227,30 +233,42 @@ const Lesson2 = () => {
                     />
                   </div>
                   <div className="px-8">
-                    Finally, if you see results in the right preview panel, your
+                    If you see results in the right preview panel, your
                     aggregation pipeline is working properly!{" "}
                     <span className="text-2xl">💪</span>. Let's grab that
-                    aggregation code with the Export Pipeline to Language
+                    aggregation code with the{" "}
+                    <span className="text-green-600 text-xl">
+                      Export Pipeline to Language
+                    </span>
                     feature by clicking the button in the top toolbar.
                   </div>
                 </div>
                 <img
                   src={Export}
                   alt="export"
-                  className="p-4 shadow-md shadow-gray-700 object-contain mb-auto mt-4"
+                  className="p-4 shadow-md shadow-gray-700 object-contain mb-auto mt-6"
                 />
-                <CodeReveal
-                  title="Reveal Full Aggregation"
-                  negTitle="Hide Full Aggregation"
-                  open={showFinalAggregation}
-                  toggle={toggle}
-                  copyTextObject={Final}
-                ></CodeReveal>
+                <div className="w-1/5">
+                  <CodeReveal
+                    title="Reveal Full Aggregation"
+                    negTitle="Hide Full Aggregation"
+                    open={showFinalAggregation}
+                    toggle={toggle}
+                    copyTextObject={Final}
+                  ></CodeReveal>
+                </div>
+                <div className="w-1/4 mt-4 px-8">
+                  That's it! This simple 3 stage aggregation pipeline will power
+                  our MongoDB movie search engine. Congratulations on completing
+                  Lesson 2!
+                  <span className="text-2xl">👊🎉🙌 </span>. <br></br>
+                  <br></br>In lesson 3, we'll put our new{" "}
+                  <KeyWord>$search</KeyWord>aggregation to work!
+                </div>
               </div>
             </Step>
           </div>
         </div>
-        {/* <Footer /> */}
       </div>
     </LessonTemplate>
   );
@@ -340,7 +358,7 @@ const Final = [
     },
   },
   {
-    $limit: 10,
+    $limit: 12,
   },
 ];
 
