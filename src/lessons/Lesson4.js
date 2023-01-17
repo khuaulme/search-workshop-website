@@ -1,6 +1,6 @@
 import React from "react";
 import LessonTemplate from "../components/LessonTemplate";
-import Footer from "../components/Footer";
+
 import TipCard from "../components/TipCard";
 import Step from "../components/Step";
 import Compass from "../images/Compass.png";

@@ -178,22 +178,34 @@ const Lesson2 = () => {
                 </div>
               </div>
             </div>
-            <Step title="Stage 2. $project" color="bg-fuchsia-800">
-              <div className="flex space-x-4 text-left">
+            <Step
+              title="Stage 2. $project"
+              color="bg-fuchsia-800"
+              className="relative"
+            >
+              <div className="flex space-x-4 text-left relative mt-4">
                 <div className="w-1/3 px-8">
                   For the next stage in the aggregation pipeline, we'll use{" "}
                   <KeyWord>$project</KeyWord> to get back only the fields we
                   want to use in our movie application. For now, paste the
                   following code snippet into the project stage. <br></br>
                   <br></br>Notice the inclusion of the <KeyWord>$meta</KeyWord>{" "}
-                  operator to surface each document's searchScore in the result
-                  set. Atlas Score will compute a score for every movie document
-                  in the collection based on{" "}
+                  operator to surface each document's{" "}
+                  <span className="text-green-600 text-xl">searchScore </span>{" "}
+                  in the result set. Atlas Score will compute a score for every
+                  movie document in the collection based on{" "}
                   <span className="text-green-600 uppercase">relevance</span>.
                   This score signifies how well this movie's fullplot field
                   matches the query terms "Harry Potter."
                 </div>
+
                 <div>
+                  <TipCard side="center">
+                    {" "}
+                    Scoring is important! It's the whole reason why your results
+                    are returned in a particular order.
+                  </TipCard>
+
                   <CodeSnippetsCopy copyTextObject={projectText} />
                 </div>
                 <div className="w-1/2 ">
@@ -226,7 +238,7 @@ const Lesson2 = () => {
                     builder for the next stage, select <KeyWord>$limit</KeyWord>{" "}
                     and enter the number 12.
                   </div>
-                  <div className="w-1/2 mx-auto">
+                  <div className="w-1/3 mx-auto">
                     <CodeSnippetsCopy
                       copyTextObject={projectText}
                       type="limit"
