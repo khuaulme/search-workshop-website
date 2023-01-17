@@ -16,6 +16,8 @@ const CodeSnippetsCopy = ({ copyTextObject, type = "text" }) => {
         pivot: 7776000000,
       },
     }`;
+  } else if (type === "limit") {
+    copyText = `{ 3 }`;
   } else copyText = JSON.stringify(copyTextObject, null, 2);
 
   const [isCopied, setIsCopied] = useState(false);

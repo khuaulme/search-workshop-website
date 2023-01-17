@@ -3,10 +3,12 @@ import LOGO from "../images/Logomark.svg";
 import GitHub from "../images/GitHub-Mark.png";
 import Presenters from "../components/Presenters";
 import Footer from "../components/Footer";
+import Header from "../components/Header";
 
 const AdditionalResourcesPage = () => {
   return (
     <>
+      <Header />
       <div className="flex text-2xl px-20 ">
         <img className="mr-2 my-auto h-16" src={LOGO} alt="logo" />
         <div className="my-auto">Additional Learning Resources</div>
@@ -125,6 +127,16 @@ const AdditionalResourcesPage = () => {
           title="YouTube video player"
           frameborder="0"
           allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          className="border-2 border-springgreen"
+        ></iframe>
+        <iframe
+          width="560"
+          height="315"
+          src="https://www.youtube.com/embed/1uTmDNTdgaw"
+          title="YouTube video player"
+          frameborder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
           allowfullscreen
           className="border-2 border-springgreen"
         ></iframe>

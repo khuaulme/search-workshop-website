@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import LessonTemplate from "../components/LessonTemplate";
 import Footer from "../components/Footer";
 import TipCard from "../components/TipCard";
@@ -8,8 +8,16 @@ import BasicFuzzy from "../images/Lesson2/BasicFuzzy.gif";
 import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import KeyWord from "../components/KeyWord";
 import AggSlide from "../images/Lesson2/AggSlide.png";
+import ProjectScore from "../images/Lesson2/ProjectScore.gif";
+import Export from "../images/Lesson2/ExportPipeline.gif";
+import CodeReveal from "../components/CodeReveal";
 
 const Lesson2 = () => {
+  const [showFinalAggregation, setShowFinalAggregation] = useState(true);
+
+  const toggle = (showFinalAggregation) => {
+    setShowFinalAggregation(!showFinalAggregation);
+  };
   return (
     <LessonTemplate
       title="Lesson 2. Creating Basic Search Queries"
@@ -168,21 +176,75 @@ const Lesson2 = () => {
               </div>
             </div>
             <Step title="Stage 2. $project" color="bg-fuchsia-800">
-              <div>
-                Add stage $project to your pipeline to get back only the fields
-                we will use in our movie search application. We also use the
-                $meta operator to surface each document's searchScore in the
-                result set.
+              <div className="flex space-x-4 text-left">
+                <div className="w-1/3 px-8">
+                  For the next stage in the aggregation pipeline, we'll use{" "}
+                  <KeyWord>$project</KeyWord> to get back only the fields we
+                  want to use in our movie application. For now, paste the
+                  following code snippet into the project stage. <br></br>
+                  <br></br>Notice the inclusion of the <KeyWord>$meta</KeyWord>{" "}
+                  operator to surface each document's searchScore in the result
+                  set. Atlas Score will compute a score for every movie document
+                  in the collection based on{" "}
+                  <span className="text-green-600 uppercase">relevance</span>.
+                  This score signifies how well this movie's fullplot field
+                  matches the query terms "Harry Potter."
+                </div>
+                <div>
+                  <CodeSnippetsCopy copyTextObject={projectText} />
+                </div>
+                <div className="w-1/2 ">
+                  <div className="px-8">
+                    {" "}
+                    Note that by scrolling in the right preview panel, the movie
+                    documents are returned with the score in descending order.
+                    This means we get the best matched movies first.
+                  </div>
+
+                  <img
+                    src={ProjectScore}
+                    alt="project stage"
+                    className="shadow shadow-gray-600"
+                  />
+                </div>
               </div>
             </Step>
             <Step title="Stage 3. $limit" color="bg-fuchsia-800">
-              <div>
-                $limit is important in search because speed is important in
-                search. For this reason we will add the $limit stage. Remember
-                that the results are returned with the scores in descending
-                order. $limit: 10 will therefore bring the 10 most relevant
-                movie documents to your search query. Without $limit:10, we
-                would pull all 23k movies. We don't need that.
+              <div className="flex space-x-6 text-left">
+                <div className="w-1/3 mt-4">
+                  <div className="px-8">
+                    $limit is important in search because speed is important in
+                    search. For this reason we will add the $limit stage.
+                    Remember that the results are returned with the scores in
+                    descending order. $limit: 10 will therefore bring the 10
+                    most relevant movie documents to your search query. Without
+                    $limit:10, we would pull all 23k movies. We don't need that.
+                  </div>
+                  <div className="w-1/2 mx-auto">
+                    <CodeSnippetsCopy
+                      copyTextObject={projectText}
+                      type="limit"
+                    />
+                  </div>
+                  <div className="px-8">
+                    Finally, if you see results in the right preview panel, your
+                    aggregation pipeline is working properly!{" "}
+                    <span className="text-2xl">💪</span>. Let's grab that
+                    aggregation code with the Export Pipeline to Language
+                    feature by clicking the button in the top toolbar.
+                  </div>
+                </div>
+                <img
+                  src={Export}
+                  alt="export"
+                  className="p-4 shadow-md shadow-gray-700 object-contain mb-auto mt-4"
+                />
+                <CodeReveal
+                  title="Reveal Full Aggregation"
+                  open={showFinalAggregation}
+                  toggle={toggle}
+                  copyTextObject={Final}
+                ></CodeReveal>
               </div>
             </Step>
           </div>
@@ -205,7 +267,7 @@ const fuzzyText = {
   text: {
     query: "Harry Potter",
     path: "fullplot",
-    fuzzy: { maxEdits: 2 },
+    fuzzy: { maxEdits: 1 },
   },
 };
 
@@ -243,5 +305,42 @@ const dateText = {
     pivot: 7776000000,
   },
 };
+
+const projectText = {
+  title: 1,
+  year: 1,
+  fullplot: 1,
+  score: {
+    $meta: "searchScore",
+  },
+};
+
+const Final = [
+  {
+    $search: {
+      index: "default",
+      text: {
+        query: "Harry Potter",
+        path: "fullplot",
+        fuzzy: {
+          maxEdits: 1,
+        },
+      },
+    },
+  },
+  {
+    $project: {
+      title: 1,
+      year: 1,
+      fullplot: 1,
+      score: {
+        $meta: "searchScore",
+      },
+    },
+  },
+  {
+    $limit: 10,
+  },
+];
 
 export default Lesson2;

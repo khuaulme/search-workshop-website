@@ -5,7 +5,7 @@ import SearchSpot from "../images/SearchDocs.png";
 const Intro = ({ showSetUpPDF, setShowSetUpPDF }) => {
   return (
     <div className="flex mx-auto mb-8 justify-around w-full items-center">
-      <div className="mx-auto text-center items-center w-1/2 pr-10 mt-12 text-lg font-barlow">
+      <div className="mx-auto text-center items-center w-1/2 pr-10 mt-12 text-base font-barlow">
         <div className="flex items-center">
           <img
             src={SearchSpot}

@@ -156,7 +156,7 @@ const Lesson1 = () => {
             </div>
             <div className="mx-6 items-center w-1/3 px-8 shadow shadow-gray-500">
               <div>
-                In this tutorial however we accepted the default settings which
+                In this tutorial however, we accepted the default settings which
                 <span className="font-bold text-green-700">
                   {" "}
                   dynamically mapped
