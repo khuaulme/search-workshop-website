@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import CopyToClipboard from "react-copy-to-clipboard";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
-import { atomDark } from "react-syntax-highlighter/dist/esm/styles/prism";
+import { nightOwl } from "react-syntax-highlighter/dist/esm/styles/prism";
 import { FaRegCopy } from "react-icons/fa";
 import { HiOutlineDocumentCheck } from "react-icons/hi2";
 
@@ -17,8 +17,8 @@ const CodeSnippetsCopy = ({ copyTextObject, type = "text" }) => {
       },
     }`;
   } else if (type === "function") {
-    console.log(type);
-    console.log(copyTextObject);
+    copyText = copyTextObject;
+  } else if (type === "line") {
     copyText = copyTextObject;
   } else if (type === "limit") {
     copyText = `{ 12 }`;
@@ -34,7 +34,11 @@ const CodeSnippetsCopy = ({ copyTextObject, type = "text" }) => {
         </button>
       </CopyToClipboard>
 
-      <SyntaxHighlighter language="javascript" style={atomDark}>
+      <SyntaxHighlighter
+        language="javascript"
+        style={nightOwl}
+        showLineNumbers={"function" === type ? true : false}
+      >
         {copyText}
       </SyntaxHighlighter>
     </div>

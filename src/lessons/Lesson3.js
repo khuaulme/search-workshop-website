@@ -3,16 +3,14 @@ import LessonTemplate from "../components/LessonTemplate";
 
 import TipCard from "../components/TipCard";
 import Step from "../components/Step";
-import DataPlatform from "../images/lessonImages/DataPlatform.svg";
-import Fun from "../images/lessonImages/Fun.svg";
 
 import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import KeyWord from "../components/KeyWord";
 import Reveal from "../components/Reveal";
-import Video from "../images/lessonImages/EndpointVideo.mp4";
 
 //images
 import Developer from "../images/lessonImages/Developer.png";
+import Video from "../images/lessonImages/EndpointVideo.mp4";
 
 const Lesson3 = () => {
   const [showVideo, setShowVideo] = useState(false);
@@ -22,7 +20,10 @@ const Lesson3 = () => {
   return (
     <LessonTemplate title="Lesson 3. Create a RESTful API" next="/Lesson4">
       <div className="LESSON PAGE flex flex-col px-20 mt-auto text-base text-left">
-        <div className="TOP-ROW flex relative">
+        <div className="TOP-ROW flex relative mt-10">
+          <div className="w-1/4">
+            <img className="object-contain" src={Developer} alt="developer" />
+          </div>
           <div className="w-1/3">
             <div>
               Now that we have the heart of our movie search engine in the form
@@ -42,9 +43,7 @@ const Lesson3 = () => {
               application front end.
             </div>
           </div>
-          <div className="w-1/4">
-            <img className="object-contain" src={Developer} alt="developer" />
-          </div>
+
           <div className="w-2/5 mx-auto">
             <Reveal
               title="Show Video Walkthrough"
@@ -59,7 +58,7 @@ const Lesson3 = () => {
               </video>
             </Reveal>
           </div>
-          <div className="absolute -top-10 -right-5 w-1/5 text-center">
+          <div className="absolute -top-6 -right-5 w-1/5 text-center">
             <TipCard side="right">
               Triggers, GraphQL, Data API, authentication! These are but a few
               of amazing tools in Atlas' App Services arsenal to help you build
@@ -93,9 +92,9 @@ const Lesson3 = () => {
                 Build your own App
               </KeyWord>{" "}
               template, click <KeyWord type="button">Next</KeyWord>. Name your
-              application <KeyWord type="word">MovieSearchApp</KeyWord> or
-              NetflixClone or whatever you wish. After ensuring it is linked to
-              the correct cluster, click the{" "}
+              application <KeyWord type="word">NetflixClone</KeyWord> or
+              whatever you wish. After ensuring it is linked to the correct
+              cluster, click the{" "}
               <KeyWord type="button">Create App Service</KeyWord> button.
             </Step>
           </div>
@@ -123,9 +122,101 @@ const Lesson3 = () => {
               This endpoint will be calling a{" "}
               <KeyWord type="word">New Function</KeyWord>. Name the function
               <KeyWord type="word">getMovies </KeyWord>getMovies and replace the
-              code in the Function Editor with following code:
-              <CodeSnippetsCopy type="function" copyTextObject={functionCode} />
+              code in the Function Editor with code below:
             </Step>
+          </div>{" "}
+        </div>{" "}
+        {/****************END ROW 2 ****************************/}
+        <div className="ROW3 relative flex space-x-8 mt-6">
+          <div className="w-1/2 text-center bg-slateblue">
+            <div className="p-4">
+              <div className="bg-sun  text-black uppercase text-xl py-2 rounded">
+                Code for GetMovies() Function"
+              </div>
+              <CodeSnippetsCopy type="function" copyTextObject={functionCode} />{" "}
+            </div>
+          </div>
+          {/******END CODEBLOCK ***********/}
+          <div className="w-1/2 text-left">
+            Let's walk through that the <code>getMovies</code> function.{" "}
+            <br></br>
+            <br></br>
+            <ul className="space-y-2">
+              <li>
+                <KeyWord>Line 4.</KeyWord> We use the global{" "}
+                <code>context</code> variable to get a handle to the movies
+                collection in the <KeyWord type="word">sample_mflix</KeyWord>{" "}
+                database.
+              </li>
+              <li>
+                <KeyWord>Line 7.</KeyWord> We get an argument from my function
+                payload query and set it to the <code>searchTerm</code>{" "}
+                variable.{" "}
+                <span className="italic text-color-indigo-700">
+                  <span className="text-2xl">👈</span> This will be passed in
+                  from our application.{" "}
+                </span>
+              </li>
+              <li>
+                <KeyWord>Line 13.</KeyWord> Currently our searchAggregation is
+                an empty array.
+              </li>
+              <li>
+                <KeyWord>Line 16.</KeyWord> Finally we execute the aggregation
+                against the movies collection and set the body of our response
+                to that result.
+              </li>
+            </ul>
+            Save your Draft. Then{" "}
+            <KeyWord type="button">Review Draft & Deploy</KeyWord>.<br></br>
+            <br></br>
+            NOTE!! <span className="text-2xl">🛎️</span> We need to adjust the
+            settings of your new function. App Services supports multiple
+            authentication methods. Set the default Authentication method to{" "}
+            <KeyWord>System</KeyWord> to keep things simple and be sure to{" "}
+            <KeyWord type="button">Save</KeyWord>.
+          </div>
+          <div className=" w-1/5 text-center absolute -bottom-0 -right-16">
+            <TipCard side="right">
+              <div>
+                <div className="font-bold">Quick Dev Tip!!</div>To save time in
+                the workshop, in Deployment settings on the left menu, in the
+                Configuration tab, click Disable Drafts.
+              </div>
+            </TipCard>
+          </div>
+        </div>
+        {/***************END ROW 3********************* */}
+        <div className="3RD ROW flex space-x-8 my-6">
+          <div className="w-1/3 shadow shadow-slate-400 p-4">
+            <Step title="Step 4. USE search aggregation query" className="">
+              Still in your Function Editor, and set your searchAggregation
+              variable to what you built in Compass in Lesson 2. Be sure to
+              replace your query of{" "}
+              <KeyWord type="word">Harrry Pottter</KeyWord> to the variable{" "}
+              <KeyWord>searchTerm</KeyWord> or else your function will be quite
+              limited. 🤣
+            </Step>
+          </div>
+          <div className="w-1/3 shadow shadow-slate-400 p-4">
+            <Step title="Step 5. Test Newly created endpoint" className="">
+              Now the big "Tada!" moment! We can now test our new App Services
+              endpoint in the browser. Get the HTTP endpoint from the UI and
+              paste it in your web browser. Then append{" "}
+              <code className="border px-2 py-1">?searchTerm=Harry Potter</code>{" "}
+              to the end of the url.<br></br>
+              <br></br>Ours looks like this:
+              <CodeSnippetsCopy type="line" copyTextObject={EndpointSample} />
+              Now paste into your browser to see the results. If you are coding
+              along and receive an output, CONGRATULATIONS! You have
+              successfully created a movie search API that you can call from
+              anywhere! <span className="text-2xl">🎉🎊</span>
+            </Step>
+          </div>
+          <div className="w-1/4 mt-12 text-center text-4xl -skew-x-12">
+            Have a toast while you pop the popcorn, and get ready for calling
+            this API from our hosted front end.
+            <span className="text-2xl">🥂🍿</span>
           </div>
         </div>
       </div>
@@ -134,6 +225,8 @@ const Lesson3 = () => {
 };
 
 export default Lesson3;
+
+const EndpointSample = `https://data.mongodb-api.com/app/netflixclone-hazaz/endpoint/movies?arg=Harry%20Potter`;
 
 const functionCode = `exports = async function({ query, headers, body}, response) {
   
