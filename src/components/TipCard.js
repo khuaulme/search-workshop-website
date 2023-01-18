@@ -13,7 +13,7 @@ const TipCard = ({ children, side, color = "lime" }) => {
   }
   return (
     <div
-      className={`TIP-CARD bg-${color} text-center relative text-slate-800 p-4 ${skew}  rounded m-4`}
+      className={`TIP-CARD bg-lime text-center relative text-slate-800 p-4 ${skew}  rounded m-4`}
     >
       <GoPin className={`absolute  text-red-700 text-4xl -top-4  ${side}`} />
       <div className="text-sm">{children}</div>

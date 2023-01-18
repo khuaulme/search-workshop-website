@@ -20,11 +20,9 @@ module.exports = {
         darkblue: "#0D427C",
         chromeyellow: "#FF9F10",
         violet: "#5400F8",
-
         clearblue: "#006EFF",
         azure: "#A6FFEC",
         lime: "#bfff00",
-        mist: "#E3FCF7",
       },
       fontFamily: {
         lexend: ["Lexend Deca", "sans-serif"],
