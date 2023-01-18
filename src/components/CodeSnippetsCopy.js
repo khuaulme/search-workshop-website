@@ -16,6 +16,10 @@ const CodeSnippetsCopy = ({ copyTextObject, type = "text" }) => {
         pivot: 7776000000,
       },
     }`;
+  } else if (type === "function") {
+    console.log(type);
+    console.log(copyTextObject);
+    copyText = copyTextObject;
   } else if (type === "limit") {
     copyText = `{ 12 }`;
   } else copyText = JSON.stringify(copyTextObject, null, 2);
