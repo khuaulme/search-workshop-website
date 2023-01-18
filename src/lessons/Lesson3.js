@@ -10,7 +10,6 @@ import Reveal from "../components/Reveal";
 
 //images
 import Developer from "../images/lessonImages/Developer.png";
-import Video from "../images/lessonImages/EndpointVideo.mp4";
 
 const Lesson3 = () => {
   const [showVideo, setShowVideo] = useState(false);
@@ -54,7 +53,10 @@ const Lesson3 = () => {
             >
               {" "}
               <video width="640" height="480" controls>
-                <source src={Video} type="video/mp4" />
+                <source
+                  src="https://kwh-demos.s3.amazonaws.com/EndpointVideo.mp4"
+                  type="video/mp4"
+                />
               </video>
             </Reveal>
           </div>
