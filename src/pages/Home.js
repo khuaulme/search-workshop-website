@@ -46,8 +46,9 @@ function Home() {
           <hr />
         </div>
       </div>
-
-      <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/AtlasSearchWorkshop2022/tree/main/?fontsize=14&hidenavigation=1&theme=dark" />
+      <div className="px-20">
+        <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/AtlasSearchWorkshop2022/tree/main/?fontsize=14&hidenavigation=1&theme=dark" />
+      </div>
     </div>
   );
 }

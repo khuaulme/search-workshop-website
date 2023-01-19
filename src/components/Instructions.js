@@ -32,7 +32,7 @@ const Instructions = ({ showSetUpPDF, setShowSetUpPDF }) => {
               rel="noopener noreferrer"
               href="https://www.mongodb.com/docs/atlas/sample-data/?_ga=2.65004649.750685431.1673273281-1122163452.1629401460#available-sample-datasets"
             >
-              Downloaded Movie Sample Dataset{" "}
+              Load Movie Sample Dataset{" "}
             </a>
             <br></br>
             4.{" "}

@@ -14,6 +14,7 @@ import BasicFuzzy from "../images/Lesson2/BasicFuzzy.gif";
 import AggSlide from "../images/Lesson2/AggSlide.png";
 import ProjectScore from "../images/Lesson2/ProjectScore.gif";
 import Export from "../images/Lesson2/ExportPipeline.gif";
+import AddSearchHighlight from "../images/lessonImages/AddSearchHighlight.gif";
 
 const Lesson2 = () => {
   const [showFinalAggregation, setShowFinalAggregation] = useState(false);
@@ -178,52 +179,152 @@ const Lesson2 = () => {
                 </div>
               </div>
             </div>
-            <Step
-              title="Stage 2. $project"
-              color="bg-fuchsia-800"
-              className="relative"
-            >
-              <div className="flex space-x-4 text-left relative mt-4">
-                <div className="w-1/3 px-8">
-                  For the next stage in the aggregation pipeline, we'll use{" "}
-                  <KeyWord>$project</KeyWord> to get back only the fields we
-                  want to use in our movie application. For now, paste the
-                  following code snippet into the project stage. <br></br>
-                  <br></br>Notice the inclusion of the <KeyWord>$meta</KeyWord>{" "}
-                  operator to surface each document's{" "}
-                  <span className="text-green-600 text-xl">searchScore </span>{" "}
-                  in the result set. Atlas Score will compute a score for every
-                  movie document in the collection based on{" "}
-                  <span className="text-green-600 uppercase">relevance</span>.
-                  This score signifies how well this movie's fullplot field
-                  matches the query terms "Harry Potter."
-                </div>
-
-                <div>
-                  <TipCard side="center">
-                    {" "}
-                    Scoring is important! It's the whole reason why your results
-                    are returned in a particular order.
-                  </TipCard>
-
-                  <CodeSnippetsCopy copyTextObject={projectText} />
-                </div>
-                <div className="w-1/2 ">
-                  <div className="px-8">
-                    {" "}
-                    Note that by scrolling in the right preview panel, the movie
-                    documents are returned with the score in descending order.
-                    This means we get the best matched movies first.
+            <Step title="Stage 2. $project" color="bg-fuchsia-800">
+              <div className="relative flex space-x-4 text-left  mt-4">
+                <div className="w-3/4 px-8 flex flex-col mx-auto">
+                  <div>
+                    For the next stage in the aggregation pipeline, we'll use{" "}
+                    <KeyWord>$project</KeyWord> to get back only the fields we
+                    want to use in our movie application. For now, paste the
+                    following code snippet into the project stage.
+                  </div>
+                  <div className="flex">
+                    <CodeSnippetsCopy copyTextObject={projectText} />
+                    <div className=" p-4">
+                      <div className="bg-rhino text-white w-full mb-2 px-4 py-2 mx-auto rounded text-center uppercase">
+                        Relevance-Based Scoring
+                      </div>
+                      <div>
+                        Notice the inclusion of the <KeyWord>$meta</KeyWord>{" "}
+                        operator to surface each document's{" "}
+                        <span className="text-green-600 text-xl">
+                          searchScore{" "}
+                        </span>{" "}
+                        in the result set.
+                      </div>
+                      <div className="flex space-x-4 items-center">
+                        <div className="w-1/3">
+                          <CodeSnippetsCopy
+                            type="line"
+                            copyTextObject={metaScore}
+                          />
+                        </div>
+                        <div>
+                          Atlas Score will compute a score for every movie
+                          document in the collection based on{" "}
+                          <span className="text-green-600 uppercase">
+                            relevance
+                          </span>
+                          . This score signifies how well this movie's fullplot
+                          field matches the query terms "Harry Potter."
+                        </div>
+                      </div>
+                    </div>
                   </div>
 
-                  <img
-                    src={ProjectScore}
-                    alt="project stage"
-                    className="shadow shadow-gray-600"
-                  />
+                  <div>
+                    <img
+                      src={ProjectScore}
+                      alt="project stage"
+                      className="shadow shadow-gray-600"
+                    />{" "}
+                    ** Scroll in the right preview panel to see that the movie
+                    documents are returned with the score in{" "}
+                    <span className="font-italic">descending</span> order. This
+                    means we get the best matched movies first!
+                  </div>
+                  <div className="absolute -top-20 -right-12 w-1/5">
+                    <TipCard side="right">
+                      {" "}
+                      Scoring is important! It's the whole reason why your
+                      results are returned in a particular order.
+                    </TipCard>
+                  </div>
+                  <div className="bg-green-500 h-2 w-1/2 mx-auto rounded-2xl mb-4"></div>
                 </div>
+                {/*****************END SCORING ROW **********************/}
+              </div>
+              <div className="relative w-full px-6 flex mx-auto mt-6 text-left  space-x-8">
+                <div className="absolute -top-32 -left-16 w-1/4">
+                  <TipCard side="left">
+                    Because searchHighlights and searchScore are not part of the
+                    original document, it is necessary to use a{" "}
+                    <KeyWord>project</KeyWord>
+                    pipeline stage to add them to the query output.
+                  </TipCard>
+                </div>
+                <div className="w-1/3 border-r border-fuchsia-800">
+                  {" "}
+                  <div className="bg-rhino text-white w-3/4 px-4 py-2 mx-auto rounded text-center uppercase">
+                    Highlights
+                  </div>
+                  <div className="">
+                    As easy as it is to see the scoring metadata, it is just as
+                    simple to surface <KeyWord type="word">highlights</KeyWord>{" "}
+                    to show your queried search term in its proper context
+                    alongside the adjacent text. To enable highlighting for the{" "}
+                    <KeyWord type="code">fullplot</KeyWord>
+                    field, we need to add 2 snippets.
+                  </div>
+                </div>
+                {/********END COL 1 *************/}
+
+                <div className="w-1/3 text-bold text-left  flex flex-col px-4 border-r border-fuchsia-800">
+                  <div>
+                    To enable highlights, first we need to ask the search
+                    operator for them.{" "}
+                    <div className="text-4xl text-center">🙏</div> <br></br>
+                    For this, return to your <KeyWord>$search </KeyWord> stage
+                    you made in Step 1 to add a{" "}
+                    <KeyWord type="code">highlight</KeyWord>
+                    property. Now augment with your <KeyWord>
+                      stage
+                    </KeyWord>{" "}
+                    object with
+                    <div className="my-4 text-center flex items-center">
+                      {" "}
+                      <div>
+                        <KeyWord type="code">{`highlight:{path:'fullplot'}`}</KeyWord>{" "}
+                      </div>
+                      <img
+                        src={AddSearchHighlight}
+                        alt="highlight"
+                        className="w-1/4 mx-auto"
+                      />{" "}
+                    </div>
+                    So your final <KeyWord>$search</KeyWord> stage will CHANGE
+                    to:
+                  </div>
+                  <div className="flex w-3/4 mx-auto">
+                    {" "}
+                    <CodeSnippetsCopy copyTextObject={searchStageFinal} />
+                  </div>
+                </div>
+                {/***************END 2nd COL*********** */}
+                <div className="w-1/3 text-bold text-left ml-6 flex flex-col px-4">
+                  <div>
+                    In our <KeyWord>$project</KeyWord> stage, add
+                    <div className="w-3/4 mx-auto">
+                      <CodeSnippetsCopy
+                        type="line"
+                        copyTextObject={metaHighlightString}
+                      />
+                    </div>
+                  </div>
+                  <div>
+                    {" "}
+                    Your FINAL <KeyWord>$project</KeyWord> stage will be:
+                  </div>
+
+                  <div className="w-3/4 mx-auto">
+                    {" "}
+                    <CodeSnippetsCopy copyTextObject={projectStageFinal} />
+                  </div>
+                </div>
+                {/********END COL 3 *************/}
               </div>
             </Step>
+
             <Step title="Stage 3. $limit" color="bg-fuchsia-800">
               <div className="flex space-x-6 text-left">
                 <div className="w-1/3 mt-4">
@@ -286,6 +387,29 @@ const Lesson2 = () => {
   );
 };
 
+export default Lesson2;
+
+const searchStageFinal = {
+  index: "default",
+  text: {
+    query: "Harry Potter",
+    path: "fullplot",
+  },
+  highlight: { path: "fullplot" },
+};
+
+const metaHighlightString = ` highlight:{
+      $meta: 'searchHighlights'
+   }`;
+const projectStageFinal = {
+  title: 1,
+  year: 1,
+  fullplot: 1,
+  score: {
+    $meta: "searchScore",
+  },
+  highlights: { $meta: "searchHighlights" },
+};
 const basicText = {
   index: "default",
   text: {
@@ -301,6 +425,9 @@ const fuzzyText = {
     fuzzy: { maxEdits: 1 },
   },
 };
+const metaScore = `score": {
+    "$meta": "searchScore"
+  }`;
 
 const phraseText = {
   index: "default",
@@ -357,7 +484,13 @@ const Final = [
           maxEdits: 1,
         },
       },
+      highlight: {
+        path: "fullplot",
+      },
     },
+  },
+  {
+    $limit: 12,
   },
   {
     $project: {
@@ -367,11 +500,9 @@ const Final = [
       score: {
         $meta: "searchScore",
       },
+      highlights: {
+        $meta: "searchHighlights",
+      },
     },
   },
-  {
-    $limit: 12,
-  },
 ];
-
-export default Lesson2;
