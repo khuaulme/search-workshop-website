@@ -320,6 +320,12 @@ const Lesson2 = () => {
                     {" "}
                     <CodeSnippetsCopy copyTextObject={projectStageFinal} />
                   </div>
+                  <div className="mt-8">
+                    <TipCard side="center">
+                      We will examine the resulting payload highlights array in
+                      a future lesson.
+                    </TipCard>
+                  </div>
                 </div>
                 {/********END COL 3 *************/}
               </div>
