@@ -15,6 +15,7 @@ import AggSlide from "../images/Lesson2/AggSlide.png";
 import ProjectScore from "../images/Lesson2/ProjectScore.gif";
 import Export from "../images/Lesson2/ExportPipeline.gif";
 import AddSearchHighlight from "../images/lessonImages/AddSearchHighlight.gif";
+import Highlights from "../images/lessonImages/Highlights.gif";
 
 const Lesson2 = () => {
   const [showFinalAggregation, setShowFinalAggregation] = useState(false);
@@ -253,7 +254,7 @@ const Lesson2 = () => {
                     pipeline stage to add them to the query output.
                   </TipCard>
                 </div>
-                <div className="w-1/3 border-r border-fuchsia-800">
+                <div className="w-1/3 border-r border-fuchsia-800 ">
                   {" "}
                   <div className="bg-rhino text-white w-3/4 px-4 py-2 mx-auto rounded text-center uppercase">
                     Highlights
@@ -265,6 +266,19 @@ const Lesson2 = () => {
                     alongside the adjacent text. To enable highlighting for the{" "}
                     <KeyWord type="code">fullplot</KeyWord>
                     field, we need to add 2 snippets.
+                  </div>
+                  <div className="w-full mt-10 mx-auto">
+                    {" "}
+                    <img
+                      src={Highlights}
+                      alt="highlights"
+                      className="rounded"
+                    />
+                  </div>
+                  <div className="italic text-center text-rhino">
+                    {" "}
+                    **Highlights shown in{" "}
+                    <span className="bg-yellow-300 px-1 rounded">yellow</span>**
                   </div>
                 </div>
                 {/********END COL 1 *************/}
