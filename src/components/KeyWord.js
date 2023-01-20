@@ -11,7 +11,7 @@ const KeyWord = ({ children, type = "stage" }) => {
 
   if (type === "code") {
     return (
-      <span className="bg-indigo-100 px-1 rounded py-1">
+      <span className="bg-indigo-100 border-indigo-800 p-1 rounded ">
         <code>{children}</code>
       </span>
     );
