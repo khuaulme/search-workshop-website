@@ -10,7 +10,7 @@ import CodeReveal from "../components/CodeReveal";
 
 //images
 import SearchBar from "../images/lessonImages/SearchBar.png";
-import HomeComponent from "../images/lessonImages/HomeComponent.png";
+import InsertEndpoint from "../images/lessonImages/InsertEndpoint.png";
 
 const Lesson4 = () => {
   return (
@@ -33,20 +33,15 @@ const Lesson4 = () => {
             Currently, typing anything in the search box will bring you no
             results. 🤷🏽‍♀️ In this short lesson, we will build out this
             functionality.
-            <img
-              src={SearchBar}
-              alt="bar"
-              className="w-1/2 items-center ml-auto "
-            />
           </div>
           <div className="w-1/3 flex flex-col p-4 text-center">
             <div>
               Our main point of integration is in the <KeyWord>Home.js</KeyWord>{" "}
               file found in the src/components directory. <br></br>Paste your
               new App Services HTTP endpoint as the value for MOVIES_ENDPOINT
-              variable on line 22:
+              variable on <KeyWord>line 13</KeyWord>
             </div>
-            <img src={HomeComponent} alt="home screen" className="p-4" />
+            <img src={InsertEndpoint} alt="home screen" className="p-4" />
             <div></div>
           </div>
           <div className="w-1/3 flex flex-col p-4 text-center">
@@ -56,6 +51,11 @@ const Lesson4 = () => {
               now search movies about ‘zombies’ or ‘basketball’ or your favorite
               Avenger characters! If it’s in the sample_mflix.movies collection,
               Atlas Search will bring it to you!
+              <img
+                src={SearchBar}
+                alt="bar"
+                className="w-1/2 items-center ml-auto mt-8"
+              />
             </div>
           </div>
         </div>
