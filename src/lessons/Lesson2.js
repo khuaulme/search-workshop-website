@@ -241,19 +241,20 @@ const Lesson2 = () => {
                       results are returned in a particular order.
                     </TipCard>
                   </div>
+                  <div className="absolute bottom-4 -left-16 w-1/4">
+                    <TipCard side="left">
+                      Because <KeyWord type="word">searchHighlights</KeyWord>{" "}
+                      and <KeyWord type="word">searchScore </KeyWord>
+                      are not part of the original document, it is necessary to
+                      use a <KeyWord>project</KeyWord>
+                      pipeline stage to add them to the query output.
+                    </TipCard>
+                  </div>
                   <div className="bg-green-500 h-2 w-1/2 mx-auto rounded-2xl mb-4"></div>
                 </div>
                 {/*****************END SCORING ROW **********************/}
               </div>
               <div className="relative w-full px-6 flex mx-auto mt-6 text-left  space-x-8">
-                <div className="absolute -top-32 -left-16 w-1/4">
-                  <TipCard side="left">
-                    Because searchHighlights and searchScore are not part of the
-                    original document, it is necessary to use a{" "}
-                    <KeyWord>project</KeyWord>
-                    pipeline stage to add them to the query output.
-                  </TipCard>
-                </div>
                 <div className="w-1/3 border-r border-fuchsia-800 ">
                   {" "}
                   <div className="bg-rhino text-white w-3/4 px-4 py-2 mx-auto rounded text-center uppercase">
@@ -424,11 +425,15 @@ const metaHighlightString = ` highlight:{
 const projectStageFinal = {
   title: 1,
   year: 1,
+  "imdb.rating": 1,
   fullplot: 1,
+  poster: 1,
   score: {
     $meta: "searchScore",
   },
-  highlights: { $meta: "searchHighlights" },
+  highlights: {
+    $meta: "searchHighlights",
+  },
 };
 const basicText = {
   index: "default",
@@ -488,6 +493,8 @@ const projectText = {
   title: 1,
   year: 1,
   fullplot: 1,
+  "imdb.rating": 1,
+  poster: 1,
   score: {
     $meta: "searchScore",
   },
@@ -516,7 +523,9 @@ const Final = [
     $project: {
       title: 1,
       year: 1,
+      "imdb.rating": 1,
       fullplot: 1,
+      poster: 1,
       score: {
         $meta: "searchScore",
       },

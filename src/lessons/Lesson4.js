@@ -61,7 +61,7 @@ const Lesson4 = () => {
         </div>
         {/*******************END TOP ROW ****************************/}
         <div className="2ND ROW flex relative w-full">
-          <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/AtlasSearchWorkshop2022/tree/main/?fontsize=14&hidenavigation=1&theme=dark" />
+          <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson4/?fontsize=14&hidenavigation=1&theme=dark" />
         </div>
         {/*******************END 2ND ROW ****************************/}
       </div>

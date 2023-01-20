@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import Header from "../components/Header";
+import Footer from "../components/Footer";
 
 //components
 import CodeSandbox from "../components/CodeSandbox";
@@ -47,8 +48,9 @@ function Home() {
         </div>
       </div>
       <div className="px-20">
-        <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/AtlasSearchWorkshop2022/tree/main/?fontsize=14&hidenavigation=1&theme=dark" />
+        <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson4/?fontsize=14&hidenavigation=1&theme=dark" />
       </div>
+      <Footer />
     </div>
   );
 }
