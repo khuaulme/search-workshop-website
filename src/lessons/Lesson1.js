@@ -7,6 +7,8 @@ import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import LessonTemplate from "../components/LessonTemplate";
 
 import MoreAboutCard from "../components/MoreAboutCard";
+import KeyWord from "../components/KeyWord";
+import SearchHero from "../images/SearchSpot2.png";
 
 const Lesson1 = () => {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
@@ -18,84 +20,50 @@ const Lesson1 = () => {
   return (
     <LessonTemplate title="Lesson 1. Create a Search Index" next="/Lesson2">
       <div className="LESSON PAGE font-barlow">
-        <div className="TOP-INTRO-PART flex px-20 mt-4 items-center text-base space-x-8 justify-evenly mb-4 w-3/5 mx-auto ">
-          <div className="text">
+        <div className="TOP-INTRO-PART flex px-20 my-10 items-center text-base  justify-evenly mb-4 w-3/4 space-x-20 mx-auto ">
+          <div className="w-1/4 object-contain">
+            <img src={SearchHero} alt="icon" />
+          </div>
+          <div className="text-xl w-3/4 px-20">
             Search adds document data to a full-text search index to make data
             searchable in a highly performant, scalable manner. In this first
             lesson, we will create a full-text search index on our sample_mflix
             movie data. Then we will query on this index to filter, rank and
             sort through those movies to quickly surface movies by topic.
           </div>
-
-          <img src={SearchIcon} alt="icon" className="w-24 object-contain" />
         </div>
         {/******************************* END INTRO TOP BLOCK ********************************/}
         <div className="flex px-10 items-center justify-evenly">
           <div className="STEPS-BLOCK text-left mt-4 text-base w-1/2 space-y-4">
             <div className="Step 1">
-              <div className="font-bold bg-green-600 text-white uppercase px-6 rounded py-2 shadow-xl">
+              <div className="font-bold bg-green-700 text-white uppercase px-6 rounded py-2 shadow-xl mb-4">
                 Step 1. Configure in the Movies Collection in the Atlas UI{" "}
               </div>
               <div className="instructions">
                 The first thing we need is an Atlas Search index. While viewing
                 the movies collection, click on the{" "}
-                <span className="font-bold text-green-600 text-xl">
-                  Search Indexes
-                </span>{" "}
-                tab. Then click on the green{" "}
-                <span
-                  className="
-              font-bold
-              text-green-600
-              text-xl"
-                >
-                  Create Search Index{" "}
-                </span>
+                <KeyWord type="tab">Search Indexes</KeyWord> tab. Then click on
+                the green <KeyWord type="button">Create Search Index </KeyWord>
                 button. <br></br>
                 Atlas Search provides a powerful Visual Editor to guide you
                 through the experience, and we are going to use that today.
-                Select the{" "}
-                <span
-                  className="
-              font-bold
-              text-green-600
-              text-xl"
-                >
-                  Visual Editor{" "}
-                </span>
+                Select the <KeyWord type="tab">Visual Editor </KeyWord>
                 option as your Configuration Method, and click on the{" "}
-                <span
-                  className="
-              font-bold
-              text-green-600
-              text-xl"
-                >
-                  Next{" "}
-                </span>
+                <KeyWord type="button">Next </KeyWord>
                 button.
               </div>
             </div>{" "}
             {/******************************* END STEP 1 ********************************/}
             <div className="Step 2">
-              <div className="font-bold bg-green-600 text-white uppercase px-6 rounded py-2 shadow-xl">
+              <div className="font-bold bg-green-600 text-white uppercase px-6 rounded py-2 shadow-xl mb-4">
                 Step 2. Name and Source Movie Dataset
               </div>
               <div className="instructions">
                 Give your index a name (we'll keep the name{" "}
-                <span className="font-bold text-lg text-indigo-800">
-                  default
-                </span>
-                ) and confirm the correct collection (movies) to index is
+                <KeyWord type="word">default</KeyWord>) and confirm the correct
+                collection (<KeyWord type="word">movies</KeyWord>) to index is
                 selected. You can leave the default settings here and click on
-                the{" "}
-                <span
-                  className="
-              font-bold
-              text-green-600
-              text-xl"
-                >
-                  Next{" "}
-                </span>
+                the <KeyWord type="button">Next </KeyWord>
                 button. By leaving the Index Name as “default”, we will not have
                 to specify the index name in our search queries, which is
                 recommended for this tutorial.
@@ -103,7 +71,7 @@ const Lesson1 = () => {
             </div>{" "}
             {/******************************* END STEP 2 ********************************/}
             <div className="Step 3">
-              <div className="font-bold bg-green-600 text-white uppercase px-6 rounded py-2 shadow-xl">
+              <div className="font-bold bg-green-600 text-white uppercase px-6 rounded py-2 shadow-xl mb-4">
                 Step 3. Refine & Review
               </div>
               <div className="instructions">
@@ -112,16 +80,9 @@ const Lesson1 = () => {
                 allowing you to employ different analyzers and map field types.
                 For this first exercise, we are going to stick with all the
                 defaults. Let's accept the default settings and click{" "}
-                <span
-                  className="
-              font-bold
-              text-green-600
-              text-xl"
-                >
-                  Create Index
-                </span>
-                . With that we are ready to move to lesson 2 and build our first
-                search queries!
+                <KeyWord type="button">Create Index</KeyWord>. With that we are
+                ready to move to <KeyWord type="title">Lesson 2</KeyWord> and
+                build our first search queries!
               </div>
             </div>{" "}
             {/******************************* END STEP 3 ********************************/}
@@ -135,14 +96,42 @@ const Lesson1 = () => {
           </div>
         </div>{" "}
         {/******************************* END STEPS-GIF-BLOCK ********************************/}
-        <div className="bg-slateblue text-white mt-6 text-center py-2">
+        <div className="bg-slateblue text-white mt-6 text-center py-4">
           NOW WE HAVE AN ATLAS CLUSTER, SAMPLE DATA AND SEARCH INDEX!! <br></br>
+          <br></br>
           And that’s all you need to do to start taking advantage of Apache
           Lucene on top of your MongoDB Atlas data! 👊
         </div>
         <div className="MAPPING DESCRIPTION mx-20 space-x-8">
-          <div className="DYNAMIC text-base text-left w-full my-8 flex">
-            <div className="w-1/3 px-8 shadow shadow-gray-500">
+          <div className="DYNAMIC text-base text-left w-full my-8 flex justify-center space-x-20">
+            <div className="w-2/5 px-8 shadow shadow-gray-500 py-4">
+              <div className="bg-teal-600 py-2 w-full text-white text-center rounded mt-1">
+                but what <span className="italic">Exactly</span> did we just do?
+              </div>
+              By creating a search index, we created a{" "}
+              <KeyWord type="title">mapping</KeyWord> to the terms in our
+              documents.
+              <div className="text-center text-6xl skew-y-6">🗺️</div> Mapping is
+              simply how we define how the fields on our documents are indexed
+              and stored. If a field's value looks like a string, we'll treat it
+              as a full-text field, similarly for numbers and dates. This suits
+              MongoDB's flexible data model perfectly. As you add new data to
+              your collection and your schema evolves, dynamic mapping
+              accommodates those changes in your schema and adds that new data
+              to the Atlas Search index automatically.<br></br>
+              <br></br>And just like with a treasure map 🗺️, Atlas Search
+              indexes will enable to find what we are looking for{" "}
+              <span className="italic">FAST!</span>
+            </div>
+
+            <div className="w-2/5 px-8 shadow shadow-gray-500 py-4">
+              <div className="bg-teal-600 py-2 w-full text-white text-center rounded mt-1">
+                and what is{" "}
+                <span className="text-sun text-2xl italic">
+                  DYNAMIC MAPPING
+                </span>{" "}
+                ?
+              </div>{" "}
               When creating an Atlas Search index, you can specify the fields to
               index using either{" "}
               <span className="text-green-600 text-lg">static </span> or
@@ -152,9 +141,8 @@ const Lesson1 = () => {
               up space, choosing to index only those specific fields you use can
               be tremendously helpful for performance. We will revisit this in a
               future lesson.
-            </div>
-            <div className="mx-6 items-center w-1/3 px-8 shadow shadow-gray-500">
               <div>
+                <br></br>
                 In this tutorial however, we accepted the default settings which
                 <span className="font-bold text-green-700">
                   {" "}
@@ -164,17 +152,6 @@ const Lesson1 = () => {
                 index configuration:{" "}
               </div>
               <CodeSnippetsCopy copyTextObject={copyTextObject} />
-            </div>
-
-            <div className="w-1/3 px-8 shadow shadow-gray-500">
-              {" "}
-              Mapping is simply how we define how the fields on our documents
-              are indexed and stored. If a field's value looks like a string,
-              we'll treat it as a full-text field, similarly for numbers and
-              dates. This suits MongoDB's flexible data model perfectly. As you
-              add new data to your collection and your schema evolves, dynamic
-              mapping accommodates those changes in your schema and adds that
-              new data to the Atlas Search index automatically.
             </div>
           </div>
         </div>

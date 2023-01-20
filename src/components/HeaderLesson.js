@@ -8,7 +8,7 @@ const HeaderLesson = ({ title }) => {
   return (
     <div className="relative flex w-full justify-between items-center bg-slateblue text-white px-14 py-2">
       <div
-        className={`font-bold  uppercase  text-green-500 bg-slateblue z-10
+        className={`font-bold  uppercase  text-green-400 bg-slateblue z-10
           text-2xl`}
       >
         {title}

@@ -17,6 +17,8 @@ import Export from "../images/Lesson2/ExportPipeline.gif";
 import AddSearchHighlight from "../images/lessonImages/AddSearchHighlight.gif";
 import Highlights from "../images/lessonImages/Highlights.gif";
 import HighlightDoc from "../images/lessonImages/HighlightDoc.gif";
+import AggSlide from "../images/Lesson2/AggSlide.png";
+import AggregationIcon from "../images/Aggregation.png";
 
 const Lesson3 = () => {
   const [showHighlightInfo, setShowHighlightInfo] = useState(false);
@@ -30,32 +32,73 @@ const Lesson3 = () => {
   };
   return (
     <LessonTemplate
-      title="Lesson 4. Finish the Aggregation w/ $project and $limit"
+      title="Lesson 3. Complete  $Search Aggregation"
       next="/Lesson4"
     >
       <div className="LESSON PAGE flex flex-col px-20 mt-auto text-base text-left">
-        <div className="TOP-ROW flex relative mt-10">
-          Talk why the beautiful part of implementing search in the aggregation
-          is that you can combine with other stages
+        <div className="TOP-ROW flex  my-16 mx-auto justify-evenly relative">
+          <div className="w-1/3 text-xl">
+            The beauty of implementing Search queries in an aggregation stage is
+            that it can be followed and combined with any other of the dozens
+            and dozens of MongoDB aggregation stages to obtain the aggregated
+            results you are looking for. As long as <KeyWord>$search</KeyWord>{" "}
+            comes first, your possibilities are endless.
+            <img
+              className="mx-auto w-28 object-contain my-4"
+              src={AggregationIcon}
+              alt="icon"
+            />
+            In this lesson, we will add only 2 more stages to our{" "}
+            <KeyWord>$search</KeyWord> stage to finish the search query for our
+            Netflix Clone.
+          </div>
+          <div className="w-1/3 drop-shadow-2xl shadow-gray-800 mt-10">
+            <img src={AggSlide} alt="aggregation" />
+          </div>
+          <div className="w-1/4 absolute -top-10 -right-8">
+            <TipCard className="" side="right">
+              Learn more about aggregations with <br></br>
+              <a
+                className="text-green-600 font-bold underline"
+                href="https://www.practical-mongodb-aggregations.com/"
+              >
+                Practical MongoDB Aggregations{" "}
+              </a>
+              <br></br> - a free online resource
+            </TipCard>
+          </div>
         </div>
         <Step title="Stage 2. $project" color="bg-fuchsia-800">
           <div className="relative flex space-x-4 text-left  mt-4">
             <div className="w-3/4 px-8 flex flex-col mx-auto">
-              <div className="w-2/3 text-center my-6 mx-auto text-lg">
-                For the next stage in the aggregation pipeline, we'll use{" "}
-                <KeyWord>$project</KeyWord> to get back only the fields we want
-                to use in our movie application. For now, paste the following
-                code snippet into the project stage.
+              <div className="w-3/4 text-left my-4  text-lg flex space-x-10">
+                <div className=" mt-10">
+                  For the next stage in the aggregation pipeline, we'll use{" "}
+                  <KeyWord>$project</KeyWord> to get back only the fields we
+                  want to use in our movie application. Still using the{" "}
+                  <KeyWord type="tab">Aggregation Pipeline Builder</KeyWord>
+                  select the <KeyWord>$project</KeyWord> stage. Then paste the
+                  following code snippet into the editor:
+                </div>
+                <CodeSnippetsCopy copyTextObject={projectText} />
               </div>
               <div className="flex">
-                <CodeSnippetsCopy copyTextObject={projectText} />
                 <div className=" p-4">
-                  <div className="bg-rhino text-white w-full mb-2 px-4 py-2 mx-auto rounded text-center uppercase">
+                  <div className="bg-rhino text-white w-full mb-2 px-4 py-2 mx-auto rounded text-center uppercase relative">
                     Relevance-Based Scoring
+                    <div className="absolute -top-16 -left-72 w-1/2">
+                      <TipCard side="left">
+                        {" "}
+                        Scoring is important! <br></br>It's the whole reason
+                        your results are returned in a particular order.
+                      </TipCard>
+                    </div>
                   </div>
+
                   <div>
-                    Notice the inclusion of the <KeyWord>$meta</KeyWord>{" "}
-                    operator to surface each document's{" "}
+                    Notice the inclusion of the{" "}
+                    <KeyWord type="variable">$meta</KeyWord> operator to surface
+                    each document's{" "}
                     <span className="text-green-600 text-xl">searchScore </span>{" "}
                     in the result set.
                   </div>
@@ -100,23 +143,17 @@ const Lesson3 = () => {
                   </TipCard>
                 </div>
               </div>
-              <div className="absolute -top-20 -right-12 w-1/5">
-                <TipCard side="right">
-                  {" "}
-                  Scoring is important! It's the whole reason why your results
-                  are returned in a particular order.
-                </TipCard>
-              </div>
+
               <div className="absolute bottom-4 -left-16 w-1/4">
                 <TipCard side="left">
                   Because <KeyWord type="word">searchHighlights</KeyWord> and{" "}
                   <KeyWord type="word">searchScore </KeyWord>
                   are not part of the original document, it is necessary to use
-                  a <KeyWord>project</KeyWord>
-                  pipeline stage to add them to the query output.
+                  a <KeyWord type="variable">$meta</KeyWord>
+                  operator to surface them in the output.
                 </TipCard>
               </div>
-              <div className="bg-green-500 h-2 w-1/2 mx-auto rounded-2xl my-4"></div>
+              <div className="SEPARATOR bg-green-500 h-2 w-2/3 mx-auto rounded-2xl my-10"></div>
             </div>
             {/*****************END SCORING ROW **********************/}
           </div>
@@ -149,10 +186,9 @@ const Lesson3 = () => {
             <div className="w-1/3 text-bold text-left  flex flex-col px-4 border-r border-fuchsia-800">
               <div>
                 To enable highlights, first we need to ask the search operator
-                for them. <div className="text-4xl text-center">🙏</div>{" "}
-                <br></br>
-                For this, return to your <KeyWord>$search </KeyWord> stage you
-                made in Step 1 to add a <KeyWord type="code">highlight</KeyWord>
+                for them. <span className="text-4xl text-center">🙏</span> For
+                this, return to your <KeyWord>$search </KeyWord> stage you made
+                in Step 1 to add a <KeyWord type="code">highlight</KeyWord>
                 property. Now augment with your <KeyWord>stage</KeyWord> object
                 with
                 <div className="my-4 text-center flex items-center">
@@ -242,26 +278,29 @@ const Lesson3 = () => {
           <div className="flex space-x-10 text-left justify-evenly">
             <div className="w-1/3 mt-4">
               <div className="px-8">
-                $limit is important in search because speed is important in
-                search. For this reason we will add the $limit stage. Remember
-                that the results are returned with the scores in descending
-                order. <KeyWord>{`{ $limit: 12 }`}</KeyWord> will therefore
-                bring the 12 most relevant movie documents to your search query.
-                Without <KeyWord>$limit</KeyWord>, we would pull all 23k movies.
-                We don't need that. In the pipeline builder for the next stage,
-                select <KeyWord>$limit</KeyWord> and enter the number 12.
+                <span className="text-xl font-bold italic">
+                  Speed is important in search!
+                </span>{" "}
+                We can't keep our users waiting. For this reason we will finish
+                our pipeline with the <KeyWord>$limit</KeyWord>
+                stage. Remember that since the results are returned with the
+                scores in descending order.{" "}
+                <KeyWord type="code">{`{ $limit: 12 }`}</KeyWord> will therefore
+                bring the 12 best matched movies to your search query. Without{" "}
+                <KeyWord>$limit</KeyWord>, we would pull all 23k movies. We
+                don't need that. <br></br>
+                <br></br>In the pipeline builder for the next stage, select{" "}
+                <KeyWord>$limit</KeyWord> and enter the number 12.
               </div>
-              <div className="w-1/3 mx-auto">
+              <div className="w-1/4 mx-auto">
                 <CodeSnippetsCopy copyTextObject={projectText} type="limit" />
               </div>
               <div className="px-8">
                 If you see results in the right preview panel, your aggregation
                 pipeline is working properly!{" "}
                 <span className="text-2xl">💪</span>. Let's grab that
-                aggregation code with the{" "}
-                <span className="text-green-600 text-xl">
-                  Export Pipeline to Language
-                </span>
+                aggregation code with the <br></br>
+                <KeyWord type="button">Export Pipeline to Language</KeyWord>
                 feature by clicking the button in the top toolbar.
               </div>
             </div>
@@ -281,13 +320,14 @@ const Lesson3 = () => {
               ></CodeReveal>
             </div>
 
-            <div className="w-1/3 mt-4">
+            <div className="w-1/3 mt-8">
               That's it! This simple 3 stage aggregation pipeline will power our
               MongoDB movie search engine. Congratulations on completing Lesson
               2!
-              <span className="text-2xl">👊🎉🙌 </span>. <br></br>
+              <span className="text-4xl">👊🎉🙌 </span>. <br></br>
               <br></br>In lesson 3, we'll put our new <KeyWord>$search</KeyWord>
               aggregation to work!
+              <div className="SEPARATOR bg-fuchsia-800 h-1 w-2/3 mx-auto rounded-2xl my-16"></div>
             </div>
           </div>
         </Step>
