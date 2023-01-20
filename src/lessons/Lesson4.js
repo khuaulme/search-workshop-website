@@ -11,6 +11,7 @@ import CodeReveal from "../components/CodeReveal";
 //images
 import SearchBar from "../images/lessonImages/SearchBar.png";
 import InsertEndpoint from "../images/lessonImages/InsertEndpoint.png";
+import SearchOperators from "../components/SearchOperators";
 
 const Lesson4 = () => {
   return (
@@ -64,6 +65,7 @@ const Lesson4 = () => {
           <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson4/?fontsize=14&hidenavigation=1&theme=dark" />
         </div>
         {/*******************END 2ND ROW ****************************/}
+        <SearchOperators />
       </div>
     </LessonTemplate>
   );

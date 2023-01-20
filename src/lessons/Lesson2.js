@@ -8,6 +8,8 @@ import Compass from "../images/Compass.png";
 import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import KeyWord from "../components/KeyWord";
 import CodeReveal from "../components/CodeReveal";
+import SearchOperators from "../components/SearchOperators";
+import MoreAboutCard from "../components/MoreAboutCard";
 
 //images
 import BasicFuzzy from "../images/Lesson2/BasicFuzzy.gif";
@@ -16,12 +18,17 @@ import ProjectScore from "../images/Lesson2/ProjectScore.gif";
 import Export from "../images/Lesson2/ExportPipeline.gif";
 import AddSearchHighlight from "../images/lessonImages/AddSearchHighlight.gif";
 import Highlights from "../images/lessonImages/Highlights.gif";
+import HighlightDoc from "../images/lessonImages/HighlightDoc.gif";
 
 const Lesson2 = () => {
   const [showFinalAggregation, setShowFinalAggregation] = useState(false);
-
   const toggle = (showFinalAggregation) => {
     setShowFinalAggregation(!showFinalAggregation);
+  };
+
+  const [showHighlightInfo, setShowHighlightInfo] = useState(false);
+  const toggleHighlights = (showHighlightInfo) => {
+    setShowHighlightInfo(!showHighlightInfo);
   };
   return (
     <LessonTemplate
@@ -143,42 +150,7 @@ const Lesson2 = () => {
                 Try them out and compare results. Notice you can search across
                 numbers and dates, as well.
               </div>
-              <div className="flex justify-evenly py-2 space-x-4">
-                <div className="p-2 shadow-lg shadow-gray-500 w-1/4">
-                  {" "}
-                  <div className="text-center bg-green-600 rounded-lg p-2 uppercase">
-                    phrase
-                  </div>
-                  <CodeSnippetsCopy copyTextObject={phraseText} />
-                  *notice how to query multiple fields with an array
-                </div>
-
-                <div className="p-2 shadow-lg shadow-gray-500 w-1/4">
-                  {" "}
-                  <div className="text-center bg-green-600 rounded-lg p-2 uppercase">
-                    range
-                  </div>
-                  <CodeSnippetsCopy copyTextObject={rangeText} />* can query
-                  numbers and embedded fields
-                </div>
-                <div className="p-2 shadow-lg shadow-gray-500 w-1/4">
-                  {" "}
-                  <div className="text-center bg-green-600 rounded-lg p-2 uppercase">
-                    wildcard
-                  </div>
-                  <CodeSnippetsCopy copyTextObject={wildcardText} />
-                  *Supports special characters to match any character(s).
-                </div>
-                <div className="p-2 shadow-lg shadow-gray-500 w-1/4">
-                  {" "}
-                  <div className="text-center bg-green-600 rounded-lg p-2 uppercase">
-                    near
-                  </div>
-                  <CodeSnippetsCopy copyTextObject={dateText} type="date" />
-                  *supports querying and scoring numeric, date, and GeoJSON.
-                  Higher scores are returned by proximity.
-                </div>
-              </div>
+              <SearchOperators />
             </div>
             <Step title="Stage 2. $project" color="bg-fuchsia-800">
               <div className="relative flex space-x-4 text-left  mt-4">
@@ -223,16 +195,26 @@ const Lesson2 = () => {
                     </div>
                   </div>
 
-                  <div>
+                  <div className="relative">
                     <img
                       src={ProjectScore}
                       alt="project stage"
                       className="shadow shadow-gray-600"
                     />{" "}
-                    ** Scroll in the right preview panel to see that the movie
-                    documents are returned with the score in{" "}
-                    <span className="font-italic">descending</span> order. This
-                    means we get the best matched movies first!
+                    <div className="w-3/4 text-center mx-auto">
+                      {" "}
+                      ** Scroll in the right preview panel to see that the movie
+                      documents are returned with the score in{" "}
+                      <span className="font-italic">descending</span> order.
+                      This means we get the best matched movies first!
+                    </div>
+                    <div className="absolute bottom-48 -right-32 w-1/5">
+                      <TipCard side="right">
+                        {" "}
+                        Atlas Search returns documents with the highest
+                        relevance-based scores first!
+                      </TipCard>
+                    </div>
                   </div>
                   <div className="absolute -top-20 -right-12 w-1/5">
                     <TipCard side="right">
@@ -250,7 +232,7 @@ const Lesson2 = () => {
                       pipeline stage to add them to the query output.
                     </TipCard>
                   </div>
-                  <div className="bg-green-500 h-2 w-1/2 mx-auto rounded-2xl mb-4"></div>
+                  <div className="bg-green-500 h-2 w-1/2 mx-auto rounded-2xl my-4"></div>
                 </div>
                 {/*****************END SCORING ROW **********************/}
               </div>
@@ -335,15 +317,55 @@ const Lesson2 = () => {
                     {" "}
                     <CodeSnippetsCopy copyTextObject={projectStageFinal} />
                   </div>
-                  <div className="mt-8">
+                  <div className="mr-0 w-full">
+                    <MoreAboutCard
+                      subject="Highlights"
+                      open={showHighlightInfo}
+                      toggle={toggleHighlights}
+                    >
+                      The <KeyWord>highlight</KeyWord> field returns an array:
+                      Opening up the array you see:
+                      <img src={HighlightDoc} alt="highlight" />
+                      <ul>
+                        <li>
+                          highlight.texts.value - text from the fullplot field
+                          returning a match
+                        </li>{" "}
+                        <li>
+                          highlight.texts.type - either a hit or a text hit is a
+                          match for the query text is the surrounding text
+                          context adjacent to the matching string.
+                        </li>
+                      </ul>
+                      <br></br>
+                      For more info about highlights, see our{" "}
+                      <a
+                        className="underline decoration-teal-900"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://www.mongodb.com/docs/atlas/atlas-search/highlighting/"
+                      >
+                        docs
+                      </a>{" "}
+                      or this nifty{" "}
+                      <a
+                        className="underline decoration-teal-900"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        href="https://youtu.be/Xn80t7G1-n4"
+                      >
+                        video tutorial.
+                      </a>{" "}
+                    </MoreAboutCard>
+                  </div>
+                  {/* <div className="mt-8">
                     <TipCard side="center">
                       We will examine the resulting payload highlights array in
                       a future lesson.
-                    </TipCard>
-                  </div>
+                    </TipCard> </div>*/}
                 </div>
-                {/********END COL 3 *************/}
               </div>
+              {/********END COL 3 *************/}
             </Step>
 
             <Step title="Stage 3. $limit" color="bg-fuchsia-800">
@@ -453,41 +475,6 @@ const fuzzyText = {
 const metaScore = `score": {
     "$meta": "searchScore"
   }`;
-
-const phraseText = {
-  index: "default",
-  phrase: {
-    query: "Harry Potter",
-    path: ["title", "fullplot", "plot"],
-  },
-};
-
-const wildcardText = {
-  index: "default",
-  wildcard: {
-    query: "Ha*ter",
-    path: "title",
-    allowAnalyzedField: true,
-  },
-};
-
-const rangeText = {
-  index: "default",
-  range: {
-    gt: 8,
-    lte: 10,
-    path: "imdb.rating",
-  },
-};
-
-const dateText = {
-  index: "default",
-  near: {
-    path: "released",
-    origin: Date("1915-09-13T"),
-    pivot: 7776000000,
-  },
-};
 
 const projectText = {
   title: 1,
