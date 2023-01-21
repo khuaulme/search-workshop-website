@@ -64,9 +64,10 @@ const lessonData = [
     iconImage: SearchQuery,
   },
   {
-    title: "3. Complete the Search Aggregation Pipeline with Other Stages",
-    description: `Now that we have our first Atlas Search index created, let's play around with a few different basic operators and options using the 
-      $search stage in an aggregation pipeline to look for topics in the plot fields in our movie dataset.`,
+    title:
+      "3. Complete the Search Aggregation  + Intro to Scoring & Highlights",
+    description: `Off on the right track with our $search stage for our aggregation. Now we will complete the pipeline with 2 other 
+    aggregation stages. On the way, we introduce relevance-based scoring as well as highlights.`,
     linkedPage: "Lesson2",
     iconImage: Aggregation,
   },
@@ -98,20 +99,19 @@ const lessonData = [
     linkedPage: "Lesson5",
     iconImage: Score,
   },
-
   {
-    title: '7. "Autocom... " : How to Implement Autocomplete',
+    title: "7. Compound Operator to Combine Search Parameters",
     description:
       "With Atlas Search, we have made it even easier to work with data by allowing you to build powerful, flexible, and sophisticated search capabilities into your MongoDB applications!",
     linkedPage: "Lesson6",
-    iconImage: Autocomplete,
+    iconImage: SearchParameters,
   },
   {
-    title: "8. Compound Operator to Combine Search Parameters",
+    title: '8. "Autocom... " : How to Implement Autocomplete',
     description:
       "With Atlas Search, we have made it even easier to work with data by allowing you to build powerful, flexible, and sophisticated search capabilities into your MongoDB applications!",
     linkedPage: "Lesson7",
-    iconImage: SearchParameters,
+    iconImage: Autocomplete,
   },
   {
     title: "9. Indexes and Analyzers",

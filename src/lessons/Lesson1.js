@@ -36,7 +36,7 @@ const Lesson1 = () => {
         <div className="flex px-10 items-center justify-evenly">
           <div className="STEPS-BLOCK text-left mt-4 text-base w-1/2 space-y-4">
             <div className="Step 1">
-              <div className="font-bold bg-green-700 text-white uppercase px-6 rounded py-2 shadow-xl mb-4">
+              <div className="font-bold bg-green-600 text-white uppercase px-6 rounded py-2 shadow-xl mb-4">
                 Step 1. Configure in the Movies Collection in the Atlas UI{" "}
               </div>
               <div className="instructions">
@@ -64,8 +64,9 @@ const Lesson1 = () => {
                 collection (<KeyWord type="word">movies</KeyWord>) to index is
                 selected. You can leave the default settings here and click on
                 the <KeyWord type="button">Next </KeyWord>
-                button. By leaving the Index Name as “default”, we will not have
-                to specify the index name in our search queries, which is
+                button. By leaving the Index Name as{" "}
+                <KeyWord type="word">default</KeyWord>, we will not have to
+                specify the index name in our search queries, which is
                 recommended for this tutorial.
               </div>
             </div>{" "}

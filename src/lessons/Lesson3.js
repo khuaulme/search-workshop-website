@@ -154,7 +154,7 @@ const Lesson3 = () => {
                   operator to surface them in the output.
                 </TipCard>
               </div>
-              <div className="SEPARATOR bg-green-500 h-2 w-2/3 mx-auto rounded-2xl my-10"></div>
+              <div className="SEPARATOR bg-teal-700 h-2 w-2/3 mx-auto rounded-2xl my-10"></div>
             </div>
             {/*****************END SCORING ROW **********************/}
           </div>
@@ -236,18 +236,26 @@ const Lesson3 = () => {
                   open={showHighlightInfo}
                   toggle={toggleHighlights}
                 >
-                  The <KeyWord>highlight</KeyWord> field returns an array:
-                  Opening up the array you see:
-                  <img src={HighlightDoc} alt="highlight" />
-                  <ul>
+                  The <KeyWord>highlight</KeyWord> field returned in the payload
+                  contains an array: Opening up the array you see:
+                  <img src={HighlightDoc} alt="highlight" className="my-4" />
+                  <ul className="space-y-4">
                     <li>
-                      highlight.texts.value - text from the fullplot field
-                      returning a match
+                      <KeyWord>highlight.texts.value</KeyWord> - text from the
+                      fullplot field returning a match
                     </li>{" "}
                     <li>
-                      highlight.texts.type - either a hit or a text hit is a
-                      match for the query text is the surrounding text context
-                      adjacent to the matching string.
+                      <KeyWord>highlight.texts.type</KeyWord> - can be either a{" "}
+                      <ul className="space-y-4 mt-6 ml-6">
+                        <li>
+                          <KeyWord type="variable">hit</KeyWord> - search term
+                          match
+                        </li>
+                        <li>
+                          <KeyWord type="variable">text</KeyWord> surrounding
+                          text content
+                        </li>
+                      </ul>
                     </li>
                   </ul>
                   <br></br>

@@ -10,10 +10,7 @@ import CodeReveal from "../components/CodeReveal";
 
 const Lesson8 = () => {
   return (
-    <LessonTemplate
-      title="Lesson 8. Compound Operator to Combine Queries"
-      next="/Lesson9"
-    >
+    <LessonTemplate title="Lesson 8. Autocom..." next="/Lesson9">
       <div className="LESSON PAGE flex flex-col px-20 mt-auto text-base text-left">
         Testing
       </div>

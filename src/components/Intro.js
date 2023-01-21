@@ -6,11 +6,11 @@ const Intro = ({ showSetUpPDF, setShowSetUpPDF }) => {
   return (
     <div className="flex mx-auto mb-8 justify-around w-full items-center">
       <div className="mx-auto text-center items-center w-1/2 pr-10 mt-12 text-base font-barlow">
-        <div className="flex items-center">
+        <div className="flex items-center ">
           <img
             src={SearchSpot}
             alt="search hero"
-            className="object-contain w-1/2"
+            className="object-contain w-2/5"
           />
           <div>
             In this workshop, we will learn about Atlas Search by building out
@@ -59,7 +59,7 @@ const Intro = ({ showSetUpPDF, setShowSetUpPDF }) => {
           }}
         />
       </div>
-      <div className="w-1/2 p-8">
+      <div className="w-2/5 p-8">
         <AppPreview />
         {/* <Presenters /> */}
       </div>
