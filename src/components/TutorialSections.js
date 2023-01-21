@@ -60,42 +60,44 @@ const lessonData = [
     title: "2. Creating Basic Search Queries",
     description: `Now that we have our first Atlas Search index created, let's play around with a few different basic operators and options using the 
       $search stage in an aggregation pipeline to look for topics in the plot fields in our movie dataset.`,
-    linkedPage: "Lesson2",
+    linkedPage: "Lesson1",
     iconImage: SearchQuery,
   },
   {
-    title: "3. Create RESTful API to Access Data",
+    title: "3. Complete the Search Aggregation Pipeline with Other Stages",
+    description: `Now that we have our first Atlas Search index created, let's play around with a few different basic operators and options using the 
+      $search stage in an aggregation pipeline to look for topics in the plot fields in our movie dataset.`,
+    linkedPage: "Lesson2",
+    iconImage: Aggregation,
+  },
+
+  {
+    title: "4. Create RESTful API to Access Data",
     description: `Now that we have the heart of our movie search engine in the form of an aggregation pipeline, 
     how will we use it in an application? There are lots of ways to do this, but we will simply create a RESTful API 
     using Atlas App Services, MongoDB's serverless platform, to expose this data. The beauty of a REST API is that it 
     provides the flexibility to consume the movie data in so many ways and can be called from just about anywhere. `,
-    linkedPage: "Lesson2",
+    linkedPage: "Lesson3",
     iconImage: Webhooks,
   },
   {
-    title: "4. Call API from Movie Application the Front End",
+    title: "5. Call API from Movie Application the Front End",
     description: ` Now that we have this endpoint, it takes a single call from the front-end application using the Fetch API 
     to retrieve this data. In this lesson, we will use our hosted Code Sandbox. Typing in a search bar will bring us movies about 
     whatever topic comes to mind. `,
-    linkedPage: "Lesson3",
+    linkedPage: "Lesson4",
     iconImage: Platform,
   },
   {
-    title: "5. Relevance-based Scoring and Custom Score Modifiers",
+    title: "6. Relevance-based Scoring and Custom Score Modifiers",
     description: `Atlas Search computes a score for every movie in our data collection based on relevance. Scoring is the whole reason we get our search results back in  order
        so it is important to understand. In this lesson, not only do we unravel the meaning of "relevance", but we will also play around 
        with special score modifiers: constant - boost -function to change the score and therefore your search results, so you can get the right results to ou
        users.`,
-    linkedPage: "Lesson4",
+    linkedPage: "Lesson5",
     iconImage: Score,
   },
-  {
-    title: "6. Highlights: How to Show Matching Search Terms in Context ",
-    description:
-      "With Atlas Search, we have made it even easier to work with data by allowing you to build powerful, flexible, and sophisticated search capabilities into your MongoDB applications!",
-    linkedPage: "Lesson5",
-    iconImage: Highlighting,
-  },
+
   {
     title: '7. "Autocom... " : How to Implement Autocomplete',
     description:

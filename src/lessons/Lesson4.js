@@ -17,7 +17,7 @@ const Lesson4 = () => {
     setShowVideo(!showVideo);
   };
   return (
-    <LessonTemplate title="Lesson 4. Create a RESTful API" next="/Lesson5A">
+    <LessonTemplate title="Lesson 4. Create a RESTful API" next="/Lesson5">
       <div className="LESSON PAGE flex flex-col px-20 mt-auto text-base text-left">
         <div className="TOP-ROW flex relative mt-10">
           <div className="w-1/4">
@@ -79,7 +79,7 @@ const Lesson4 = () => {
           </div>
         </div>{" "}
         {/*********************END TOP ROW ******************************/}
-        <div className="bg-green-600 h-2 w-2/3 mx-auto rounded-2xl"></div>
+        <div className="SEPARATOR bg-green-600 h-1 w-2/3 mx-auto rounded-2xl my-4"></div>
         <div className="2ND ROW flex space-x-8 mt-6">
           <div className="w-1/3 shadow shadow-slate-400 p-4">
             <Step

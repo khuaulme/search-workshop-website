@@ -2,12 +2,12 @@ module.exports = {
   content: ["./src/**/*.{js,jsx,ts,tsx}"],
   theme: {
     extend: {
-      // transitionProperty: {
-      //   width: "width",
-      // },
-      // transitionDuration: {
-      //   width: "width",
-      // },
+      transitionProperty: {
+        width: "width",
+      },
+      transitionDuration: {
+        width: "width",
+      },
       colors: {
         slateblue: "#001E2B",
         rhino: "#343F71",
