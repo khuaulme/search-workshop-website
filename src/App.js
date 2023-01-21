@@ -14,11 +14,12 @@ import Lesson8 from "./lessons/Lesson8";
 import Lesson9 from "./lessons/Lesson9";
 import Lesson10 from "./lessons/Lesson10";
 import Home from "./pages/Home";
+import ScrollToTop from "./components/ScrollToTop";
 
 function App() {
-  // const [showSetUpPDF, setShowSetUpPDF] = useState(false);
   return (
     <div className="flex flex-col justify-between h-screen">
+      <ScrollToTop />
       <Routes>
         <Route exact path="/" element={<Home />} />
         <Route exact path="Lesson1" element={<Lesson1 />} />
