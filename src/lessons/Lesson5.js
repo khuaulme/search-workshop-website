@@ -7,10 +7,14 @@ import SearchOperators from "../components/SearchOperators";
 import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import KeyWord from "../components/KeyWord";
 import CodeReveal from "../components/CodeReveal";
-
+import SearchResults from "../components/SearchResults";
 //images
 import SearchBar from "../images/SimpleSearchBar.png";
 import InsertEndpoint from "../images/lessonImages/InsertEndpoint.png";
+import BasicResults from "../images/Screenshots/BasicTextScreen.png";
+import BasicTextArray from "../images/Screenshots/BasicTextArray.png";
+import PhraseTitle from "../images/Screenshots/PhraseTitle.png";
+import DidYouKnow from "../images/lessonImages/DidYouKnow.png";
 
 const Lesson5 = () => {
   return (
@@ -48,12 +52,13 @@ const Lesson5 = () => {
               <li>
                 ✅ Paste your new App Services HTTP endpoint as the value for{" "}
                 <KeyWord type="variable">MOVIES_ENDPOINT </KeyWord>
-                variable on <KeyWord>line 13</KeyWord>
+                variable on <KeyWord type="line">line 13</KeyWord>.
               </li>{" "}
               <br></br>
               <li>
                 ✅ Just type! Enter "Harry Potter" or "Harrry Pottter" or
-                whatever you like.
+                whatever you like to find whatever movie you want.{" "}
+                <span className="2xl">🔎📽️🍿</span>
               </li>
             </ul>
           </div>
@@ -70,12 +75,118 @@ const Lesson5 = () => {
           <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson4/?fontsize=14&hidenavigation=1&theme=dark" />
         </div>
         {/*******************END 2ND ROW ****************************/}
-        <div className="flex flex-col">
+        <div className="relative flex flex-col">
           <div className=" text-green-800 text-xl py-2 px-4 my-6 text-center w-2/5 mx-auto rounded shadow-md shadow-gray-700">
-            Try these other operators in your <KeyWord>$search</KeyWord> stage
-            in your back-end function to see how the movies change.
+            In addition to <KeyWord type="operator">text</KeyWord>, try these
+            other operators in your <KeyWord>$search</KeyWord> stage in your
+            back-end function to see how the movies change.
           </div>
+
           <SearchOperators />
+          <div className="absolute top-0 -right-0 w-1/4">
+            <TipCard side="center">
+              Other <KeyWord> $search</KeyWord> stage operators can be found in
+              our{" "}
+              <a
+                className="font-noto text-center text-2xl text-rhino underline"
+                target="_blank"
+                rel="noopener noreferrer"
+                href="https://www.mongodb.com/docs/atlas/atlas-search/operators-and-collectors/"
+              >
+                documentation. 📗📖
+              </a>
+            </TipCard>
+          </div>
+          {/*****************END STAGES ROW ************************************/}
+          <div className="relative w-3/4 mx-auto my-10">
+            <div className="absolute top-20 -left-60 w-1/4">
+              <TipCard side="left">
+                We do not need to explicitly include the index in the search
+                query if we are using one named{" "}
+                <KeyWord type="title">"default"</KeyWord>
+              </TipCard>
+            </div>
+            <div className="w-2/3 text-center mx-auto my-8 text-xl">
+              As exciting as it is to get our movies back, you might notice that
+              we aren't exactly getting all of our{" "}
+              <KeyWord type="title">Harry Potter</KeyWord> movies first. 😞{" "}
+              <br></br>
+              <br></br> Let's play around with a few elements and see what
+              happens.
+            </div>
+            <div className="SEARCH RESULT COMPARISON space-y-8">
+              <SearchResults
+                screenImage={BasicResults}
+                screenTitle="Movie Search Results from Basic Text Query"
+                query={originalQuery}
+              >
+                <div className="p-4 text-center">
+                  Our original simple search for Harry Potter in the{" "}
+                  <KeyWord type="code">fullplot</KeyWord> is a good start...
+                </div>
+              </SearchResults>
+              <div className="SEPARATOR bg-green-700 h-2 w-2/3 mx-auto rounded-2xl my-10"></div>
+              <SearchResults
+                screenImage={BasicTextArray}
+                screenTitle="Results Searching Across 'title', 'fullplot' and 'plot' Fields"
+                query={textPathArray}
+              >
+                <div className="p-4 text-center">
+                  We know that all <KeyWord type="title">Harry Potter</KeyWord>{" "}
+                  movies, have "Harry Potter" in the title, so lets add{" "}
+                  <KeyWord type="variable">title</KeyWord> to our search stage
+                  path... and why not add{" "}
+                  <KeyWord type="variable">plot</KeyWord> while we are at it. 🤷🏽‍♂️
+                  <br></br>
+                  <br></br> We search across multiple fields by combining them
+                  in an array.
+                </div>
+              </SearchResults>{" "}
+              <div className="SEPARATOR bg-green-700 h-2 w-2/3 mx-auto rounded-2xl my-10"></div>
+              <SearchResults
+                screenImage={PhraseTitle}
+                screenTitle="Movie Search Results Using the Phrase Operator"
+                query={phraseTitle}
+              >
+                <div className="p-4 text-center">
+                  We know that all <KeyWord type="title">Harry Potter</KeyWord>{" "}
+                  movies have "Harry Potter" in the title. We can search for
+                  terms that go together using the{" "}
+                  <KeyWord type="operator">phrase</KeyWord> operator and search
+                  only in the title field. This search query brings back all the
+                  Harry Potter movies in our movie database.<br></br>
+                  <span className="italic text-sm">
+                    ** note the use of the <KeyWord type="tab">slop</KeyWord>{" "}
+                    option.
+                  </span>
+                </div>
+              </SearchResults>{" "}
+            </div>
+            <div className=" SEPARATOR bg-green-700 h-2 w-2/3 mx-auto rounded-2xl mt-10"></div>
+          </div>
+          <div className="CONCLUSION relative w-4/5 flex mb-20 px-20 mx-auto text-center text-xl space-x-8">
+            <div className="w-1/3   ">
+              <img src={DidYouKnow} alt="trivia" className="" />{" "}
+            </div>
+            <div className="w-2/3 mx-auto">
+              A good search engine brings the right results to its user first!
+              It should be simple to look for{" "}
+              <KeyWord type="title">Harry Potter </KeyWord>movies without having
+              to scroll past movies about Beatrix Potter, Cole Porter, or
+              Trolls. <div className="my-2 text-4xl">🧌🤦‍♀️</div>
+              As we have seen, Atlas Search offers lots of ways to get our
+              search results, but it is{" "}
+              <span className="italic text-2xl text-green-700">
+                extremely
+              </span>{" "}
+              important to put these results in the right order, too. That
+              brings up back to scoring. Remember, the highest search score
+              wins! <br></br>
+              <br></br>In the next lesson, we will look more closely at scoring
+              -- what it means and how to influence it -- so you can surface the
+              right result to your user first!
+            </div>
+          </div>
         </div>
       </div>
     </LessonTemplate>
@@ -83,3 +194,27 @@ const Lesson5 = () => {
 };
 
 export default Lesson5;
+
+const originalQuery = {
+  text: {
+    query: "Harry Potter",
+    path: "fullplot",
+    fuzzy: { maxEdits: 1 },
+  },
+};
+
+const textPathArray = {
+  text: {
+    query: "Harry Potter",
+    path: ["title", "fullplot", "plot"],
+    fuzzy: { maxEdits: 1 },
+  },
+};
+
+const phraseTitle = {
+  phrase: {
+    query: "Harry Potter",
+    path: "title",
+    slop: 0,
+  },
+};

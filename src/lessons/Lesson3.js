@@ -38,11 +38,12 @@ const Lesson3 = () => {
       <div className="LESSON PAGE flex flex-col px-20 mt-auto text-base text-left">
         <div className="TOP-ROW flex  my-16 mx-auto justify-evenly relative">
           <div className="w-1/3 text-xl">
-            The beauty of implementing Search queries in an aggregation stage is
-            that it can be followed and combined with any other of the dozens
-            and dozens of MongoDB aggregation stages to obtain the aggregated
-            results you are looking for. As long as <KeyWord>$search</KeyWord>{" "}
-            comes first, your possibilities are endless.
+            The beauty of implementing Search queries in an{" "}
+            <KeyWord type="title">aggregation</KeyWord> stage is that it can be
+            followed and combined with any other of the dozens and dozens of
+            MongoDB aggregation stages to obtain the aggregated results you are
+            looking for. As long as <KeyWord>$search</KeyWord> comes first, your
+            possibilities are endless.
             <img
               className="mx-auto w-28 object-contain my-4"
               src={AggregationIcon}
@@ -344,6 +345,8 @@ const projectText = {
   fullplot: 1,
   "imdb.rating": 1,
   poster: 1,
+  released: 1,
+  genres: 1,
   score: {
     $meta: "searchScore",
   },
@@ -358,6 +361,8 @@ const projectStageFinal = {
   "imdb.rating": 1,
   fullplot: 1,
   poster: 1,
+  released: 1,
+  genres: 1,
   score: {
     $meta: "searchScore",
   },
@@ -405,6 +410,8 @@ const Final = [
       "imdb.rating": 1,
       fullplot: 1,
       poster: 1,
+      released: 1,
+      genres: 1,
       score: {
         $meta: "searchScore",
       },

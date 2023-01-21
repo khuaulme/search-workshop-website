@@ -89,7 +89,8 @@ const lessonData = [
     iconImage: Platform,
   },
   {
-    title: "6. Relevance-based Scoring and Custom Score Modifiers",
+    title:
+      "6. The Score Matters: Relevance-based Scoring and Custom Score Modifiers",
     description: `Atlas Search computes a score for every movie in our data collection based on relevance. Scoring is the whole reason we get our search results back in  order
        so it is important to understand. In this lesson, not only do we unravel the meaning of "relevance", but we will also play around 
        with special score modifiers: constant - boost -function to change the score and therefore your search results, so you can get the right results to ou

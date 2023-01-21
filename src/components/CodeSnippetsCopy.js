@@ -27,7 +27,7 @@ const CodeSnippetsCopy = ({ copyTextObject, type = "text" }) => {
   const [isCopied, setIsCopied] = useState(false);
 
   return (
-    <div className="text-sm relative">
+    <div className="text-sm relative ">
       <CopyToClipboard text={copyText} onCopy={() => setIsCopied(true)}>
         <button className=" text-white absolute right-2 top-2 hover:text-green-500">
           <span>{isCopied ? <HiOutlineDocumentCheck /> : <FaRegCopy />}</span>
