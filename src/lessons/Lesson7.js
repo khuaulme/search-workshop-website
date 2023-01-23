@@ -15,7 +15,7 @@ import First from "../images/first.gif";
 
 const Lesson7 = () => {
   return (
-    <LessonTemplate title="Lesson 7. The Score Indeed Matters" next="/Lesson8">
+    <LessonTemplate title="Lesson 7. The Score Matters" next="/Lesson8">
       <div className="LESSON PAGE flex flex-col  px-20 mt-auto text-base text-left">
         <div className="flex space-x-10 items-center w-full">
           <div className="w-1/4 mx-auto my-auto">
@@ -61,13 +61,13 @@ const Lesson7 = () => {
           <div className="w-1/5">
             <img src={DidYouKnow} alt="didyouknow" />
           </div>
-          <div className="w-3/4 text-base">
-            <div className="flex space-x-6 mb-8">
+          <div className="w-3/4 text-base px-16">
+            <div className="flex space-x-6 mb-6">
               <div className="text-center">
-                <span className="font-bold text-green-600 text-xl">
+                <span className="font-bold text-green-600 text-2xl">
                   So who’s keeping score?
                 </span>{" "}
-                <span className="font-bold text-fuchsia-800 text-xl">
+                <span className="font-bold text-fuchsia-800 text-2xl">
                   You should and here's why!
                 </span>{" "}
                 <br></br>
@@ -77,22 +77,47 @@ const Lesson7 = () => {
                   "If you ain’t first, you’re last?”{" "}
                 </span>
                 Ouch! But sadly, when it comes to the search bar that rings
-                true… <br></br>According to this analysis of over 4 millions
-                Google search results by Backlingo, the number 1 search result
-                has a click through rate 10X that of the result in position 10.
-                In fact the top 3 returned search results made up over 54% of
-                all the click-throughs.
+                true…
               </div>
+            </div>
 
+            <div className="pr-20 mb-10">
+              According to this analysis of over 4 millions Google search
+              results by Backlingo, the number 1 search result has a click
+              through rate 10X that of the result in position 10. In fact the
+              top 3 returned search results made up over 54% of all the
+              click-throughs.So if there is something, whether it is a movie,
+              product, restaurant, that you want your users to see first, you
+              will want its score to be as high as possible.
+            </div>
+            <div className="flex">
+              <div className="w-2/3">
+                A document’s search score depends on many things, including:{" "}
+                <ul className="ml-16 space-y-2 my-2">
+                  <li>✳️ The position of the search term in the document</li>
+                  <li>
+                    ✳️ The frequency of occurrence of the search term in the
+                    document
+                  </li>
+                  <li>✳️ The type of operator the query uses</li>
+                  <li>✳️ The type of analyzer the query uses</li>
+                </ul>
+                <div className="text-sm text-green-700 italic">
+                  More information about the Lucene scoring algorithm can be
+                  found in the{" "}
+                  <a
+                    href="https://lucene.apache.org/core/3_5_0/scoring.html"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline text-rhino"
+                  >
+                    Lucene documentation.
+                  </a>
+                </div>
+              </div>
               <div className="w-1/3 rounded">
                 <img src={First} alt="first" />
               </div>
-            </div>
-            {/******END RICKY BOBBY *****/}
-            <div>
-              So if there is something, whether it is a movie, product,
-              restaurant, that you want your users to see first, you will want
-              its score to be as high as possible.
             </div>
           </div>
         </div>
