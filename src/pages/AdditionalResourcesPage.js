@@ -1,33 +1,28 @@
 import React from "react";
 import LOGO from "../images/Logomark.svg";
-import GitHub from "../images/GitHub-Mark.png";
+import TipCard from "../components/TipCard";
 import Presenters from "../components/Presenters";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import Learning from "../images/lessonImages/EducationWeb.png";
+import CookingDemo from "../images/CookingDemo.gif";
+import SoccerDemo from "../images/soccerDemo.gif";
+import SearchIndexes from "../images/SearchIndexes.gif";
+
+import DemoPreviewCard from "../components/DemoPreviewCard";
 
 const AdditionalResourcesPage = () => {
   return (
-    <>
+    <div className="relative">
       <Header />
-      <div className="flex text-2xl px-20 ">
-        <img className="mr-2 my-auto h-16" src={LOGO} alt="logo" />
-        <div className="my-auto">Additional Learning Resources</div>
-      </div>
 
-      <hr
-        style={{
-          color: "green",
-          backgroundColor: "green",
-          height: 2,
-          borderColor: "green",
-        }}
-      />
-      <div className="flex">
-        <div className="flex px-20 w-full justify-around">
-          <div className="LIST space-y-4 mt-10 w-1/2">
-            <div className="DOCS text-lg ml-20">
+      <div className="relative flex space-x-10 w-full pr-60 pl-28 ">
+        <div className="w-1/5 absolute top-0 -right-0">
+          <TipCard side="right">
+            Check out our documentation and tutorials!{" "}
+            <div className="DOCS  ">
               <a
-                className="ml-4 text-center underline decoration-indigo-800"
+                className="ml-4 text-center underline decoration-indigo-800 text-lg"
                 target="_blank"
                 rel="noopener noreferrer"
                 href="https://www.mongodb.com/docs/atlas/atlas-search/"
@@ -35,7 +30,7 @@ const AdditionalResourcesPage = () => {
                 Atlas Search: The Docs{" "}
               </a>
             </div>
-            <div className="TUTORIALS text-lg ml-20">
+            <div className="TUTORIALS text-lg ">
               <a
                 className="ml-4 text-center underline decoration-indigo-800"
                 target="_blank"
@@ -45,118 +40,90 @@ const AdditionalResourcesPage = () => {
                 Various Atlas Search Tutorials{" "}
               </a>
             </div>
-            <div className="COMPARISON text-lg ml-20">
-              <a
-                className="ml-4 text-center underline decoration-indigo-800"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.mongodb.com/compare/mongodb-atlas-search-vs-elastic-elasticsearch"
-              >
-                Elastic Search vs MongoDB Atlas Search
-              </a>
-            </div>
-            <div className="COMPARISON text-lg ml-20">
-              <a
-                className="ml-4 text-center underline decoration-indigo-800"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.mongodb.com/developer/products/atlas/analyzing-analyzers-build-search-index-app/"
-              >
-                Analyzing Analyzers to Build the Right Search Index for Your App
-              </a>
-            </div>
-          </div>
-          <div className="DEMOS space-y-4 mt-10 w-1/2">
-            <div className="text-lg ml-20">
-              What's Cooking Restaurant Finder Demo:{" "}
-              <a
-                className="ml-4 text-center underline decoration-indigo-800"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.atlassearchrestaurants.com/"
-              >
-                www.atlassearchrestaurants.com
-              </a>
-            </div>
-            <div className="text-lg ml-20">
-              MongoDB Netflix Clone:{" "}
-              <a
-                className="ml-4 text-center underline decoration-indigo-800"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.atlassearchmovies.com/"
-              >
-                www.atlassearchmovies.com
-              </a>
-            </div>
-            <div className="text-lg ml-20">
-              Atlas Search Indexes & Analyzers Demo:{" "}
-              <a
-                className="ml-4 text-center underline decoration-indigo-800"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://www.atlassearchindexes.com/"
-              >
-                www.atlassearchindexes.com
-              </a>
-            </div>
-            <div className="REPO flex text-lg ml-20">
-              <img
-                src={GitHub}
-                alt="GitHub"
-                className="w-12 object-contain mr-10 "
-              />
+          </TipCard>
+        </div>
 
-              <a
-                className="ml-4 text-center underline decoration-indigo-800"
-                target="_blank"
-                rel="noopener noreferrer"
-                href="https://github.com/mongodb-developer/WhatsCooking"
-              >
-                What's Cooking Git Repo
-              </a>
-            </div>
+        <div className="w-1/4 mx-auto flex">
+          <img src={Learning} alt="learning" className="object-contain" />
+        </div>
+        <div className="w-3/4 flex flex-col ">
+          {/* <div className="flex text-xl px-20 items-center mx-auto">
+            <img className="mr-2 h-16" src={LOGO} alt="logo" />{" "}
+            <div className="">Additional Learning Resources</div>
+          </div> */}
+          <div className="text-lg  text-center w-3/4 mx-auto mt-20">
+            Check out Atlas Search in action! These demo applications show Atlas
+            Search in various scenarios performing lightning fast searches
+            across different data types.
+            <div className="text-2xl">✅ 📅 🔘 🔍</div>
+            Code previews embedded in the app along with sliders, toggles,
+            calendars, and checkboxes will teach you how to build out even the
+            most complex search queries. <br></br>So wanna learn how to query
+            strings, dates, or GEOJson data? Maybe incorporate synonyms,
+            MoreLikeThis, or facets? Click around and find out!
           </div>
+          <img className="mr-2 h-16" src={LOGO} alt="logo" />{" "}
         </div>
       </div>
-      <div className="flex my-10 justify-around ">
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/s2kXYZRE7pA"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-          className="border-2 border-springgreen"
-        ></iframe>
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/1uTmDNTdgaw"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          allowfullscreen
-          className="border-2 border-springgreen"
-        ></iframe>
-        <iframe
-          className="border-2 border-springgreen"
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/jnxnhbTO2RA"
-          title="YouTube video player"
-          frameborder="0"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-          allowfullscreen
-        ></iframe>
+      <div className="DEMO-APPS flex flex-col mb-20 text-black mx-auto w-full mt-8 text-lg text-center ">
+        <div className="px-20 grid grid-cols-3 gap-x-8  w-full">
+          {bundles.map((bundle, index) => {
+            return (
+              <DemoPreviewCard
+                key={index}
+                index={index}
+                title={bundle.title}
+                previewImage={bundle.previewImage}
+                hrefLink={bundle.hrefLink}
+                features={bundle.features}
+                youTubeLink={bundle.youTubeLink}
+                gitLink={bundle.gitLink}
+                blogLink={bundle.blogLink}
+              />
+            );
+          })}
+        </div>
       </div>
+
       <div className="absolute bottom-0 right-0 bg-white border border-green-600 rounded-tl-full">
         <Presenters />
       </div>
       <Footer />
-    </>
+    </div>
   );
 };
 
 export default AdditionalResourcesPage;
+
+const bundles = [
+  {
+    title: "www.atlassearchrestaurants.com",
+    previewImage: CookingDemo,
+    hrefLink: "https://www.atlassearchrestaurants.com",
+    youTubeLink: "https://www.youtube.com/embed/s2kXYZRE7pA",
+    gitLink: "https://github.com/mongodb-developer/WhatsCooking",
+    features: `GeoJSON, highlighting, fuzzy, autocomplete, synonyms, faceting
+                function scoring`,
+    blogLink: "",
+  },
+  {
+    title: "www.atlassearchsoccer.com",
+    previewImage: SoccerDemo,
+    hrefLink: "https://www.atlassearchsoccer.com",
+    youTubeLink: "https://www.youtube.com/embed/1uTmDNTdgaw",
+    gitLink: "https://github.com/mongodb-developer/atlas-search-soccer",
+    features:
+      "wildcard, autcomplete, facets, faceting, autocomplete, numbers, dates, keyword analyzer",
+    blogLink: "",
+  },
+  {
+    title: "www.atlassearchindexes.com",
+    hrefLink: "https://www.atlassearchindexes.com",
+    previewImage: SearchIndexes,
+    youTubeLink: "https://www.youtube.com/embed/2oJuXx6mceE",
+    gitLink: "",
+    features: `Demonstrates the importance of choosing the right one for your searches.`,
+    blogLink:
+      "https://www.mongodb.com/developer/products/atlas/analyzing-analyzers-build-search-index-app/",
+  },
+];

@@ -14,7 +14,6 @@ import InsertEndpoint from "../images/lessonImages/InsertEndpoint.png";
 import BasicResults from "../images/Screenshots/BasicTextScreen.png";
 import BasicTextArray from "../images/Screenshots/BasicTextArray.png";
 import PhraseTitle from "../images/Screenshots/PhraseTitle.png";
-import DidYouKnow from "../images/lessonImages/DidYouKnow.png";
 
 const Lesson5 = () => {
   return (
@@ -26,7 +25,7 @@ const Lesson5 = () => {
         <div className="TOP-ROW flex relative mt-10 w-full px-10 space-x-12 items-center justify-center">
           <div className="w-1/3">
             <div className="text-xl text-center font-bold">
-              Finally the search bar!
+              At last, the search bar. Our precious!
             </div>
             <img src={SearchBar} alt="icon" className="w-1/2 mx-auto" />
             In this quick lesson, let's put our Atlas Search query to good use
@@ -164,27 +163,22 @@ const Lesson5 = () => {
             </div>
             <div className=" SEPARATOR bg-green-700 h-2 w-2/3 mx-auto rounded-2xl mt-10"></div>
           </div>
-          <div className="CONCLUSION relative w-4/5 flex mb-20 px-20 mx-auto text-center text-xl space-x-8">
-            <div className="w-1/3   ">
-              <img src={DidYouKnow} alt="trivia" className="" />{" "}
-            </div>
+          <div className="CONCLUSION relative w-4/5 flex mb-20 px-20 mx-auto text-center text-xl space-x-12">
             <div className="w-2/3 mx-auto">
               A good search engine brings the right results to its user first!
               It should be simple to look for{" "}
               <KeyWord type="title">Harry Potter </KeyWord>movies without having
               to scroll past movies about Beatrix Potter, Cole Porter, or
-              Trolls. <div className="my-2 text-4xl">🧌🤦‍♀️</div>
-              As we have seen, Atlas Search offers lots of ways to get our
-              search results, but it is{" "}
-              <span className="italic text-2xl text-green-700">
-                extremely
-              </span>{" "}
-              important to put these results in the right order, too. That
-              brings up back to scoring. Remember, the highest search score
-              wins! <br></br>
-              <br></br>In the next lesson, we will look more closely at scoring
-              -- what it means and how to influence it -- so you can surface the
-              right result to your user first!
+              Trolls. There is a better way.
+              <div className="my-2 text-4xl">🧌🤦‍♀️</div>
+              In our next lesson, we will look at combining our search
+              parameters together in the same query using the{" "}
+              <KeyWord type="operator">compound </KeyWord> operator. So if you
+              are looking for your favorite sports movie from high school or
+              perhaps a Tom Hanks-Meg Ryan romance from the 90s? The{" "}
+              <KeyWord type="operator">compound </KeyWord> operator will allow
+              us to fine-tune our queries and find what we are looking for
+              faster. <span className="my-2 text-3xl">🧐</span>
             </div>
           </div>
         </div>
