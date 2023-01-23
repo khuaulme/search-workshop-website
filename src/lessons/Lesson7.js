@@ -7,7 +7,7 @@ import Compass from "../images/Compass.png";
 import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import KeyWord from "../components/KeyWord";
 import CodeReveal from "../components/CodeReveal";
-import Score from "../images/Score.svg";
+import Score from "../images/Score.png";
 import Relevance from "../images/relevance.jpg";
 import Descending from "../images/descending.png";
 import DidYouKnow from "../images/lessonImages/DidYouKnow.png";
@@ -17,67 +17,75 @@ const Lesson7 = () => {
   return (
     <LessonTemplate title="Lesson 7. The Score Matters" next="/Lesson8">
       <div className="LESSON PAGE flex flex-col  px-20 mt-auto text-base text-left">
-        <div className="flex space-x-10 items-center w-full">
-          <div className="w-1/4 mx-auto my-auto">
-            <img src={Score} alt="compound" />
+        <div className="relative flex space-x-8 items-center w-full mt-20">
+          <div className="absolute w-24 object-contain rounded -left-4 top-0 ">
+            <img src={Score} alt="score" />
           </div>
-          <div className="mb-8 text-black mx-auto w-1/2  text-lg">
-            In Lesson 3, we introduced the concept of{" "}
-            <KeyWord type="title">relevance-based scoring</KeyWord> when
-            building out our search aggregation. In this brief lesson, we’ll
-            discuss the importance of scoring and show a few ways to "work the
-            search ref" and influence the score include your favor.
-          </div>
-        </div>
-        {/**************END ROW 1 **********/}
-        <div className="flex items-center justify-evenly text-base space-x-10">
-          <div className="w-2/3">
-            Atlas Search computes a score based on{" "}
-            <KeyWord type="word">relevance</KeyWord> for each of our movie
-            documents and returns the movies to us with the scores in{" "}
-            <span className="italic font-bold">descending</span> order.
-            <div className="text-center mx-auto text-sm text-rhino p-4 ">
-              {" "}
-              <img src={Descending} alt="descending" className="w-full my-2" />
-              Notice the higher scores are returned first. Higher scores mean
-              higher relevance.
-              <div className="bg-fuchsia-800 mt-2 text-white h-1 w-2/3 rounded mx-auto text-center uppercase"></div>
+          <div className="COL-LEFT mb-8 text-black mx-auto w-2/3 text-center text-lg ">
+            <div className="w-4/5 mx-auto ">
+              In Lesson 3, we introduced the concept of{" "}
+              <KeyWord type="title">relevance-based scoring</KeyWord> when
+              building out our search aggregation. In this brief lesson, we’ll
+              discuss the importance of scoring and show a few ways to "work the
+              search ref" and influence the score include your favor.
+            </div>
+
+            <div className="mt-6 w-4/5 mx-auto">
+              Atlas Search computes a score based on{" "}
+              <KeyWord type="title">relevance</KeyWord> for each of our movie
+              documents and returns the movies to us with the scores in{" "}
+              <span className="italic font-bold">descending</span> order.
             </div>
             <div>
-              <KeyWord type="word">Relevance</KeyWord> is essentially a measure
-              of how well your search results matched the users request. Having
-              a high relevance ensures a better user experience. And a truly
-              great search experience results in meeting specific needs.{" "}
-              <span className="text-3xl">🎯</span>After all, you gotta give the
-              people what they want to keep them coming back.
+              <img
+                src={Descending}
+                alt="descending"
+                className="w-full px-10 mx-auto  my-auto"
+              />
+              <div className="text-center mx-auto text-sm italic text-rhino p-4 ">
+                {" "}
+                Notice the higher scores are returned first. Higher scores mean
+                higher relevance.
+                <div className="bg-fuchsia-800 mt-2 text-white h-1 w-1/2 rounded mx-auto text-center uppercase"></div>
+              </div>
             </div>
-          </div>{" "}
-          <div className="w-1/4 shadow-md shadow-slate-300 rounded ">
+          </div>
+
+          <div className="COL-RIGHT w-1/5 shadow-md shadow-slate-300 rounded my-auto ">
             <img src={Relevance} alt="relevant" />
           </div>
         </div>
-        {/**************END ROW 2 **********/}
-        <div className="flex w-full my-10 space-x-10">
+        {/**************END ROW 1 **********/}
+        <div className="flex w-full space-x-10 mb-10">
           <div className="w-1/5">
             <img src={DidYouKnow} alt="didyouknow" />
           </div>
           <div className="w-3/4 text-base px-16">
+            <div className="w-3/4 mx-auto px-8 py-4 shadow-md shadow-slate-600 rounded text-center">
+              {" "}
+              <KeyWord type="word">Relevance</KeyWord> is essentially a measure
+              of how well your search results matched the users request. A high
+              relevance delivers a truly great search experience and keeps users
+              coming back.<br></br> <span className="text-2xl">🎯</span>
+              <br></br>
+              You gotta give 'em what they want .
+            </div>
             <div className="flex space-x-6 mb-6">
-              <div className="text-center">
-                <span className="font-bold text-green-600 text-2xl">
-                  So who’s keeping score?
-                </span>{" "}
-                <span className="font-bold text-fuchsia-800 text-2xl">
-                  You should and here's why!
-                </span>{" "}
-                <br></br>
-                <br></br>
+              <div>
+                <div className="my-4 text-center">
+                  <span className="font-bold text-green-600 text-2xl">
+                    So who’s keeping score?
+                  </span>{" "}
+                  <span className="font-bold text-fuchsia-800 text-2xl">
+                    You should and here's why!
+                  </span>{" "}
+                </div>
                 In the words of the immortal Ricky Bobby,{" "}
-                <span className="text-rhino">
+                <span className="text-teal-800 text-xl">
                   "If you ain’t first, you’re last?”{" "}
                 </span>
                 Ouch! But sadly, when it comes to the search bar that rings
-                true…
+                true… 🔔
               </div>
             </div>
 
@@ -90,7 +98,7 @@ const Lesson7 = () => {
               product, restaurant, that you want your users to see first, you
               will want its score to be as high as possible.
             </div>
-            <div className="flex">
+            <div className="flex justify-evenly">
               <div className="w-2/3">
                 A document’s search score depends on many things, including:{" "}
                 <ul className="ml-16 space-y-2 my-2">
@@ -120,7 +128,8 @@ const Lesson7 = () => {
               </div>
             </div>
           </div>
-        </div>
+        </div>{" "}
+        {/**************END ROW 2 **********/}
       </div>
     </LessonTemplate>
   );
