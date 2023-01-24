@@ -17,7 +17,7 @@ const Lesson7 = () => {
   return (
     <LessonTemplate title="Lesson 7. The Score Matters" next="/Lesson8">
       <div className="LESSON PAGE flex flex-col  px-20 mt-auto text-base text-left">
-        <div className="relative flex space-x-8 items-center w-full mt-20">
+        <div className="relative flex space-x-8 items-center w-full mt-20 justify-evenly">
           <div className="absolute w-24 object-contain rounded -left-4 top-0 ">
             <img src={Score} alt="score" />
           </div>
@@ -46,7 +46,6 @@ const Lesson7 = () => {
                 {" "}
                 Notice the higher scores are returned first. Higher scores mean
                 higher relevance.
-                <div className="bg-fuchsia-800 mt-2 text-white h-1 w-1/2 rounded mx-auto text-center uppercase"></div>
               </div>
             </div>
           </div>
@@ -56,6 +55,7 @@ const Lesson7 = () => {
           </div>
         </div>
         {/**************END ROW 1 **********/}
+        <div className="bg-fuchsia-800 mb-8 text-white h-1 w-1/2 rounded mx-auto text-center uppercase"></div>
         <div className="flex w-full space-x-10 mb-10">
           <div className="w-1/5">
             <img src={DidYouKnow} alt="didyouknow" />

@@ -8,6 +8,7 @@ import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import KeyWord from "../components/KeyWord";
 import CodeReveal from "../components/CodeReveal";
 import CompoundSearch from "../images/lessonImages/CompoundSearch.png";
+import CodeSandbox from "../components/CodeSandbox";
 
 const Lesson6 = () => {
   return (
@@ -36,6 +37,7 @@ const Lesson6 = () => {
           </div>
         </div>
         {/*********END 1ST ROW **************/}
+        <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson6/?fontsize=14&hidenavigation=1&theme=dark" />
       </div>
     </LessonTemplate>
   );

@@ -90,22 +90,22 @@ const lessonData = [
     iconImage: Platform,
   },
   {
+    title: "6. Compound Operator to Combine Search Parameters",
+    description: `Learn how to fine-tune your search queries by combining different search parameters and queries together using the compound operator.`,
+    linkedPage: "Lesson5",
+    iconImage: SearchParameters,
+  },
+  {
     title:
-      "6. The Score Matters: Relevance-based Scoring and Custom Score Modifiers",
+      "7. The Score Matters: Relevance-based Scoring and Custom Score Modifiers",
     description: `Atlas Search computes a score for every movie in our data collection based on relevance. Scoring is the whole reason we get our search results back in  order
        so it is important to understand. In this lesson, not only do we unravel the meaning of "relevance", but we will also play around 
        with special score modifiers: constant - boost -function to change the score and therefore your search results, so you can get the right results to ou
        users.`,
-    linkedPage: "Lesson5",
+    linkedPage: "Lesson6",
     iconImage: Score,
   },
-  {
-    title: "7. Compound Operator to Combine Search Parameters",
-    description:
-      "With Atlas Search, we have made it even easier to work with data by allowing you to build powerful, flexible, and sophisticated search capabilities into your MongoDB applications!",
-    linkedPage: "Lesson6",
-    iconImage: SearchParameters,
-  },
+
   {
     title: '8. "Autocom... " : How to Implement Autocomplete',
     description:
