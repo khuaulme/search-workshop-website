@@ -24,8 +24,9 @@ const Lesson6 = () => {
           <div className="mb-8 text-black mx-auto w-2/3 my-auto text-lg">
             Has this ever happened to you? You need to find that newly released
             movie for the kids… is it an animated film or a musical? 🤔 Or
-            you’re trying to find that old crime thriller with Daniel Craig
-            whose name you can’t quite remember…
+            you’re trying to find that old crime thriller with Daniel Craig.
+            What was it called again? <span className="text-3xl">🕵️‍♂️</span> How
+            frustrating!
             <span className="text-3xl">🕵️‍♂️</span> Times like this, a simple
             search box just won’t do the trick. To find it fast, we may need to
             combine several search parameters together to hone in on what we
