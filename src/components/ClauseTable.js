@@ -9,7 +9,7 @@ const ClauseTable = () => {
           <th>DESCRIPTION</th>
         </tr>
       </thead>{" "}
-      <div className="bg-green-800 h-1 w-full"></div>
+      <br></br>
       <tbody>
         <tr>
           <td>
