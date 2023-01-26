@@ -10,7 +10,6 @@ const ClauseTable = () => {
           <th>BOOLEAN MAPPING</th>
         </tr>
       </thead>{" "}
-      <br></br>
       <tbody>
         <tr>
           <td>
@@ -28,7 +27,7 @@ const ClauseTable = () => {
             <KeyWord type="variable">AND</KeyWord>
           </td>
         </tr>
-        <br></br>
+
         <tr>
           <td>
             <span className="p-1  border border-green-900  font-bold text-xl rounded">
@@ -45,7 +44,6 @@ const ClauseTable = () => {
             <KeyWord type="variable">AND NOT</KeyWord>
           </td>
         </tr>
-        <br></br>
 
         <tr>
           <td>
@@ -63,7 +61,7 @@ const ClauseTable = () => {
             <KeyWord type="variable">OR</KeyWord>
           </td>
         </tr>
-        <br></br>
+
         <tr>
           <td>
             <span className="p-1  border border-green-900 font-bold text-xl rounded">
