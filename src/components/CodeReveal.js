@@ -10,14 +10,16 @@ const CodeReveal = ({
   negTitle,
   children,
   copyTextObject,
+  lesson,
 }) => {
+  let codeStyle = `bg-green-600 text-white py-4 px-10 flex justify-evenly items-center cursor-pointer shadow-2xl h-16 rounded `;
+  if (lesson === "6") {
+    codeStyle = `bg-teal-800 text-white py-4 px-10 flex justify-evenly items-center cursor-pointer shadow-2xl text-xl h-16 rounded `;
+  }
   return (
     <div className="Wrapper p-2 ">
       <div className="flex justify-center">
-        <div
-          className="bg-green-600 text-white py-4 px-10 flex justify-evenly items-center cursor-pointer shadow-2xl h-16 rounded "
-          onClick={() => toggle(open)}
-        >
+        <div className={`${codeStyle}`} onClick={() => toggle(open)}>
           {open ? <div>{negTitle}</div> : <div>{title}</div>}
           <div className="text-3xl text-white ml-4">
             {open ? <AiFillMinusCircle /> : <AiFillPlusCircle />}

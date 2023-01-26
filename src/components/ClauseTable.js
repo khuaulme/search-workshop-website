@@ -7,54 +7,76 @@ const ClauseTable = () => {
         <tr>
           <th>CLAUSE</th>
           <th>DESCRIPTION</th>
+          <th>BOOLEAN MAPPING</th>
         </tr>
       </thead>{" "}
       <br></br>
       <tbody>
         <tr>
           <td>
-            <KeyWord type="variable">must</KeyWord>
+            <span className="p-1  border border-green-900  font-bold text-xl rounded">
+              must
+            </span>
           </td>
           <td>
             Each operator subclause MUST match to be included in the search
-            results. Contributes greatly to the searchScore. Maps to the{" "}
-            <KeyWord type="variable">AND</KeyWord> boolean operator.
+            results. The returned score is the sum of the scores of all the
+            subqueries in the clause.{" "}
+            <div className="bg-fuchsia-800 h-1 w-full my-2"></div>
+          </td>{" "}
+          <td>
+            <KeyWord type="variable">AND</KeyWord>
           </td>
         </tr>
         <br></br>
-
         <tr>
           <td>
-            <KeyWord type="variable">mustNot</KeyWord>
+            <span className="p-1  border border-green-900  font-bold text-xl rounded">
+              mustNot
+            </span>
           </td>
           <td>
             Clauses that must not match for a document to be included in the
             results. mustNot clauses don't contribute to a returned document's
-            score. Maps to the <KeyWord type="variable">AND NOT</KeyWord>{" "}
-            boolean.
+            score.<div className="bg-fuchsia-800 h-1 w-full my-2"></div>
+          </td>
+          <td>
+            {" "}
+            <KeyWord type="variable">AND NOT</KeyWord>
           </td>
         </tr>
         <br></br>
 
         <tr>
           <td>
-            <KeyWord type="variable">should</KeyWord>
+            <span className="p-1  border border-green-900 font-bold text-xl rounded">
+              should
+            </span>
           </td>
           <td>
             Clauses that you prefer to match in documents that are included in
-            the results. Contributes to the searchScore. Maps to the{" "}
-            <KeyWord type="variable">OR</KeyWord> boolean.
+            the results. The returned score is the sum of the scores of all the
+            subqueries in the clause.
+            <div className="bg-fuchsia-800 h-1 w-full my-2"></div>
+          </td>
+          <td>
+            <KeyWord type="variable">OR</KeyWord>
           </td>
         </tr>
         <br></br>
-
         <tr>
           <td>
-            <KeyWord type="variable">filter</KeyWord>
+            <span className="p-1  border border-green-900 font-bold text-xl rounded">
+              filter
+            </span>
           </td>
           <td>
             Clauses MUST all match for a document to be included in the results-
             BUT filter clauses DO NOT contribute to the document's searchScore.
+            <div className="bg-fuchsia-800 h-1 w-full my-2"></div>
+          </td>
+          <td>
+            <KeyWord type="variable">N/A</KeyWord>
           </td>
         </tr>
       </tbody>{" "}

@@ -8,6 +8,9 @@ const Reveal = ({ open, toggle, title, negTitle, children, content }) => {
   if (content === "video") {
     classStyle =
       "bg-gradient-to-r from-fuchsia-800 via-violet-900 to-fuchsia-800 text-white py-4 px-10 flex justify-evenly items-center cursor-pointer shadow-2xl h-16 rounded w-full";
+  } else if (content === "movies") {
+    classStyle =
+      "bg-gradient-to-r from-teal-800 via-black-900 to-teal-800 text-white py-4 px-10 flex justify-evenly items-center cursor-pointer shadow-2xl h-16 rounded w-full";
   }
 
   return (
