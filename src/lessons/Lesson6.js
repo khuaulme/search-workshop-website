@@ -109,37 +109,7 @@ const Lesson6 = () => {
               />{" "}
             </div>
             Notice that compound takes 1 or all of the clauses. And the clauses
-            would take an array of the subqueries. So a{" "}
-            <KeyWord>$search</KeyWord> query combining those 3 parameters could
-            look like this:
-            <div className="my-2 w-3/5 mx-auto">
-              <CodeReveal
-                title="REVEAL COMPOUND SEARCH QUERY"
-                negTitle="HIDE COMPOUND QUERY"
-                open={showCompound}
-                toggle={toggleCompound}
-                copyTextObject={sampleCompound}
-                lesson="6"
-              ></CodeReveal>
-            </div>
-            <div className="text-xl text-center">
-              To bring the following frightful flicks to our attention :
-              <div className="w-full mx-auto">
-                <Reveal
-                  title="SHOW ZOMBIE MOVIE RESULTS 🧟 🧟‍♀️"
-                  negTitle="HIDE ZOMBIES"
-                  open={showResults}
-                  toggle={toggle}
-                  content="movies"
-                >
-                  <img
-                    src={ZombieResults}
-                    alt="zombies"
-                    className="mt-6 rounded"
-                  />
-                </Reveal>
-              </div>
-            </div>
+            would take an array of the subqueries.
           </div>
           <div className="w-2/5">
             {" "}
@@ -150,9 +120,54 @@ const Lesson6 = () => {
         </div>
         {/* <div className="bg-rhino h-2 w-full my-10"></div> */}
         {/*********************END 2ND ROW **************************************/}
-        <div className="bg-teal-700 h-1 ml-32 w-1/3 mt-4"></div>
+        <div className="flex mt-12 justify-around">
+          <div className="text-xl text-center w-1/2">
+            {" "}
+            So combining the 3 queries above into one might look like this:
+            <div className="my-2 w-3/5 mx-auto">
+              <CodeReveal
+                title="REVEAL COMPOUND SEARCH QUERY"
+                negTitle="HIDE COMPOUND QUERY"
+                open={showCompound}
+                toggle={toggleCompound}
+                copyTextObject={sampleCompound}
+                lesson="6"
+              ></CodeReveal>
+            </div>
+          </div>
+          <div className="text-xl text-center w-1/2">
+            To bring the following frightful flicks to our attention :
+            <div className="w-full mx-auto">
+              <Reveal
+                title="SHOW ZOMBIE MOVIE RESULTS 🧟 🧟‍♀️"
+                negTitle="HIDE ZOMBIE MOVIES"
+                open={showResults}
+                toggle={toggle}
+                content="movies"
+              >
+                <img
+                  src={ZombieResults}
+                  alt="zombies"
+                  className="mt-6 rounded"
+                />
+              </Reveal>
+            </div>
+          </div>
+        </div>
+        <div className="bg-teal-700 h-1 mx-auto mb-10 w-1/3 mt-6"></div>
+        {/*********************END 3RD ROW **************************************/}
         <div className="flex w-full mx-auto text-left space-x-10 mb-10">
-          <div className="w-1/2 text-center overflow-auto px-10 mt-10">
+          <div className="w-1/2 mx-auto my-4 text-lg px-10">
+            These clauses are the unsung heros{" "}
+            <span className="text-2xl">🦸</span> of the combining search
+            parameters. They allow for you to apply more or less consideration
+            to whether certain search conditions are met. <br></br>
+            <br></br>Think about <KeyWord type="title">clauses</KeyWord> as the
+            grout between the subquery tiles, the mortar between the search
+            query bricks. They won't get a ton of attention - unless they are
+            missing. Then you'll know!
+          </div>
+          <div className="w-1/2 text-center overflow-auto px-10 ">
             <div className=" w-full mt-6 text-xl border-4 border-fuchsia-800 pb-8  rounded-xl">
               <div className="bg-fuchsia-800 py-3 rounded text-white text-2xl text-center w-full mb-4">
                 EXERCISE
@@ -170,30 +185,16 @@ const Lesson6 = () => {
             </div>
           </div>
 
-          <div className="w-1/2 text-left px-10 relative">
-            {/* <hr className="w-48 h-1 mx-auto my-4 bg-gray-100 border-0 rounded md:my-10 dark:bg-gray-600" /> */}
-
-            <div className="w-1/3 absolute -bottom-20 -right-16">
+          {/* <div className="w-1/3 absolute -bottom-20 -right-16">
               <TipCard side="right">
                 You can use the minimumShouldMatch option to specify a minimum
                 number of <KeyWord type="operator">should</KeyWord>
                 clauses to match.
-              </TipCard>
-            </div>
-            {/*  */}
-          </div>
+              </TipCard> 
+            </div>*/}
         </div>{" "}
         {/*************END 3RD ROW **********/}
-        <div className="flex mx-auto space-x-8">
-          <div className="w-1/2 mx-auto my-4">
-            These clauses are the unsung heros of the combining search
-            parameters. They allow for you to apply more or less consideration
-            to whether certain search conditions are met. Think about{" "}
-            <KeyWord type="title">clauses</KeyWord> as the grout between the
-            subquery tiles, the mortar between the search query bricks. They
-            won't get a ton of attention, unless they are missing.
-          </div>
-        </div>
+        <div className="flex mx-auto space-x-8"></div>
         <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson6/?fontsize=14&hidenavigation=1&theme=dark" />
       </div>
     </LessonTemplate>

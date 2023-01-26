@@ -13,7 +13,7 @@ const ClauseTable = () => {
       <tbody>
         <tr>
           <td>
-            <span className="p-1  border border-green-900  font-bold text-xl rounded">
+            <span className="p-1  border border-green-900  font-bold text-lg rounded">
               must
             </span>
           </td>
@@ -30,7 +30,7 @@ const ClauseTable = () => {
 
         <tr>
           <td>
-            <span className="p-1  border border-green-900  font-bold text-xl rounded">
+            <span className="p-1  border border-green-900  font-bold text-lg rounded">
               mustNot
             </span>
           </td>
@@ -47,7 +47,7 @@ const ClauseTable = () => {
 
         <tr>
           <td>
-            <span className="p-1  border border-green-900 font-bold text-xl rounded">
+            <span className="p-1  border border-green-900 font-bold text-lg rounded">
               should
             </span>
           </td>
@@ -64,7 +64,7 @@ const ClauseTable = () => {
 
         <tr>
           <td>
-            <span className="p-1  border border-green-900 font-bold text-xl rounded">
+            <span className="p-1  border border-green-900 font-bold text-lg rounded">
               filter
             </span>
           </td>
