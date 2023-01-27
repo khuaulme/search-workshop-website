@@ -12,7 +12,7 @@ import CodeSandbox from "../components/CodeSandbox";
 import ClauseTable from "../components/ClauseTable";
 import ZombieResults from "../images/lessonImages/ZombieResults.png";
 import Reveal from "../components/Reveal";
-import Chef from "../images/Chef.png";
+import Tile from "../images/tile.png";
 
 const Lesson6 = () => {
   const [showResults, setShowResults] = useState(false);
@@ -28,6 +28,7 @@ const Lesson6 = () => {
     <LessonTemplate
       title="Lesson 6. The Compound Operator: For Fine-Tuned Searches"
       next="/Lesson7"
+      previous="/Lesson5"
     >
       <div className="LESSON PAGE flex flex-col px-20 mt-auto text-base text-left">
         <div className="flex space-x-10">
@@ -37,7 +38,7 @@ const Lesson6 = () => {
             <span className="text-3xl">🧟😱</span> But you just can’t remember
             the name. How frustrating! Times like this, a simple search box just
             won’t do the trick. To find it fast, we may need to combine several
-            search parameters together to hone in on what we want.<br></br>
+            search parameters together to find what we want.<br></br>
             <br></br> In this lesson, we will learn how to combine our{" "}
             <KeyWord>$search</KeyWord> operators together to quickly and easily
             create fine-grained searches using the{" "}
@@ -89,10 +90,15 @@ const Lesson6 = () => {
             <span className="italic"> nuance </span>, the{" "}
             <KeyWord type="operator">compound</KeyWord> operator takes 4
             different <KeyWord type="title">clauses</KeyWord>:{" "}
-            <span className="text-2xl font-bold ">
-              must, mustNot, should, filter
-            </span>
-            .
+            <div className="mx-auto text-center mt-4">
+              <KeyWord type="tab">must</KeyWord>
+              {" - "}
+              <KeyWord type="tab">mustNot</KeyWord>
+              {" - "}
+              <KeyWord type="tab">should</KeyWord>
+              {" - "}
+              <KeyWord type="tab">filter</KeyWord>.
+            </div>
           </div>
         </div>
         <div className="flex full px-10 space-x-20">
@@ -108,8 +114,8 @@ const Lesson6 = () => {
                 copyTextObject={compoundObject}
               />{" "}
             </div>
-            Notice that compound takes 1 or all of the clauses. And the clauses
-            would take an array of the subqueries.
+            Notice that compound takes one or all of the clauses. And each
+            clause would take an array of the subqueries.
           </div>
           <div className="w-2/5">
             {" "}
@@ -118,7 +124,6 @@ const Lesson6 = () => {
             </div>
           </div>
         </div>
-        {/* <div className="bg-rhino h-2 w-full my-10"></div> */}
         {/*********************END 2ND ROW **************************************/}
         <div className="flex mt-12 justify-around">
           <div className="text-xl text-center w-1/2">
@@ -154,18 +159,29 @@ const Lesson6 = () => {
             </div>
           </div>
         </div>
-        <div className="bg-teal-700 h-1 mx-auto mb-10 w-1/3 mt-6"></div>
+        <div className="bg-teal-700 h-1 mx-auto w-1/3 mt-6"></div>
         {/*********************END 3RD ROW **************************************/}
-        <div className="flex w-full mx-auto text-left space-x-10 mb-10">
-          <div className="w-1/2 mx-auto my-4 text-lg px-10">
-            These clauses are the unsung heros{" "}
-            <span className="text-2xl">🦸</span> of the combining search
-            parameters. They allow for you to apply more or less consideration
-            to whether certain search conditions are met. <br></br>
-            <br></br>Think about <KeyWord type="title">clauses</KeyWord> as the
-            grout between the subquery tiles, the mortar between the search
-            query bricks. They won't get a ton of attention - unless they are
-            missing. Then you'll know!
+        <div className="flex w-full mx-auto text-left justify-evenly  mb-10">
+          <div className="w-1/2 mx-auto my-4 text-lg px-10 flex">
+            <div className="w-3/4 px-10">
+              These clauses <KeyWord type="tab">must</KeyWord>,{" "}
+              <KeyWord type="tab">mustNot</KeyWord>,{" "}
+              <KeyWord type="tab">should</KeyWord>, and{" "}
+              <KeyWord type="tab">filter</KeyWord>
+              are the glue <span className="text-2xl"></span> for combining
+              search parameters inside of the{" "}
+              <KeyWord type="operator">compound</KeyWord>. They allow for you to
+              apply more or less consideration to whether certain search
+              conditions are met. <br></br>
+              <br></br>Think about<KeyWord type="title">clauses</KeyWord> as the
+              grout between the subquery tiles, the mortar between the search
+              query bricks. They won't get a ton of attention - unless they are
+              missing.
+            </div>
+            <div className="w-1/3 mx-auto ">
+              {" "}
+              <img src={Tile} alt="tile" />
+            </div>
           </div>
           <div className="w-1/2 text-center overflow-auto px-10 ">
             <div className=" w-full mt-6 text-xl border-4 border-fuchsia-800 pb-8  rounded-xl">
@@ -174,13 +190,14 @@ const Lesson6 = () => {
               </div>
               <div className="px-10">
                 You are <span className="italic">DEFINITELY</span> in the mood
-                for zombies! <br></br>
-                <span className="text-3xl">🧟 😱 🧟‍♀️</span>
-                <br></br>Combine the 3 search parameters above into a logical{" "}
-                <KeyWord>$search</KeyWord> query using our new{" "}
-                <KeyWord type="operator">compound</KeyWord> operator.<br></br>
+                for Star Wars!
+                <div className="text-center text-4xl">🍿{"  "} 🎥</div>
+                But one of the older ones - no Jar Jar Binks. Combine at least 2
+                search parameters into a logical <KeyWord>$search</KeyWord>{" "}
+                query using our new <KeyWord type="operator">compound</KeyWord>{" "}
+                operator to achieve this.<br></br>
                 <br></br>
-                What was the title and searchScore of your first result?
+                What was the title and searchScore of your first 2 results?
               </div>
             </div>
           </div>
@@ -194,8 +211,25 @@ const Lesson6 = () => {
             </div>*/}
         </div>{" "}
         {/*************END 3RD ROW **********/}
-        <div className="flex mx-auto space-x-8"></div>
-        <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson6/?fontsize=14&hidenavigation=1&theme=dark" />
+        {/* <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson6/?fontsize=14&hidenavigation=1&theme=dark" /> */}
+        <div className="bg-rhino rounded ml-auto w-3/4 py-2 text-center text-white uppercase text-3xl my-8 mx-auto ">
+          CREATING THE BACKEND
+        </div>
+        <div className="w-full flex mx-auto justify-evenly space-x-8 mb-20">
+          <div className="w-1/3 shadow-md shadow-slate-700 rounded p-4">
+            In the code sandbox above, we now have an interface for more search
+            parameters - <KeyWord type="title">genres</KeyWord>,{" "}
+            <KeyWord type="title">rating</KeyWord>, and{" "}
+            <KeyWord type="title">date released</KeyWord>, in addition to our
+            search box. Now we will tile these parameters in a{" "}
+            <KeyWord type="operator">compund</KeyWord> search query. Once we
+            have that <KeyWord>$search</KeyWord> aggregation pipeline built, we
+            will incorporate it into a Data API to be called by our movie search
+            app.
+          </div>
+          <div className="w-1/3 shadow-md shadow-slate-700 rounded p-4"></div>
+          <div className="w-1/3 shadow-md shadow-slate-700 rounded p-4"></div>
+        </div>
       </div>
     </LessonTemplate>
   );

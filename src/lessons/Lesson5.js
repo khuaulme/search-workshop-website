@@ -20,6 +20,7 @@ const Lesson5 = () => {
     <LessonTemplate
       title="Lesson 5. Call API from the Front End"
       next="/Lesson6"
+      previous="/Lesson4"
     >
       <div className="LESSON PAGE flex flex-col px-20 mt-auto text-base text-left">
         <div className="TOP-ROW flex relative mt-10 w-full px-10 space-x-12 items-center justify-center">

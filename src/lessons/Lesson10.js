@@ -14,6 +14,7 @@ const Lesson10 = () => {
     <LessonTemplate
       title="Lesson 10. Facets: How Many of What & Where"
       next="/"
+      previous="/Lesson9"
     >
       <div className="LESSON PAGE flex flex-col  px-20 mt-auto text-base text-left">
         <img

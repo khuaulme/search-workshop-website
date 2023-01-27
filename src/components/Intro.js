@@ -32,10 +32,12 @@ const Intro = ({ showSetUpPDF, setShowSetUpPDF }) => {
                 <li>✅ highlighting</li>
                 <li>✅ relevance-based scoring</li>
                 <li>✅ facets and counts</li>
-                <li>✅ synonyms</li>
               </ul>
             </div>
-            as well as many other advanced features.
+            <div className="text-left">
+              {" "}
+              as well as many other advanced features.
+            </div>
           </div>
         </div>
         <div className="mt-4">
@@ -45,10 +47,12 @@ const Intro = ({ showSetUpPDF, setShowSetUpPDF }) => {
         </div>
         <div className="text-center text-4xl">🍿{"  "} 🎥</div>
         <div className="mx-4  mt-4 mb-10 w-full">
-          Because this workshop is broken down into different lessons, you can
-          start from the absolute beginning or jump directly to the more
-          advanced features. The frontend application is hosted on GitHub and
-          CodeSandbox.io and sits ready for you to fork.
+          This workshop is broken down into different lessons. In Lessons 1-5,
+          you will get up and running by building out the basic Netflix clone.
+          The later lessons can all stand on their own. So you can start from
+          the absolute beginning or jump directly to the more advanced features.
+          The frontend application is hosted on GitHub and CodeSandbox.io and
+          sits ready for you to fork.
         </div>
         <hr
           style={{

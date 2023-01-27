@@ -22,6 +22,7 @@ const Lesson2 = () => {
     <LessonTemplate
       title="Lesson 2. Creating Basic Search Queries"
       next="/Lesson3"
+      previous="/Lesson1"
     >
       <div className="flex flex-col LESSON PAGE font-barlow text-base justify-between px-20 mt-10">
         <div className="flex space-x-10">
@@ -84,7 +85,7 @@ const Lesson2 = () => {
                   <br></br>
                   <br></br> So for the first stage, select the{" "}
                   <KeyWord>$search</KeyWord>
-                  aggregation operator to search for the text{" "}
+                  aggregation operator to query for the text{" "}
                   <span className="text-lg text-purple-700">
                     "Harry Potter"
                   </span>{" "}
@@ -104,7 +105,17 @@ const Lesson2 = () => {
                   />
                 </div>
               </div>
-              <div className="LINE bg-teal-600 h-2 w-2/3 ml-auto rounded-2xl my-10"></div>
+              <div className="LINE bg-teal-600 h-2 w-2/3 ml-auto rounded-2xl my-10 relative">
+                {" "}
+                <div className="absolute top-0 -right-10 w-1/4">
+                  <TipCard side="right">
+                    <div className="flex items-center">
+                      <KeyWord type="variable">maxEdits</KeyWord> can be set to
+                      either 1 or 2.
+                    </div>
+                  </TipCard>
+                </div>
+              </div>
               <div className="FUZZY w-full text-left items-center flex mx-auto px-40">
                 <div className="flex w-1/2">
                   <div className="w-full object-contain px-8 z-10">
@@ -124,7 +135,7 @@ const Lesson2 = () => {
                   Our first bit of magic is the{" "}
                   <span className="text-xl text-green-600">fuzzy</span> option.
                   Notice that if you misspell "Harry" or "Potter," the $search
-                  operator will return no movies. Simply adding the
+                  operator will return no movies. Simply adding the line
                   <div className="w-1/2 mx-auto">
                     <CodeSnippetsCopy
                       type="line"
@@ -136,6 +147,7 @@ const Lesson2 = () => {
                     <CodeSnippetsCopy copyTextObject={fuzzyText} />
                   </div>
                 </div>
+
                 {/*  */}
               </div>
               <div className="relative">

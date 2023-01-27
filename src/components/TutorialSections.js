@@ -91,7 +91,7 @@ const lessonData = [
   },
   {
     title: "6. Compound Operator to Combine Search Parameters",
-    description: `Learn how to fine-tune your search queries by combining different search parameters and queries together using the compound operator.`,
+    description: `Learn how to fine-tune your search queries by combining different search parameters and queries together using the compound operator and clauses.`,
     linkedPage: "Lesson5",
     iconImage: SearchParameters,
   },
@@ -100,7 +100,7 @@ const lessonData = [
       "7. The Score Matters: Relevance-based Scoring and Custom Score Modifiers",
     description: `Atlas Search computes a score for every movie in our data collection based on relevance. Scoring is the whole reason we get our search results back in  order
        so it is important to understand. In this lesson, not only do we unravel the meaning of "relevance", but we will also play around 
-       with special score modifiers: constant - boost -function to change the score and therefore your search results, so you can get the right results to ou
+       with special score modifiers: constant - boost -function to change the score and therefore your search results, so you can get the right results to your
        users.`,
     linkedPage: "Lesson6",
     iconImage: Score,

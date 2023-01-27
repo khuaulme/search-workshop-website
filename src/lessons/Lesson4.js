@@ -17,7 +17,11 @@ const Lesson4 = () => {
     setShowVideo(!showVideo);
   };
   return (
-    <LessonTemplate title="Lesson 4. Create a RESTful API" next="/Lesson5">
+    <LessonTemplate
+      title="Lesson 4. Create a RESTful API"
+      next="/Lesson5"
+      previous="/Lesson3"
+    >
       <div className="LESSON PAGE flex flex-col px-20 mt-auto text-base text-left">
         <div className="TOP-ROW flex relative mt-10">
           <div className="w-1/4">

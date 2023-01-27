@@ -34,6 +34,7 @@ const Lesson3 = () => {
     <LessonTemplate
       title="Lesson 3. Complete  $Search Aggregation"
       next="/Lesson4"
+      previous="/Lesson2"
     >
       <div className="LESSON PAGE flex flex-col px-20 mt-auto text-base text-left">
         <div className="TOP-ROW flex  my-16 mx-auto justify-evenly relative">
@@ -154,16 +155,19 @@ const Lesson3 = () => {
                   operator to surface them in the output.
                 </TipCard>
               </div>
-              <div className="SEPARATOR bg-teal-700 h-2 w-2/3 mx-auto rounded-2xl my-10"></div>
+              {/* <div className="SEPARATOR bg-teal-700 h-2 w-2/3 mx-auto rounded-2xl my-10"></div> */}
             </div>
             {/*****************END SCORING ROW **********************/}
+          </div>
+          <div className="bg-rhino w-3/4 text-white mt-6 mb-10 px-4 py-2 mx-auto rounded text-center uppercase relative">
+            Highlights
           </div>
           <div className="relative w-full px-6 flex mx-auto mt-6 text-left  space-x-8">
             <div className="w-1/3 border-r border-fuchsia-800 ">
               {" "}
-              <div className="bg-rhino text-white w-3/4 px-4 py-2 mx-auto rounded text-center uppercase">
+              {/* <div className="bg-rhino text-white w-3/4 px-4 py-2 mx-auto rounded text-center uppercase">
                 Highlights
-              </div>
+              </div> */}
               <div className="">
                 As easy as it is to see the scoring metadata, it is just as
                 simple to surface <KeyWord type="word">highlights</KeyWord> to
@@ -332,9 +336,9 @@ const Lesson3 = () => {
             <div className="w-1/3 mt-8">
               That's it! This simple 3 stage aggregation pipeline will power our
               MongoDB movie search engine. Congratulations on completing Lesson
-              2!
+              3!
               <span className="text-4xl">👊🎉🙌 </span>. <br></br>
-              <br></br>In lesson 3, we'll put our new <KeyWord>$search</KeyWord>
+              <br></br>In lesson 4, we'll put our new <KeyWord>$search</KeyWord>
               aggregation to work!
               <div className="SEPARATOR bg-fuchsia-800 h-1 w-2/3 mx-auto rounded-2xl my-16"></div>
             </div>

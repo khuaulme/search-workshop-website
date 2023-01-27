@@ -11,7 +11,11 @@ import UnderConstruction from "../images/UnderConstruction.png";
 
 const Lesson9 = () => {
   return (
-    <LessonTemplate title="Lesson 9. Indexes & Analyzers" next="/Lesson10">
+    <LessonTemplate
+      title="Lesson 9. Indexes & Analyzers"
+      next="/Lesson10"
+      previous="/Lesson8"
+    >
       <div className="LESSON PAGE flex flex-col  px-20 mt-auto text-base text-left">
         <img
           src={UnderConstruction}

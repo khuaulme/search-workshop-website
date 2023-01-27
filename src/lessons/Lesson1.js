@@ -18,7 +18,11 @@ const Lesson1 = () => {
   };
 
   return (
-    <LessonTemplate title="Lesson 1. Create a Search Index" next="/Lesson2">
+    <LessonTemplate
+      title="Lesson 1. Create a Search Index"
+      next="/Lesson2"
+      previous="/"
+    >
       <div className="LESSON PAGE font-barlow">
         <div className="TOP-INTRO-PART flex px-20 my-10 items-center text-base  justify-evenly mb-4 w-3/4 space-x-20 mx-auto ">
           <div className="w-1/4 object-contain">
@@ -60,10 +64,10 @@ const Lesson1 = () => {
               </div>
               <div className="instructions">
                 Give your index a name (we'll keep the name{" "}
-                <KeyWord type="word">default</KeyWord>) and confirm the correct
-                collection (<KeyWord type="word">movies</KeyWord>) to index is
-                selected. You can leave the default settings here and click on
-                the <KeyWord type="button">Next </KeyWord>
+                <KeyWord type="word">"default"</KeyWord>) and confirm the
+                correct collection (<KeyWord type="word">movies</KeyWord>) to
+                index is selected. You can leave the default settings here and
+                click on the <KeyWord type="button">Next </KeyWord>
                 button. By leaving the Index Name as{" "}
                 <KeyWord type="word">default</KeyWord>, we will not have to
                 specify the index name in our search queries, which is
@@ -79,11 +83,10 @@ const Lesson1 = () => {
                 Atlas Search is built on the popular Apache Lucene search
                 library. As such, Atlas Search is highly configurable, thus
                 allowing you to employ different analyzers and map field types.
-                For this first exercise, we are going to stick with all the
-                defaults. Let's accept the default settings and click{" "}
-                <KeyWord type="button">Create Index</KeyWord>. With that we are
-                ready to move to <KeyWord type="title">Lesson 2</KeyWord> and
-                build our first search queries!
+                For this first exercise, let's accept the default settings and
+                click <KeyWord type="button">Create Index</KeyWord>. With that
+                we are ready to move to <KeyWord type="title">Lesson 2</KeyWord>{" "}
+                and build our first search queries!
               </div>
             </div>{" "}
             {/******************************* END STEP 3 ********************************/}
@@ -105,7 +108,7 @@ const Lesson1 = () => {
         </div>
         <div className="MAPPING DESCRIPTION mx-20 space-x-8">
           <div className="DYNAMIC text-base text-left w-full my-8 flex justify-center space-x-20">
-            <div className="w-2/5 px-8 shadow shadow-gray-500 py-4">
+            <div className="w-1/3 px-8 shadow shadow-gray-500 py-4">
               <div className="bg-teal-600 py-2 w-full text-white text-center rounded mt-1">
                 but what <span className="italic">Exactly</span> did we just do?
               </div>
@@ -119,13 +122,23 @@ const Lesson1 = () => {
               MongoDB's flexible data model perfectly. As you add new data to
               your collection and your schema evolves, dynamic mapping
               accommodates those changes in your schema and adds that new data
-              to the Atlas Search index automatically.<br></br>
+              to the Atlas Search index automatically.{" "}
+              <span className="italic">No re-indexing! 🎉🙌</span>
+              <br></br>
               <br></br>And just like with a treasure map 🗺️, Atlas Search
               indexes will enable to find what we are looking for{" "}
               <span className="italic">FAST!</span>
             </div>
+            <div className="w-1/3 px-8 shadow shadow-gray-500 py-4">
+              <div className="bg-teal-600 py-2 w-full text-white text-center rounded mt-1">
+                Sample Movie Document
+              </div>
+              Our movie documents each have strings arrays, dates, numbers,
+              embedded objects. Now that we have created a search index, we can
+              immediately start querying across all of them.
+            </div>
 
-            <div className="w-2/5 px-8 shadow shadow-gray-500 py-4">
+            <div className="w-1/3 px-8 shadow shadow-gray-500 py-4">
               <div className="bg-teal-600 py-2 w-full text-white text-center rounded mt-1">
                 and what is{" "}
                 <span className="text-sun text-2xl italic">

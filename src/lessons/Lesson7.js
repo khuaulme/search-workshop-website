@@ -15,7 +15,11 @@ import First from "../images/first.gif";
 
 const Lesson7 = () => {
   return (
-    <LessonTemplate title="Lesson 7. The Score Matters" next="/Lesson8">
+    <LessonTemplate
+      title="Lesson 7. The Score Matters"
+      next="/Lesson8"
+      previous="/Lesson6"
+    >
       <div className="LESSON PAGE flex flex-col  px-20 mt-auto text-base text-left">
         <div className="relative flex space-x-8 items-center w-full mt-20 justify-evenly">
           <div className="absolute w-24 object-contain rounded -left-4 top-0 ">
@@ -27,7 +31,7 @@ const Lesson7 = () => {
               <KeyWord type="title">relevance-based scoring</KeyWord> when
               building out our search aggregation. In this brief lesson, we’ll
               discuss the importance of scoring and show a few ways to "work the
-              search ref" and influence the score include your favor.
+              search ref" and influence the score in your favor.
             </div>
 
             <div className="mt-6 w-4/5 mx-auto">
@@ -96,7 +100,8 @@ const Lesson7 = () => {
               top 3 returned search results made up over 54% of all the
               click-throughs.So if there is something, whether it is a movie,
               product, restaurant, that you want your users to see first, you
-              will want its score to be as high as possible.
+              will want its score to be as high as possible. For example, think
+              of sponsored searches or promotions.
             </div>
             <div className="flex justify-evenly">
               <div className="w-2/3">
@@ -130,6 +135,7 @@ const Lesson7 = () => {
           </div>
         </div>{" "}
         {/**************END ROW 2 **********/}
+        <div className="bg-green-600 rounded h-1 w-3/4 mx-auto mb-10"></div>
       </div>
     </LessonTemplate>
   );
