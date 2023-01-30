@@ -7,7 +7,7 @@ const ScoreModifierCard = ({ title, description, codeObject, children }) => {
       <div className="w-full rounded text-xl text-white bg-slate-800 py-2 px-4 text-center uppercase">
         {title}
       </div>
-      <div>{description}</div>
+      <div className="my-4 px-6">{description}</div>
       <CodeSnippetsCopy copyTextObject={codeObject} />
       <div>{children}</div>
     </div>

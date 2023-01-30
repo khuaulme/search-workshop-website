@@ -147,9 +147,13 @@ const Lesson7 = () => {
         </div>{" "}
         {/**************END ROW 2 **********/}
         <div className="bg-green-600 rounded h-1 w-3/4 mx-auto mb-10"></div>
-        <div className="text-center mb-6">
-          Atlas Search offers several custom score modifiers to allow you to
-          influence the score and further fine-tune your search results.
+        <div className="text-center mb-6 text-2xl ">
+          Atlas Search offers several{" "}
+          <span className="text-green-800 font-bold uppercase text-4xl">
+            custom score modifiers
+          </span>{" "}
+          to allow you to influence the score and further fine-tune your search
+          results.
         </div>
         <div className="ROW3 flex mx-auto w-full space-x-10 mb-10">
           <ScoreModifierCard
@@ -180,7 +184,8 @@ const Lesson7 = () => {
             description={functionScore.description}
             codeObject={functionScore.code}
           >
-            This <KeyWord>$search</KeyWord> query will look for zombies in the{" "}
+            This <KeyWord>$search</KeyWord> query will look for{" "}
+            <KeyWord type="word">zombies</KeyWord> in the{" "}
             <KeyWord type="variable">fullplot</KeyWord> and{" "}
             <KeyWord type="variable">title</KeyWord> fields before multiplying
             the score of the resulting documents by its{" "}
@@ -192,38 +197,13 @@ const Lesson7 = () => {
           </ScoreModifierCard>
         </div>
         <div className="flex mx-auto space-x-10 mb-10">
-          <div className="w-1/2">
+          <div className="w-2/5">
             <img src={Films} alt="films" />
           </div>
           <div className="w-1/2 text-center overflow-auto px-10 ">
-            <div className="relative w-full mt-6 text-xl border-4 border-red-700 pb-8  rounded">
+            <div className="w-full mt-6 text-xl border-4 border-red-700 pb-8  rounded">
               <div className="bg-red-700 py-3  text-white text-2xl text-center w-full mb-4">
-                EXERCISE 1: COMPOUND & BOOST
-              </div>
-              <div className="px-10">
-                <span className="italic">Brad Pitt</span> can do no wrong when
-                it comes to movies...
-                <div className="text-center text-4xl">🍿{"  "} 🎥</div>
-                and now I have you thinking about{" "}
-                <span className="text-6xl">🧟</span>s!
-                <br></br>
-                <br></br>
-                Create a <KeyWord>$search</KeyWord> compound query that has Brad
-                Pitt - <span className="italic">AND</span> boost that score by 5
-                it is also a horror movie. <br></br>
-                <br></br>
-                <div className="text-2xl text-center text-indigo-900">
-                  What was the name of the top movie result? What was the search
-                  score?
-                </div>
-              </div>
-              <div className="absolute -top-6 -right-10 w-1/4 mx-auto">
-                <img src={Question} alt="q" />
-              </div>
-            </div>
-            <div className="relative w-full mt-6 text-xl border-4 border-red-700 pb-8  rounded">
-              <div className="bg-red-700 py-3  text-white text-2xl text-center w-full mb-4">
-                EXERCISE 2: FUNCTION SCORING
+                EXERCISE 1: FUNCTION SCORING
               </div>
               <div className="flex">
                 <div className="w-1/5 mx-auto ml-4">
@@ -242,9 +222,34 @@ const Lesson7 = () => {
                 What was the best rated James Bond movie?
               </div>
             </div>
-            {/* <div className="absolute -top-8 -right-4 w-1/4 mx-auto">
-                <img src={Question} alt="q" />
-              </div> */}
+            <div className="relative w-full mt-6 text-xl border-4 border-red-700 pb-8  rounded">
+              <div className="bg-red-700 py-3  text-white text-2xl text-center w-full mb-4">
+                EXERCISE 2: COMPOUND & BOOST
+              </div>
+              <div className="px-10">
+                <span className="italic">Brad Pitt</span> can do no wrong when
+                it comes to movies...
+                <div className="text-center text-4xl">🍿{"  "} 🎥</div>
+                and now I have you thinking about{" "}
+                <span className="text-6xl">🧟</span>s!
+                <br></br>
+                <br></br>
+                Create a <KeyWord>$search</KeyWord> compound query to find
+                movies starring Brad Pitt - <span className="italic">AND</span>{" "}
+                boost that score by 5 if it is also a horror movie.{" "}
+                <span className="text-3xl">😱</span>
+                <br></br>
+                <br></br>
+                <div className="text-2xl text-center text-indigo-900">
+                  What was the name of the top movie result? What was the search
+                  score?
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="w-1/6 my-auto mx-auto">
+            {" "}
+            <img src={Question} alt="q" />
           </div>
         </div>
       </div>
@@ -255,7 +260,7 @@ const Lesson7 = () => {
 export default Lesson7;
 
 const functionScore = {
-  title: "function scoring",
+  title: "function",
   description: `The function option allows you to alter the final score of the document using a numeric field . You can specify the numeric field for computing the final score through an 
 expression.`,
   code: {
@@ -312,7 +317,7 @@ const constant = {
 const boost = {
   title: "boost",
   description: `The boost option multiplies a result's base score by a given number 
-  or the value of a numeric field in the documents. For example, you can use boost to increase the importance of certain matching documents in the result.`,
+  or the value of a numeric field in the documents. This is helpful for weighting certain fields or increasing the importance of certain matching documents in the result.`,
   code: {
     $search: {
       compound: {
