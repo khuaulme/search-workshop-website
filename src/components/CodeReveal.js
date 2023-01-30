@@ -16,6 +16,9 @@ const CodeReveal = ({
   if (lesson === "6") {
     codeStyle = `bg-teal-800 text-white py-4 px-10 flex justify-evenly items-center cursor-pointer shadow-2xl text-xl h-16 rounded `;
   }
+  if (lesson === "1") {
+    codeStyle = `bg-slate-800 text-white py-2 px-4 flex justify-evenly items-center cursor-pointer shadow-2xl text-xl h-12 rounded `;
+  }
   return (
     <div className="Wrapper p-2 ">
       <div className="flex justify-center">

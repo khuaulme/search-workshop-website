@@ -12,7 +12,7 @@ import CodeSandbox from "../components/CodeSandbox";
 import ClauseTable from "../components/ClauseTable";
 import ZombieResults from "../images/lessonImages/ZombieResults.png";
 import Reveal from "../components/Reveal";
-import Tile from "../images/tile.png";
+import Tile from "../images/lessonImages/grout.png";
 
 const Lesson6 = () => {
   const [showResults, setShowResults] = useState(false);

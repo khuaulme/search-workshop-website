@@ -110,8 +110,9 @@ const Lesson2 = () => {
                 <div className="absolute top-0 -right-10 w-1/4">
                   <TipCard side="right">
                     <div className="flex items-center">
-                      <KeyWord type="variable">maxEdits</KeyWord> can be set to
-                      either 1 or 2.
+                      <KeyWord type="variable">maxEdits</KeyWord> is the maximum
+                      number of single-character edits required to match the
+                      specified search term. Can be 1 or 2.
                     </div>
                   </TipCard>
                 </div>

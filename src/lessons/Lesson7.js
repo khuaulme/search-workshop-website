@@ -3,7 +3,7 @@ import LessonTemplate from "../components/LessonTemplate";
 import Footer from "../components/Footer";
 import TipCard from "../components/TipCard";
 import Step from "../components/Step";
-import Compass from "../images/Compass.png";
+import ScoreModifierCard from "../components/ScoreModifierCard";
 import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import KeyWord from "../components/KeyWord";
 import CodeReveal from "../components/CodeReveal";
@@ -12,6 +12,9 @@ import Relevance from "../images/relevance.jpg";
 import Descending from "../images/descending.png";
 import DidYouKnow from "../images/lessonImages/DidYouKnow.png";
 import First from "../images/first.gif";
+import Films from "../images/lessonImages/films.png";
+import Question from "../images/lessonImages/Question.png";
+import James from "../images/lessonImages/James.png";
 
 const Lesson7 = () => {
   return (
@@ -94,14 +97,22 @@ const Lesson7 = () => {
             </div>
 
             <div className="pr-20 mb-10">
-              According to this analysis of over 4 millions Google search
-              results by Backlingo, the number 1 search result has a click
-              through rate 10X that of the result in position 10. In fact the
-              top 3 returned search results made up over 54% of all the
-              click-throughs.So if there is something, whether it is a movie,
-              product, restaurant, that you want your users to see first, you
-              will want its score to be as high as possible. For example, think
-              of sponsored searches or promotions.
+              According to this{" "}
+              <a
+                href="https://backlinko.com/google-ctr-stats"
+                className="underline text-xl text-forestgreen"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                analysis
+              </a>{" "}
+              of over 4 millions Google search results by Backlinko, the number
+              1 search result has a click through rate 10X that of the result in
+              position 10. In fact the top 3 returned search results made up
+              over 54% of all the click-throughs.So if there is something,
+              whether it is a movie, product, restaurant, that you want your
+              users to see first, you will want its score to be as high as
+              possible. For example, think of sponsored searches or promotions.
             </div>
             <div className="flex justify-evenly">
               <div className="w-2/3">
@@ -136,9 +147,191 @@ const Lesson7 = () => {
         </div>{" "}
         {/**************END ROW 2 **********/}
         <div className="bg-green-600 rounded h-1 w-3/4 mx-auto mb-10"></div>
+        <div className="text-center mb-6">
+          Atlas Search offers several custom score modifiers to allow you to
+          influence the score and further fine-tune your search results.
+        </div>
+        <div className="ROW3 flex mx-auto w-full space-x-10 mb-10">
+          <ScoreModifierCard
+            title={boost.title}
+            codeObject={boost.code}
+            description={boost.description}
+          >
+            {" "}
+            This query will multiply relevance-based score by 3 if the term
+            <KeyWord type="title">"Godfather"</KeyWord> is found in the{" "}
+            <KeyWord type="variable">title</KeyWord>field.<br></br>This way we
+            get <KeyWord type="title">The Godfather</KeyWord> movies before we
+            get movies that happen to be about{" "}
+            <span className="italic">godfathers</span>.
+          </ScoreModifierCard>
+          <ScoreModifierCard
+            title={constant.title}
+            description={constant.description}
+            codeObject={constant.code}
+          >
+            This query will find <KeyWord type="title">James Bond</KeyWord>{" "}
+            movies. The ones with Daniel Craig will have the assigned score of{" "}
+            <KeyWord type="variable">50</KeyWord>. <br></br>
+            <br></br> Because duh.
+          </ScoreModifierCard>
+          <ScoreModifierCard
+            title={functionScore.title}
+            description={functionScore.description}
+            codeObject={functionScore.code}
+          >
+            This <KeyWord>$search</KeyWord> query will look for zombies in the{" "}
+            <KeyWord type="variable">fullplot</KeyWord> and{" "}
+            <KeyWord type="variable">title</KeyWord> fields before multiplying
+            the score of the resulting documents by its{" "}
+            <KeyWord type="variable">imdb.rating</KeyWord>. <br></br>If there is
+            no <KeyWord type="variable">imdb.rating</KeyWord> field, it will
+            mutliply the searchScore by 2.<br></br>
+            <br></br>This will result in getting the highest reviewed zombie
+            movies first. <span className="text-3xl">🧟</span>
+          </ScoreModifierCard>
+        </div>
+        <div className="flex mx-auto space-x-10 mb-10">
+          <div className="w-1/2">
+            <img src={Films} alt="films" />
+          </div>
+          <div className="w-1/2 text-center overflow-auto px-10 ">
+            <div className="relative w-full mt-6 text-xl border-4 border-red-700 pb-8  rounded">
+              <div className="bg-red-700 py-3  text-white text-2xl text-center w-full mb-4">
+                EXERCISE 1: COMPOUND & BOOST
+              </div>
+              <div className="px-10">
+                <span className="italic">Brad Pitt</span> can do no wrong when
+                it comes to movies...
+                <div className="text-center text-4xl">🍿{"  "} 🎥</div>
+                and now I have you thinking about{" "}
+                <span className="text-6xl">🧟</span>s!
+                <br></br>
+                <br></br>
+                Create a <KeyWord>$search</KeyWord> compound query that has Brad
+                Pitt - <span className="italic">AND</span> boost that score by 5
+                it is also a horror movie. <br></br>
+                <br></br>
+                <div className="text-2xl text-center text-indigo-900">
+                  What was the name of the top movie result? What was the search
+                  score?
+                </div>
+              </div>
+              <div className="absolute -top-6 -right-10 w-1/4 mx-auto">
+                <img src={Question} alt="q" />
+              </div>
+            </div>
+            <div className="relative w-full mt-6 text-xl border-4 border-red-700 pb-8  rounded">
+              <div className="bg-red-700 py-3  text-white text-2xl text-center w-full mb-4">
+                EXERCISE 2: FUNCTION SCORING
+              </div>
+              <div className="flex">
+                <div className="w-1/5 mx-auto ml-4">
+                  <img src={James} alt="james" />
+                </div>
+                <div className="px-10">
+                  Create a <KeyWord>$search</KeyWord> query to find only James
+                  Bond movies. Now use a score modifier to return these results
+                  with the highest{" "}
+                  <KeyWord type="variable">imdb.rating</KeyWord> values first.
+                  <br></br>
+                </div>
+              </div>
+
+              <div className="text-2xl text-center text-indigo-900">
+                What was the best rated James Bond movie?
+              </div>
+            </div>
+            {/* <div className="absolute -top-8 -right-4 w-1/4 mx-auto">
+                <img src={Question} alt="q" />
+              </div> */}
+          </div>
+        </div>
       </div>
     </LessonTemplate>
   );
 };
 
 export default Lesson7;
+
+const functionScore = {
+  title: "function scoring",
+  description: `The function option allows you to alter the final score of the document using a numeric field . You can specify the numeric field for computing the final score through an 
+expression.`,
+  code: {
+    $search: {
+      text: {
+        path: ["fullplot", "title"],
+        query: "zombies",
+        score: {
+          function: {
+            multiply: [
+              {
+                path: {
+                  value: "imdb.rating",
+                  undefined: 2,
+                },
+              },
+              {
+                score: "relevance",
+              },
+            ],
+          },
+        },
+      },
+    },
+  },
+};
+
+const constant = {
+  title: "constant",
+  description: `The constant option replaces the base score with a specified number.
+`,
+  code: {
+    $search: {
+      compound: {
+        should: [
+          {
+            text: {
+              query: "James Bond",
+              path: "fullplot",
+            },
+          },
+          {
+            text: {
+              query: "Daniel Craig",
+              path: "cast",
+              score: { constant: { value: 50 } },
+            },
+          },
+        ],
+      },
+    },
+  },
+};
+const boost = {
+  title: "boost",
+  description: `The boost option multiplies a result's base score by a given number 
+  or the value of a numeric field in the documents. For example, you can use boost to increase the importance of certain matching documents in the result.`,
+  code: {
+    $search: {
+      compound: {
+        should: [
+          {
+            text: {
+              query: "Godfather",
+              path: ["plot", "fullplot"],
+            },
+          },
+          {
+            text: {
+              query: "Godfather",
+              path: "title",
+              score: { boost: { value: 3 } },
+            },
+          },
+        ],
+      },
+    },
+  },
+};

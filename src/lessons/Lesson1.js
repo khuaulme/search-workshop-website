@@ -9,12 +9,17 @@ import LessonTemplate from "../components/LessonTemplate";
 import MoreAboutCard from "../components/MoreAboutCard";
 import KeyWord from "../components/KeyWord";
 import SearchHero from "../images/SearchSpot2.png";
+import CodeReveal from "../components/CodeReveal.js";
 
 const Lesson1 = () => {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
 
   const toggle = (showMoreInfo) => {
     setShowMoreInfo(!showMoreInfo);
+  };
+  const [showDocument, setShowDocument] = useState(false);
+  const toggleDoc = (showDocument) => {
+    setShowDocument(!showDocument);
   };
 
   return (
@@ -133,9 +138,19 @@ const Lesson1 = () => {
               <div className="bg-teal-600 py-2 w-full text-white text-center rounded mt-1">
                 Sample Movie Document
               </div>
-              Our movie documents each have strings arrays, dates, numbers,
-              embedded objects. Now that we have created a search index, we can
-              immediately start querying across all of them.
+              Each movie document contains a single movie, and information such
+              as its title, release year, and cast stored as strings arrays,
+              dates, numbers, embedded objects. Now that we have created a
+              search index, we can immediately start querying across all of
+              them.
+              <CodeReveal
+                open={showDocument}
+                toggle={toggleDoc}
+                title="Show Movie Document"
+                negTitle="Hide Movie Document"
+                copyTextObject={movieDocumentObject}
+                lesson="1"
+              />
             </div>
 
             <div className="w-1/3 px-8 shadow shadow-gray-500 py-4">
@@ -200,6 +215,69 @@ const Lesson1 = () => {
 let copyTextObject = {
   mappings: {
     dynamic: true,
+  },
+};
+
+let movieDocumentObject = {
+  _id: {
+    $oid: "573a1390f29313caabcd413b",
+  },
+  title: "The Arrival of a Train",
+  year: {
+    $numberInt: "1896",
+  },
+  runtime: {
+    $numberInt: "1",
+  },
+  released: {
+    $date: {
+      $numberLong: "-2335219200000",
+    },
+  },
+  poster:
+    "http://ia.media-imdb.com/images/M/MV5BMjEyNDk5MDYzOV5BMl5BanBnXkFtZTgwNjIxMTEwMzE@._V1_SX300.jpg",
+  plot: `A group of people are standing in a straight line along the
+    platform of a railway station, waiting for a train, which is seen
+    coming at some distance. When the train stops at the platform, ...",
+  "fullplot": "A group of people are standing in a straight line along
+    the platform of a railway station, waiting for a train, which is
+    seen coming at some distance. When the train stops at the platform,
+    the line dissolves. The doors of the railway-cars open, and people
+    on the platform help passengers to get off.`,
+  lastupdated: "2015-08-15 00:02:53.443000000",
+  type: "movie",
+  directors: ["Auguste Lumière", "Louis Lumière"],
+  imdb: {
+    rating: {
+      $numberDouble: "7.3",
+    },
+    votes: {
+      $numberInt: "5043",
+    },
+    id: {
+      $numberInt: "12",
+    },
+  },
+  cast: ["Madeleine Koehler"],
+  countries: ["France"],
+  genres: ["Documentary", "Short"],
+  tomatoes: {
+    viewer: {
+      rating: {
+        $numberDouble: "3.7",
+      },
+      numReviews: {
+        $numberInt: "59",
+      },
+    },
+    lastUpdated: {
+      $date: {
+        $numberLong: "1441993589000",
+      },
+    },
+  },
+  num_mflix_comments: {
+    $numberInt: "1",
   },
 };
 
