@@ -58,7 +58,7 @@ const Lesson4 = () => {
               {" "}
               <video width="640" height="480" controls>
                 <source
-                  src="https://kwh-demos.s3.amazonaws.com/EndpointVideo.mp4"
+                  src="https://kwh-demos.s3.amazonaws.com/BasicEndpointVideo.mp4"
                   type="video/mp4"
                 />
               </video>

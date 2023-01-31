@@ -42,7 +42,7 @@ const Lesson8 = () => {
             </div>
             A good Like loving yet indulgent parents, we want to give our users
             the best search experience possible - and if we have to sacrifice
-            our spelling skills, then so be it.
+            our spelling skills to do so, then so be it.
           </div>
         </div>
         <div className=" my-8 text-center">
