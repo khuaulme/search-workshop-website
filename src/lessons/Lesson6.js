@@ -211,7 +211,7 @@ const Lesson6 = () => {
             </div>*/}
         </div>{" "}
         {/*************END 3RD ROW **********/}
-        {/* <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson6/?fontsize=14&hidenavigation=1&theme=dark" /> */}
+        <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson6/?fontsize=14&hidenavigation=1&theme=dark" />
         <div className="bg-rhino rounded ml-auto w-3/4 py-2 text-center text-white uppercase text-3xl my-8 mx-auto ">
           CREATING THE BACKEND
         </div>

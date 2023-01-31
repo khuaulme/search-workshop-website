@@ -28,7 +28,7 @@ const Lesson7 = () => {
           <div className=" w-1/4 object-contain  ">
             <img src={Score} alt="score" />
           </div>
-          <div className="COL-LEFT mb-8 text-black mx-auto w-3/4 px-10 text-left text-lg mt-10 ">
+          <div className="COL-LEFT mb-8 text-black mx-auto w-3/4 px-10 text-left text-lg mt-12 ">
             <div className="w-full mx-auto ">
               In Lesson 3, we introduced the concept of{" "}
               <KeyWord type="title">relevance-based scoring</KeyWord> when
