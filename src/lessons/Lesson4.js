@@ -137,7 +137,7 @@ const Lesson4 = () => {
           <div className="w-1/2 text-center bg-slateblue">
             <div className="p-4">
               <div className="bg-sun  text-black uppercase text-xl py-2 rounded">
-                Code for GetMovies Function"
+                Code for GetMovies Function
               </div>
               <CodeSnippetsCopy type="function" copyTextObject={functionCode} />{" "}
             </div>

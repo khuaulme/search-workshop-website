@@ -162,7 +162,7 @@ const Lesson6 = () => {
         <div className="bg-teal-700 h-1 mx-auto w-1/3 mt-6"></div>
         {/*********************END 3RD ROW **************************************/}
         <div className="flex w-full mx-auto text-left justify-evenly  mb-10">
-          <div className="w-2/3 mx-auto my-4 text-lg px-10 flex">
+          <div className="w-1/2 mx-auto my-4 text-lg px-10 flex">
             <div className="w-1/3 mx-auto ">
               {" "}
               <img src={Tile} alt="tile" />
@@ -183,9 +183,9 @@ const Lesson6 = () => {
               missing.
             </div>
           </div>
-          <div className="w-1/3 text-center overflow-auto px-10 ">
-            <div className=" w-full mt-6 text-xl border-4 border-fuchsia-800 pb-8  rounded-xl">
-              <div className="bg-fuchsia-800 py-3 rounded text-white text-2xl text-center w-full mb-4">
+          <div className="w-1/2 text-center overflow-auto px-10 ">
+            <div className=" w-full mt-6 text-xl border-4 border-fuchsia-900 pb-8  rounded">
+              <div className="bg-fuchsia-900 py-3 text-white text-2xl text-center w-full mb-4">
                 EXERCISE
               </div>
               <div className="px-10">

@@ -7,7 +7,7 @@ import ScoreModifierCard from "../components/ScoreModifierCard";
 import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import KeyWord from "../components/KeyWord";
 import CodeReveal from "../components/CodeReveal";
-import Score from "../images/Score.png";
+import Score from "../images/lessonImages/Achievement.png";
 import Relevance from "../images/relevance.jpg";
 import Descending from "../images/descending.png";
 import DidYouKnow from "../images/lessonImages/DidYouKnow.png";
@@ -24,12 +24,12 @@ const Lesson7 = () => {
       previous="/Lesson6"
     >
       <div className="LESSON PAGE flex flex-col  px-20 mt-auto text-base text-left">
-        <div className="relative flex space-x-8 items-center w-full mt-20 justify-evenly">
-          <div className="absolute w-24 object-contain rounded -left-4 top-0 ">
+        <div className=" flex space-x-8 items-center w-full  justify-evenly">
+          <div className=" w-1/4 object-contain  ">
             <img src={Score} alt="score" />
           </div>
-          <div className="COL-LEFT mb-8 text-black mx-auto w-2/3 text-center text-lg ">
-            <div className="w-4/5 mx-auto ">
+          <div className="COL-LEFT mb-8 text-black mx-auto w-3/4 px-10 text-left text-lg mt-10 ">
+            <div className="w-full mx-auto ">
               In Lesson 3, we introduced the concept of{" "}
               <KeyWord type="title">relevance-based scoring</KeyWord> when
               building out our search aggregation. In this brief lesson, we’ll
@@ -37,46 +37,47 @@ const Lesson7 = () => {
               search ref" and influence the score in your favor.
             </div>
 
-            <div className="mt-6 w-4/5 mx-auto">
-              Atlas Search computes a score based on{" "}
-              <KeyWord type="title">relevance</KeyWord> for each of our movie
-              documents and returns the movies to us with the scores in{" "}
-              <span className="italic font-bold">descending</span> order.
-            </div>
-            <div>
-              <img
-                src={Descending}
-                alt="descending"
-                className="w-full px-10 mx-auto  my-auto"
-              />
-              <div className="text-center mx-auto text-sm italic text-rhino p-4 ">
+            <div className="flex RELEVANCE  my-16 text-blue-900 space-x-8">
+              <div className="w-2/3 mx-auto px-8 my-auto  text-center shadow-2xl shadow-slate-700 rounded py-10">
                 {" "}
-                Notice the higher scores are returned first. Higher scores mean
-                higher relevance.
+                <KeyWord type="word">Relevance</KeyWord> is essentially a
+                measure of how well your search results matched the users
+                request. A high relevance delivers a truly great search
+                experience and keeps users coming back.<br></br>{" "}
+                <span className="text-2xl">🎯</span>
+                <br></br>
+                You gotta give 'em what they want .
+              </div>
+              <div className="w-1/3  my-auto ">
+                <img src={Relevance} alt="relevant" />
               </div>
             </div>
           </div>
-
-          <div className="COL-RIGHT w-1/5 shadow-md shadow-slate-300 rounded my-auto ">
-            <img src={Relevance} alt="relevant" />
+        </div>
+        <div>
+          <div className=" w-4/5 mb-4 text-center mx-auto">
+            Atlas Search computes a score based on{" "}
+            <KeyWord type="title">relevance</KeyWord> for each of our movie
+            documents and returns the movies to us with the scores in{" "}
+            <span className="italic font-bold">descending</span> order.
+          </div>
+          <img
+            src={Descending}
+            alt="descending"
+            className="w-full px-10 mx-auto  my-auto"
+          />
+          <div className="text-right mx-auto text-sm italic text-rhino p-4 ">
+            {" "}
+            Notice the higher scores are returned first. Higher scores mean
+            higher relevance.
           </div>
         </div>
         {/**************END ROW 1 **********/}
-        <div className="bg-fuchsia-800 mb-8 text-white h-1 w-1/2 rounded mx-auto text-center uppercase"></div>
         <div className="flex w-full space-x-10 mb-10">
           <div className="w-1/5">
             <img src={DidYouKnow} alt="didyouknow" />
           </div>
-          <div className="w-3/4 text-base px-16">
-            <div className="w-3/4 mx-auto px-8 py-4 shadow-md shadow-slate-600 rounded text-center">
-              {" "}
-              <KeyWord type="word">Relevance</KeyWord> is essentially a measure
-              of how well your search results matched the users request. A high
-              relevance delivers a truly great search experience and keeps users
-              coming back.<br></br> <span className="text-2xl">🎯</span>
-              <br></br>
-              You gotta give 'em what they want .
-            </div>
+          <div className="w-4/5 text-base px-16">
             <div className="flex space-x-6 mb-6">
               <div>
                 <div className="my-4 text-center">
@@ -146,14 +147,16 @@ const Lesson7 = () => {
           </div>
         </div>{" "}
         {/**************END ROW 2 **********/}
-        <div className="bg-green-600 rounded h-1 w-3/4 mx-auto mb-10"></div>
-        <div className="text-center mb-6 text-2xl ">
-          Atlas Search offers several{" "}
-          <span className="text-green-800 font-bold uppercase text-4xl">
+        {/* <div className="bg-green-600 rounded h-1 w-3/4 mx-auto mb-10"></div> */}
+        <div className="bg-fuchsia-800 text-center text-3xl text-white py-4 rounded w-full mx-auto mb-10">
+          CUSTOM SCORE MODIFIERS
+        </div>
+        <div className="text-center mb-6 text-xl ">
+          Atlas Search's {"  "}
+          <span className="text-green-800 font-bold text-xl">
             custom score modifiers
           </span>{" "}
-          to allow you to influence the score and further fine-tune your search
-          results.
+          can influence the score and further fine-tune your search results.
         </div>
         <div className="ROW3 flex mx-auto w-full space-x-10 mb-10">
           <ScoreModifierCard
@@ -191,16 +194,16 @@ const Lesson7 = () => {
             the score of the resulting documents by its{" "}
             <KeyWord type="variable">imdb.rating</KeyWord>. <br></br>If there is
             no <KeyWord type="variable">imdb.rating</KeyWord> field, it will
-            mutliply the searchScore by 2.<br></br>
+            multiply the searchScore by 2.<br></br>
             <br></br>This will result in getting the highest reviewed zombie
             movies first. <span className="text-3xl">🧟</span>
           </ScoreModifierCard>
         </div>
-        <div className="flex mx-auto space-x-10 mb-10">
-          <div className="w-2/5">
+        <div className="flex mx-auto space-x-10 ">
+          <div className="w-2/5 mt-auto">
             <img src={Films} alt="films" />
           </div>
-          <div className="w-1/2 text-center overflow-auto px-10 ">
+          <div className="w-1/2 text-center overflow-auto px-10 mb-10 ">
             <div className="w-full mt-6 text-xl border-4 border-red-700 pb-8  rounded">
               <div className="bg-red-700 py-3  text-white text-2xl text-center w-full mb-4">
                 EXERCISE 1: FUNCTION SCORING
