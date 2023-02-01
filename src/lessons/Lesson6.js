@@ -3,6 +3,7 @@ import LessonTemplate from "../components/LessonTemplate";
 
 import TipCard from "../components/TipCard";
 import Step from "../components/Step";
+import MoreAboutCard from "../components/MoreAboutCard";
 
 import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import KeyWord from "../components/KeyWord";
@@ -24,6 +25,12 @@ const Lesson6 = () => {
   };
   const toggleCompound = (showCompound) => {
     setShowCompound(!showCompound);
+  };
+
+  const [showMoreInfo, setShowMoreInfo] = useState(false);
+
+  const toggleMoreInfo = (showMoreInfo) => {
+    setShowMoreInfo(!showMoreInfo);
   };
 
   return (
@@ -484,6 +491,33 @@ const Lesson6 = () => {
               look for play around with the sliders and checkboxes - see the
               code queries built. blah blah blah blah
               <span className="text-2xl">🥂🍿</span>
+            </div>
+            <div className="flex justify-center w-full">
+              <MoreAboutCard
+                open={showMoreInfo}
+                toggle={toggleMoreInfo}
+                subject="Functions"
+                lesson="6"
+              >
+                <div className="text-base">
+                  Indexes are special data structures that enable ultra-fast
+                  querying and retrieval of documents based on certain
+                  identifiers. <br></br>
+                  <br></br>Bear in mind that Atlas Search indexes are different
+                  from regular MongoDB indexes. Whereas the traditional MongoDB
+                  index is a b-tree index, Atlas Search uses{" "}
+                  <span className="italic font-bold text-green-700 uppercase">
+                    inverted indexes
+                  </span>{" "}
+                  - which are much faster and more powerful for full-text. We'll
+                  re-visit this more in-depth in a future lesson. Just know now
+                  that Atlas Search indexes are{" "}
+                  <span className="italic font-bold">FAST!</span>
+                  <br></br>
+                  <br></br>To learn more about indexes, see lesson 9 or visit
+                  the docs.
+                </div>
+              </MoreAboutCard>
             </div>
           </div>
 

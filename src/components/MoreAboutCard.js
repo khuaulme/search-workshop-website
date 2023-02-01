@@ -11,6 +11,12 @@ const MoreAboutCard = ({ open, toggle, subject, children }) => {
       "EXPANDED flex font-barlow items-center border bg-zinc-100 border-teal-700 mt-1 relative drop-shadow-2xl rounded w-full";
     classStyle = `bg-teal-700 text-white py-4 px-10 flex justify-evenly items-center cursor-pointer shadow-2xl h-16 rounded-xl w-full `;
   }
+
+  if (subject === "Functions") {
+    borderStyle =
+      "EXPANDED flex font-barlow items-center justify-evenly border bg-zinc-100 border-indigo-900 mt-1 drop-shadow-2xl rounded w-full";
+    classStyle = `bg-indigo-800 text-white py-4 px-10 flex justify-evenly items-center cursor-pointer shadow-2xl h-16 rounded-xl w-full `;
+  }
   console.log("MORE ABOUT CARD");
 
   return (
