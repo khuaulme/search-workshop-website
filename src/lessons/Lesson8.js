@@ -40,9 +40,9 @@ const Lesson8 = () => {
                 <img src={Autocomplete} alt="autocomplete" />{" "}
               </div>
             </div>
-            A good Like loving yet indulgent parents, we want to give our users
-            the best search experience possible - and if we have to sacrifice
-            our spelling skills to do so, then so be it.
+            Like loving yet indulgent parents, we want to give our users the
+            best search experience possible - and if we have to sacrifice our
+            spelling skills to do so, then so be it.
           </div>
         </div>
         <div className=" my-8 text-center">

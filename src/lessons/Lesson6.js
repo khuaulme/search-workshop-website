@@ -53,8 +53,8 @@ const Lesson6 = () => {
             create fine-grained searches using the{" "}
             <KeyWord type="operator">compound</KeyWord> operator.
             <div className="px-2 mx-auto italic text-green-900 text-center border border-slate-700 rounded mt-10 w-2/3">
-              This lesson is long, but don't let that scare you. It's a lot of
-              cut and paste. ✂️
+              Don't let the length of this webpage scare you. It's a lot of cut
+              and paste. ✂️
             </div>
           </div>
           <div className="w-1/4 mx-auto">
@@ -279,10 +279,11 @@ const Lesson6 = () => {
           </div>
         </div>
         <div className="COMPOUNDCODE ROW flex space-x-8 mt-6 mb-10">
-          <div className="relative w-1/2 text-center bg-slateblue">
+          <div className="relative w-1/2 text-center">
             <div className="absolute -top-6 -right-40 z-20 w-1/4 text-center">
               <img src={Guy} alt="guy" />
             </div>
+
             <div className="p-4">
               <div className="bg-sun  text-black uppercase text-xl py-2 rounded">
                 Initial Code for GetMoviesCompound
@@ -293,10 +294,10 @@ const Lesson6 = () => {
               />
             </div>
           </div>
-          <div className="w-1/2 text-left">
+          <div className="w-1/2 text-left my-auto">
             <div className="flex">
               <div className="w-1/5 text-6xl my-auto text-center"></div>
-              <div className="w-4/5 mx-auto shadow-md shadow-slate-700 rounded p-4 mb-6">
+              <div className="w-4/5 mx-auto shadow-md shadow-slate-700 rounded p-4 mb-6 ">
                 <Step
                   title="Step 2. Write function logic for endpoint"
                   className=""
@@ -359,7 +360,11 @@ const Lesson6 = () => {
             authentication methods. Set the default Authentication method to{" "}
             <KeyWord>System</KeyWord> to keep things simple and be sure to{" "}
             <KeyWord type="button">Save</KeyWord>.<br></br>
-            <div className="w-4/5 mx-auto my-6 shadow-md shadow-slate-700 rounded p-4">
+          </div>
+        </div>
+        <div className="w-full flex mx-auto justify-evenly space-x-8  text-lg">
+          <div className=" w-1/2 space-y-10">
+            <div className="shadow-md shadow-slate-700 rounded p-4">
               <Step
                 title="Step 3. Paste endpoint into codesandbox front End"
                 className=""
@@ -391,35 +396,39 @@ const Lesson6 = () => {
                   our focus to the back end. <span className="2xl">🔎📽️🍿</span>
                 </div>
               </Step>
+            </div>{" "}
+          </div>
+          <div className=" bg-white  text-green-900 mx-auto w-2/5 my-auto mb-10  px-12 rounded">
+            {" "}
+            <div className="text-lg leading-loose  ">
+              At this point, you can interact with the application, but still
+              with no movie results. Inspecting the console should confirm that
+              you have indeed connected with the backend and sent the HTTPS POST
+              request. However, in its current state, our{" "}
+              <KeyWord type="word">getMoviesCompound </KeyWord> function does
+              nothing useful.<br></br>
+              <br></br> Let's put our
+              <KeyWord type="operator">compound</KeyWord> operator knowledge to
+              work and build out the <KeyWord>$search</KeyWord> aggregation for{" "}
+              <KeyWord>Line 17.</KeyWord>
+              <br></br>
+              <br></br>For this, let's create another App Services function:{" "}
+              <KeyWord type="variable">createSearchAggregation</KeyWord>.
             </div>
           </div>
         </div>
-        <div className=" border bg-white border-green-700 text-green-800 text-center mx-auto w-2/3 mb-10 mt-6 py-6 px-12 rounded">
-          {" "}
-          <div className="text-xl leading-loose px-10 ">
-            In its current state, our{" "}
-            <KeyWord type="word">getMoviesCompound </KeyWord> function does
-            nothing useful. Let's put our
-            <KeyWord type="operator">compound</KeyWord> operator knowledge to
-            work and build out the <KeyWord>$search</KeyWord> aggregation for{" "}
-            <KeyWord>Line 17.</KeyWord>
-            <br></br>
-            <br></br>For this, let's create another App Services function:{" "}
-            <KeyWord type="variable">createSearchAggregation</KeyWord>.
-          </div>
-        </div>
         {/**************END COMPOUNDCODE ROW ************/}
+        <div className="bg-teal-700 rounded mx-auto w-2/3 h-1 my-20 relative "></div>
         <div className="w-full flex mx-auto justify-evenly space-x-8 mb-20 text-lg">
           <div className="flex flex-col w-1/2 space-y-10">
-            {" "}
             <div className="shadow-md shadow-slate-700 rounded p-4">
               <Step
                 title="Step 4. CREATE NEW FUNCTION in Netflixclone"
                 className=""
               >
-                In the
+                Back in the
                 <KeyWord type="title">NetflixClone</KeyWord> App Service
-                application. On the left menu, select{" "}
+                application, on the left menu, select{" "}
                 <KeyWord type="word">Functions</KeyWord>. Name your new function
                 `createSearchAggregation`.
                 <br></br>
@@ -486,11 +495,31 @@ const Lesson6 = () => {
                 </div>
               </Step>
             </div>{" "}
-            <div className=" mt-12 text-center text-4xl -skew-x-12 px-20">
-              Now you can go back to your hosted movie search application and
-              look for play around with the sliders and checkboxes - see the
-              code queries built. blah blah blah blah
-              <span className="text-2xl">🥂🍿</span>
+            <div className=" mt-12 text-center text-xl  px-12">
+              Congrats! <span className="text-2xl">🥂🍿</span> Your movie search
+              engine can now handle complex, fine-grained search queries{" "}
+              <span className="italic">FAST!</span>.<br></br>
+              <br></br> Sliders, checkboxes, and calendars provided in the UI
+              allow us to input multiple search parameters of different data
+              types:
+              <div className="text-center text-teal-800 my-4">
+                strings - numbers - dates
+              </div>
+              After posting these values to the back end via an HTTPS request,
+              we created the search subqueries and tiled them together in an{" "}
+              <KeyWord>$search </KeyWord> stage.
+              <div className="w-full mx-auto my-6">
+                <CodeSnippetsCopy
+                  type="function"
+                  copyTextObject={compoundObject}
+                />{" "}
+              </div>
+              Now that we know how to filter movies in and ourt of our search
+              results, let's learn how to shuffle these results around in order.
+              In our next lesson, we will dive a little deeper into to{" "}
+              <span className="text-3xl text-indigo-800">scoring</span> - what
+              it means and how to influence the score to bring better search
+              results to our app users.
             </div>
             <div className="flex justify-center w-full">
               <MoreAboutCard
@@ -500,22 +529,24 @@ const Lesson6 = () => {
                 lesson="6"
               >
                 <div className="text-base">
-                  Indexes are special data structures that enable ultra-fast
-                  querying and retrieval of documents based on certain
-                  identifiers. <br></br>
-                  <br></br>Bear in mind that Atlas Search indexes are different
-                  from regular MongoDB indexes. Whereas the traditional MongoDB
-                  index is a b-tree index, Atlas Search uses{" "}
-                  <span className="italic font-bold text-green-700 uppercase">
-                    inverted indexes
-                  </span>{" "}
-                  - which are much faster and more powerful for full-text. We'll
-                  re-visit this more in-depth in a future lesson. Just know now
-                  that Atlas Search indexes are{" "}
-                  <span className="italic font-bold">FAST!</span>
+                  Functions are <span className="italic">AMAZING!</span>{" "}
+                  Implemented as pieces of server-side JavaScript code, Atlas
+                  functions are great for low-latency, short-running tasks like
+                  moving data and validation.{" "}
+                  <ul className="ml-8 my-4 text-left leading-loose ">
+                    <li>✅ Serverless - no need to deploy or manage servers</li>
+                    <li>
+                      ✅ Have context to the execution environment, including
+                      app user and state
+                    </li>
+                    <li>✅ Can use common Node.js dependencies</li>
+                  </ul>
+                  Functions can be called by HTTPS endpoints, GraphQL custom
+                  resolvers, and (my personal fave) triggers - which you can set
+                  on a schedule, database change, or authentication events.
                   <br></br>
-                  <br></br>To learn more about indexes, see lesson 9 or visit
-                  the docs.
+                  <br></br>To learn more about App Service functions, visit the
+                  docs.
                 </div>
               </MoreAboutCard>
             </div>
@@ -658,7 +689,7 @@ exports = async function(request, response) {
     // BUILD SEARCH AGGREGATION - INITIALIZE TO AN EMPTY ARRAY
     let searchAggregation = []; 
 
-    // WE WILL CALL A NEW FUNCTION TO BUILD THE SEARCH AGGREGATION WITH THE DESCTRUCTURED PARAMETERS
+    // WE WILL CALL A NEW FUNCTION TO BUILD THE SEARCH AGGREGATION WITH THE DESTRUCTURED PARAMETERS
     // searchAggregation = await context.functions.execute("createSearchAggregation", searchTerm, genre, rating, start, end); 
     
     let results = [];
