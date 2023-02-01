@@ -273,7 +273,7 @@ const Lesson6 = () => {
         </div>
         <div className="COMPOUNDCODE ROW flex space-x-8 mt-6 mb-10">
           <div className="relative w-1/2 text-center bg-slateblue">
-            <div className="absolute top-0 -right-40 z-20 w-1/4 text-center">
+            <div className="absolute -top-6 -right-40 z-20 w-1/4 text-center">
               <img src={Guy} alt="guy" />
             </div>
             <div className="p-4">
@@ -478,8 +478,13 @@ const Lesson6 = () => {
                   function, which we then execute with its name and arguments.
                 </div>
               </Step>
+            </div>{" "}
+            <div className=" mt-12 text-center text-4xl -skew-x-12 px-20">
+              Now you can go back to your hosted movie search application and
+              look for play around with the sliders and checkboxes - see the
+              code queries built. blah blah blah blah
+              <span className="text-2xl">🥂🍿</span>
             </div>
-            <div className="CONCLUSION my-10">CONCLUSION</div>
           </div>
 
           <div className="w-2/5 text-center bg-slateblue">
