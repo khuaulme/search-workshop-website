@@ -90,9 +90,10 @@ const Lesson4 = () => {
               title="Step 1. Create Application in App Services"
               className=""
             >
-              To create a Realm application, return to your Atlas UI. To make it
-              easy to bounce between Atlas and App Services, right click the App
-              Services tab and select Open Link in New Tab.<br></br>
+              To create a Atlas App Services application, return to your Atlas
+              UI. To make it easy to bounce between Atlas and App Services,
+              right click the App Services tab and select Open Link in New Tab.
+              <br></br>
               <br></br>
               Use the basic <KeyWord type="word">
                 Build your own App
@@ -127,8 +128,8 @@ const Lesson4 = () => {
             >
               This endpoint will be calling a{" "}
               <KeyWord type="word">New Function</KeyWord>. Name the function
-              <KeyWord type="word">getMovies </KeyWord>getMovies and replace the
-              code in the Function Editor with code below:
+              <KeyWord type="word">getMovies </KeyWord> and replace the code in
+              the Function Editor with code below:
             </Step>
           </div>{" "}
         </div>{" "}
@@ -144,8 +145,7 @@ const Lesson4 = () => {
           </div>
           {/******END CODEBLOCK ***********/}
           <div className="w-1/2 text-left">
-            Let's walk through that the <code>getMovies</code> function.{" "}
-            <br></br>
+            Let's walk through the <code>getMovies</code> function. <br></br>
             <br></br>
             <ul className="space-y-2">
               <li>

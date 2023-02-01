@@ -2,11 +2,11 @@ import React from "react";
 import LessonTemplate from "../components/LessonTemplate";
 import CodeSandbox from "../components/CodeSandbox";
 import TipCard from "../components/TipCard";
-import Step from "../components/Step";
+
 import SearchOperators from "../components/SearchOperators";
-import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
+
 import KeyWord from "../components/KeyWord";
-import CodeReveal from "../components/CodeReveal";
+
 import SearchResults from "../components/SearchResults";
 //images
 import SearchBar from "../images/SimpleSearchBar.png";
