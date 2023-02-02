@@ -34,7 +34,7 @@ const Lesson9 = () => {
             <br></br>
             Maybe it's the analyzer.
             <div className="text-center my-6 text-6xl">🤷🏻‍♀️</div>
-            <div className=" mt-8 w-3/4 mx-auto text-xl">
+            <div className=" mt-8 w-3/4 mx-auto text-lg">
               Indexes are special data structures that make data retrievals
               fast! A traditional MongoDB index is a{" "}
               <KeyWord type="title">B-tree index</KeyWord> which is particularly
@@ -56,9 +56,9 @@ const Lesson9 = () => {
         </div>
         <div className="h-1 bg-fuchsia-800 rounded mt-10 w-1/2 mx-auto"></div>
         {/****************END INTRO ****************************/}
-        <div className="ROW2 flex font-barlow text-lg w-full mt-6 mb-28 space-x-10 text-left">
+        <div className="ROW2 flex font-barlow text-base w-full mt-6 mb-28 space-x-10 text-left">
           <div className="px-20 w-1/2 text-left">
-            <div className=" text-lg mt-8">
+            <div className=" mt-8">
               To make data searchable, we can break it up into{" "}
               <span className="text-teal-900 font-bold text-2xl "> tokens</span>{" "}
               (or terms) to be indexed through a process called{" "}
@@ -92,7 +92,7 @@ const Lesson9 = () => {
               </div>
             </div>
           </div>
-          <div className="w-1/2 flex flex-col text-lg mt-8 ">
+          <div className="w-1/2 flex flex-col text-base mt-8 ">
             <div>
               Armed with your new tokens, you can now think of an{" "}
               <span className="text-teal-800 font-bold"> inverted index</span>{" "}

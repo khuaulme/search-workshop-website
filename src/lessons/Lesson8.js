@@ -24,7 +24,7 @@ const Lesson8 = () => {
             <img src={ACSearch} alt="autocomplete" />{" "}
           </div>
 
-          <div className=" font-barlow text-base w-2/3 mt-16 text-left">
+          <div className=" font-barlow text-lg w-2/3 mt-16 text-left">
             My spelling stinks, and I blame Google. <br></br>
             <br></br>For better or for worse, Google has spoiled us.
             Autocomplete, autosuggest, search-as-you-type - whatever you call
@@ -45,7 +45,7 @@ const Lesson8 = () => {
             spelling skills to do so, then so be it.
           </div>
         </div>
-        <div className=" my-8 text-center">
+        <div className=" my-8 text-center text-lg">
           In this lesson, we will learn how to implement autocomplete by
           creating a special search index to map our movie data by the special
           autocomplete data type. Then create a new endpoint to be called by our

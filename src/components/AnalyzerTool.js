@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import IndexTabs from "../components/IndexTabs";
-import IndexTabsMulti from "../components/IndexTabsMulti";
+
 import ListBox from "../components/ListBox";
 import SearchBar from "./SearchBar";
 import Instructions from "../images/WorkingSteps.png";
