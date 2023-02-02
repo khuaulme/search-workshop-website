@@ -519,7 +519,7 @@ const Lesson6 = () => {
               In our next lesson, we will dive a little deeper into to{" "}
               <span className="text-3xl text-indigo-800">scoring</span> - what
               it means and how to influence the score to bring better search
-              results to our app users.
+              results to our app users. <div className="text-6xl mt-4">💯</div>
             </div>
             <div className="flex justify-center w-full">
               <MoreAboutCard
