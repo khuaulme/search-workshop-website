@@ -53,8 +53,8 @@ const Lesson6 = () => {
             create fine-grained searches using the{" "}
             <KeyWord type="operator">compound</KeyWord> operator.
             <div className="px-2 mx-auto italic text-green-900 text-center border border-slate-700 rounded mt-10 w-2/3">
-              Don't let the length of this webpage scare you. It's a lot of cut
-              and paste. ✂️
+              Don't let the length of this lesson scare you. It's a lot of cut
+              and paste ✂️ - and a lot of fun!
             </div>
           </div>
           <div className="w-1/4 mx-auto">
