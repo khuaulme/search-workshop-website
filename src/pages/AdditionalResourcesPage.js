@@ -5,9 +5,6 @@ import Presenters from "../components/Presenters";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
 import Learning from "../images/lessonImages/EducationWeb.png";
-import CookingDemo from "../images/CookingDemo.gif";
-import SoccerDemo from "../images/soccerDemo.gif";
-import SearchIndexes from "../images/SearchIndexes.gif";
 
 import DemoPreviewCard from "../components/DemoPreviewCard";
 
@@ -101,7 +98,7 @@ export default AdditionalResourcesPage;
 const bundles = [
   {
     title: "www.atlassearchrestaurants.com",
-    previewImage: CookingDemo,
+    previewImage: "https://kwh-demos.s3.amazonaws.com/CookingDemo.gif",
     hrefLink: "https://www.atlassearchrestaurants.com",
     youTubeLink: "https://www.youtube.com/embed/s2kXYZRE7pA",
     gitLink: "https://github.com/mongodb-developer/WhatsCooking",
@@ -111,7 +108,7 @@ const bundles = [
   },
   {
     title: "www.atlassearchsoccer.com",
-    previewImage: SoccerDemo,
+    previewImage: "https://kwh-demos.s3.amazonaws.com/soccerDemo.gif",
     hrefLink: "https://www.atlassearchsoccer.com",
     youTubeLink: "https://www.youtube.com/embed/1uTmDNTdgaw",
     gitLink: "https://github.com/mongodb-developer/atlas-search-soccer",
@@ -122,7 +119,7 @@ const bundles = [
   {
     title: "www.atlassearchindexes.com",
     hrefLink: "https://www.atlassearchindexes.com",
-    previewImage: SearchIndexes,
+    previewImage: "https://kwh-demos.s3.amazonaws.com/SearchIndexes.gif",
     youTubeLink: "https://www.youtube.com/embed/2oJuXx6mceE",
     gitLink: "",
     features: `Demonstrates the importance of choosing the right one for your searches.`,
