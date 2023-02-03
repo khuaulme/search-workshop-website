@@ -107,7 +107,7 @@ const SearchBar = ({
     <div className="w-full">
       <form className="flex mx-2" onSubmit={handleSubmit(onSubmit)}>
         <div className="flex w-full space-x-2">
-          <div className="flex items-center bg-white w-5/6 px-6 text-lg text-black placeholder-green-500 duration-700 ease-in-out transform border border-green-800 rounded-xl transition-width hover:shadow-xl">
+          <div className="flex items-center bg-white w-5/6 px-6 text-lg text-black placeholder-green-500 duration-700 ease-in-out transform border border-green-800 rounded transition-width hover:shadow-xl">
             <input
               type="text"
               name="term"

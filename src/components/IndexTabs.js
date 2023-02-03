@@ -52,13 +52,13 @@ const IndexTabs = ({ data }) => {
           setSelectedIndex(index);
         }}
       >
-        <Tab.List className="flex space-x-1 bg-forestgreen rounded-xl">
+        <Tab.List className="flex space-x-1 bg-forestgreen rounded">
           {definitions.map((definition, idx) => (
             <Tab
               key={idx}
               className={({ selected }) =>
                 classNames(
-                  "w-full py-2.5 text-sm leading-5 font-medium text-black rounded-lg",
+                  "w-full py-2.5 text-sm leading-5 font-medium text-black rounded",
                   "focus:outline-none focus:ring-2 ring-offset-2 ring-offset-evergreen ring-white ring-opacity-60",
                   selected
                     ? "bg-white shadow"
@@ -77,7 +77,7 @@ const IndexTabs = ({ data }) => {
             <Tab.Panel
               key={idx}
               className={classNames(
-                "bg-white rounded-xl py-3 px-10",
+                "bg-white rounded py-3 px-10",
                 "focus:outline-none focus:ring-2 ring-offset-2 ring-offset-blue-400 ring-white ring-opacity-60"
               )}
             >
@@ -85,7 +85,7 @@ const IndexTabs = ({ data }) => {
                 {definition.textArray.map((post) => (
                   <li
                     key={post.id}
-                    className="relative p-3 rounded-md hover:bg-coolGray-100"
+                    className="relative p-3 rounded hover:bg-coolGray-100"
                   >
                     <h3 className="font-sans text-lexend text-black font-medium leading-5">
                       {post.text}
@@ -97,9 +97,9 @@ const IndexTabs = ({ data }) => {
                 {definition.ruleArray.map((post) => (
                   <div
                     key={post.id}
-                    className="flex relative p-3 rounded-md hover:bg-coolGray-100"
+                    className="flex relative p-3 rounded hover:bg-coolGray-100"
                   >
-                    <h3 className="font-sans text-lexend font-medium leading-5 bg-slateblue text-sun px-3 py-2 rounded-lg shadow-lg">
+                    <h3 className="font-sans text-lexend font-medium leading-5 bg-slateblue text-sun px-3 py-2 rounded shadow-lg">
                       {post.term}
                     </h3>
                   </div>
@@ -108,7 +108,7 @@ const IndexTabs = ({ data }) => {
 
               {data !== "prompt" && (
                 <>
-                  <div className=" text-forestgreen font-bold py-4 px-2 my-2 rounded-lg text-center">
+                  <div className=" text-forestgreen font-bold py-4 px-2 my-2 rounded text-center">
                     {/* {`${indexes.ExampleSentence}`} */}
                     {`Tokens Resulting from the ${definitions[selectedIndex].name} Analyzer:`}
                   </div>
@@ -122,9 +122,9 @@ const IndexTabs = ({ data }) => {
                     (post) => (
                       <ul
                         key={post.id}
-                        className="relative p-3 rounded-md hover:bg-coolGray-100"
+                        className="relative p-3 rounded hover:bg-coolGray-100"
                       >
-                        <h3 className="font-sans text-lexend font-medium leading-5 bg-red-700 text-white px-3 py-2 rounded-lg shadow-lg">
+                        <h3 className="font-sans text-lexend font-medium leading-5 bg-red-700 text-white px-3 py-2 rounded shadow-lg">
                           {post.term}
                         </h3>
                       </ul>
@@ -140,9 +140,9 @@ const IndexTabs = ({ data }) => {
                     (post) => (
                       <ul
                         key={post.id}
-                        className="relative p-3 rounded-md hover:bg-coolGray-100"
+                        className="relative p-3 rounded hover:bg-coolGray-100"
                       >
-                        <h3 className="font-sans text-lexend font-medium leading-5 bg-chromeyellow px-3 py-2 rounded-lg shadow-lg">
+                        <h3 className="font-sans text-lexend font-medium leading-5 bg-chromeyellow px-3 py-2 rounded shadow-lg">
                           {post.term}
                         </h3>
                       </ul>

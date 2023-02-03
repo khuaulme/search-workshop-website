@@ -40,11 +40,11 @@ const AnalyzerTool = () => {
                       </div>
 
                       {/* 2nd col */}
-                      <div className="lastRow w-2/5 flex flex-col pt-6">
+                      <div className="lastRow w-1/2 flex flex-col pt-6">
                         <img
                           alt="instructions"
                           src={Instructions}
-                          className="mx-auto"
+                          className="ml-auto"
                         />
 
                         <div className="flex w-full pr-10">

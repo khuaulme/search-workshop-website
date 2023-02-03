@@ -16,6 +16,7 @@ import Reveal from "../components/Reveal";
 import Tile from "../images/lessonImages/grout.png";
 import Insert from "../images/lessonImages/InsertPoint.png";
 import Guy from "../images/lessonImages/GuyPoint.png";
+import VideoWalkThru from "../images/VideoWalkThru.png";
 
 const Lesson6 = () => {
   const [showResults, setShowResults] = useState(false);
@@ -25,6 +26,11 @@ const Lesson6 = () => {
   };
   const toggleCompound = (showCompound) => {
     setShowCompound(!showCompound);
+  };
+
+  const [showVideo, setShowVideo] = useState(false);
+  const toggleVideo = (showVideo) => {
+    setShowVideo(!showVideo);
   };
 
   const [showMoreInfo, setShowMoreInfo] = useState(false);
@@ -87,7 +93,7 @@ const Lesson6 = () => {
           <div className=" w-1/2 text-left px-16 items-center">
             So we could simply combine these queries in a larger{" "}
             <KeyWord>$search</KeyWord>
-            stage, using the <KeyWord type="operator">compound</KeyWord>. But
+            stage using the <KeyWord type="operator">compound</KeyWord>. But
             wait a minute! How important are these? Are they equally important?
             Are they <KeyWord type="word">must-haves</KeyWord> or{" "}
             <KeyWord type="word">should-haves</KeyWord> or simply{" "}
@@ -162,6 +168,7 @@ const Lesson6 = () => {
                 open={showResults}
                 toggle={toggle}
                 content="movies"
+                lesson="6"
               >
                 <img
                   src={ZombieResults}
@@ -190,7 +197,7 @@ const Lesson6 = () => {
               <KeyWord type="operator">compound</KeyWord>. They allow for you to
               apply more or less consideration to whether certain search
               conditions are met. <br></br>
-              <br></br>Think about<KeyWord type="title">clauses</KeyWord> as the
+              <br></br>Think of<KeyWord type="title">clauses</KeyWord> as the
               grout between the subquery tiles, the mortar between the search
               query bricks. They won't get a ton of attention - unless they are
               missing.
@@ -253,7 +260,7 @@ const Lesson6 = () => {
             together into a new
             <KeyWord type="operator">compound</KeyWord> search query.
           </div>
-          <div className="w-1/2 shadow-md shadow-slate-700 rounded p-4">
+          <div className="w-1/3 shadow-md shadow-slate-700 rounded p-4">
             <Step
               title="Step 1. CREATE NEW HTTPS Endpoint in Netflixclone"
               className=""
@@ -277,10 +284,28 @@ const Lesson6 = () => {
               </div>
             </Step>
           </div>
+          <div className="w-1/3 mx-auto">
+            <Reveal
+              title="Show Video Walkthrough"
+              negTitle="Hide Video"
+              open={showVideo}
+              toggle={toggleVideo}
+              content="video"
+              lesson="6"
+            >
+              <video width="640" height="480" controls>
+                <source
+                  src="https://kwh-demos.s3.amazonaws.com/CreateCompoundEndpoint.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </Reveal>
+            {!showVideo && <img src={VideoWalkThru} alt="video" />}
+          </div>
         </div>
         <div className="COMPOUNDCODE ROW flex space-x-8 mt-6 mb-10">
           <div className="relative w-1/2 text-center">
-            <div className="absolute -top-6 -right-40 z-20 w-1/4 text-center">
+            <div className="absolute top-28 -right-40 z-20 w-1/4 text-center">
               <img src={Guy} alt="guy" />
             </div>
 
@@ -339,17 +364,18 @@ const Lesson6 = () => {
                 <KeyWord type="operator">compound</KeyWord> subqueries.
               </li>
               <li>
-                <KeyWord>Lines 17 and 22.</KeyWord> We will start with an empty
+                <KeyWord>Lines 17 and 23.</KeyWord> We will start with an empty
                 searchAggregation and results.
               </li>
               <li>
-                <KeyWord>Line 20.</KeyWord> We will later uncomment this line.
+                <KeyWord>Line 21.</KeyWord> We will later uncomment this line.
                 It calls a soon-to-be-created function to build our search
                 aggregation pipeline.
               </li>
               <li>
-                <KeyWord>Line 28.</KeyWord>Set response with success message and{" "}
-                <KeyWord>$search</KeyWord> aggregation results for the movies.
+                <KeyWord>Line 30 - 35.</KeyWord>Set response with success
+                message and <KeyWord>$search</KeyWord> aggregation results for
+                the movies.
               </li>
             </ul>
             Save your Draft. Then{" "}
@@ -506,8 +532,9 @@ const Lesson6 = () => {
                 strings - numbers - dates
               </div>
               After posting these values to the back end via an HTTPS request,
-              we created the search subqueries and tiled them together in an{" "}
-              <KeyWord>$search </KeyWord> stage.
+              we created the search subqueries and tiled them together with a{" "}
+              <KeyWord type="operator">compound </KeyWord> operator using
+              clauses.
               <div className="w-full mx-auto my-6">
                 <CodeSnippetsCopy
                   type="function"
@@ -688,6 +715,7 @@ exports = async function(request, response) {
    
     // BUILD SEARCH AGGREGATION - INITIALIZE TO AN EMPTY ARRAY
     let searchAggregation = []; 
+    let message = "Need search aggregation."
 
     // WE WILL CALL A NEW FUNCTION TO BUILD THE SEARCH AGGREGATION WITH THE DESTRUCTURED PARAMETERS
     // searchAggregation = await context.functions.execute("createSearchAggregation", searchTerm, genre, rating, start, end); 
@@ -696,12 +724,14 @@ exports = async function(request, response) {
    
     if (searchAggregation.length !== 0){
       results = await movies.aggregate(searchAggregation).toArray();
+      message = "Successfully implemented search aggregation!"
     }
     
     response.setStatusCode(201);
      
     response.setBody(JSON.stringify({
-         message: "Successfully posted to new compound endpoint",
+         success: "Successfully postend to endpoint.",
+         message: message,
          movies: results
       }));
      

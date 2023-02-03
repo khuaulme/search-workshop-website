@@ -2,13 +2,21 @@ import { Collapse } from "react-collapse";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 import { FiVideo, FiVideoOff } from "react-icons/fi";
 
-const Reveal = ({ open, toggle, title, negTitle, children, content }) => {
+const Reveal = ({
+  open,
+  toggle,
+  title,
+  negTitle,
+  children,
+  content,
+  lesson,
+}) => {
   let classStyle =
     "bg-green-600 text-white py-4 px-10 flex justify-evenly items-center cursor-pointer shadow-2xl h-16 rounded w-full";
-  if (content === "video") {
+  if (lesson === "4") {
     classStyle =
       "bg-gradient-to-r from-fuchsia-800 via-violet-900 to-fuchsia-800 text-white py-4 px-10 flex justify-evenly items-center cursor-pointer shadow-2xl h-16 rounded w-full";
-  } else if (content === "movies") {
+  } else if (lesson === "6") {
     classStyle =
       "bg-gradient-to-r from-teal-800 via-black-900 to-teal-800 text-white py-4 px-10 flex justify-evenly items-center cursor-pointer shadow-2xl h-16 rounded w-full";
   }

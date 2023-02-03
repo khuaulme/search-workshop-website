@@ -1,17 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 import LessonTemplate from "../components/LessonTemplate";
-import Footer from "../components/Footer";
+
 import TipCard from "../components/TipCard";
 import Step from "../components/Step";
-import Compass from "../images/Compass.png";
+import Reveal from "../components/Reveal";
+
 import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import KeyWord from "../components/KeyWord";
 import CodeReveal from "../components/CodeReveal";
 import Autocomplete from "../images/lessonImages/Autocomplete.png";
 import ACSearch from "../images/lessonImages/ACSearch.png";
 import CodeSandbox from "../components/CodeSandbox";
+import VideoWalkThru from "../images/VideoWalkThru.png";
 
 const Lesson8 = () => {
+  const [showVideo, setShowVideo] = useState(false);
+  const toggleVideo = (showVideo) => {
+    setShowVideo(!showVideo);
+  };
   return (
     <LessonTemplate
       title="Lesson 8. Autocom..."
@@ -48,11 +54,33 @@ const Lesson8 = () => {
         <div className=" my-8 text-center text-lg">
           In this lesson, we will learn how to implement autocomplete by
           creating a special search index to map our movie data by the special
-          autocomplete data type. Then create a new endpoint to be called by our
-          application below.
+          autocomplete data type. Then we will create a new HTTPS endpoint to be
+          called by our application below.
         </div>
         {/***************** End Introduction ********************/}{" "}
         <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson6/?fontsize=14&hidenavigation=1&theme=dark" />
+        <div className="w-full flex mx-auto my-10">
+          <div className="w-2/3"></div>
+
+          <div className="w-1/3 mx-auto">
+            <Reveal
+              title="Show Video Walkthrough"
+              negTitle="Hide Video"
+              open={showVideo}
+              toggle={toggleVideo}
+              content="video"
+              lesson="6"
+            >
+              <video width="640" height="480" controls>
+                <source
+                  src="https://kwh-demos.s3.amazonaws.com/CreateIndexAutocomplete.mp4"
+                  type="video/mp4"
+                />
+              </video>
+            </Reveal>
+            {!showVideo && <img src={VideoWalkThru} alt="video" />}
+          </div>
+        </div>
       </div>
     </LessonTemplate>
   );

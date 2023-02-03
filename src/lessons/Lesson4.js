@@ -10,6 +10,7 @@ import Reveal from "../components/Reveal";
 
 //images
 import Developer from "../images/lessonImages/Developer.png";
+import VideoWalkThru from "../images/VideoWalkThru.png";
 
 const Lesson4 = () => {
   const [showVideo, setShowVideo] = useState(false);
@@ -54,6 +55,7 @@ const Lesson4 = () => {
               open={showVideo}
               toggle={toggle}
               content="video"
+              lesson="4"
             >
               {" "}
               <video width="640" height="480" controls>
@@ -63,6 +65,9 @@ const Lesson4 = () => {
                 />
               </video>
             </Reveal>
+            {!showVideo && (
+              <img src={VideoWalkThru} alt="video" className="w-3/4 mx-auto" />
+            )}
           </div>
           <div className="absolute -top-6 -right-5 w-1/5 text-center">
             <TipCard side="right">
