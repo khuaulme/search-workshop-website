@@ -97,9 +97,9 @@ const Lesson2 = () => {
                   </div>
                 </div>
 
-                <div className="p-2 w-2/5 object-contain my-auto">
+                <div className="p-2 w-1/2 object-contain my-auto">
                   <img
-                    src={BasicFuzzy}
+                    src={"https://kwh-demos.s3.amazonaws.com/FuzzyMatching.gif"}
                     alt="basic"
                     className="border shadow shadow-slate-800 border-slate-700 "
                   />
