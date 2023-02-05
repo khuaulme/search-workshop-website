@@ -11,10 +11,12 @@ import Documents from "../images/Documents.png";
 import Mappings from "../images/Mappings.png";
 import TreasureMap from "../images/TreasureMap.png";
 import AnalyzerList from "../images/Analyzers.png";
+import SearchLayers from "../images/lessonImages/Search_Layers.gif";
 
 import { GiBookmarklet } from "react-icons/gi";
 import { FaCoins } from "react-icons/fa";
 import StandardAnalyzer from "../images/standardanalyzer.gif";
+import RefineIndex from "../images/refineIndex.gif";
 import Quote from "../images/Quote.png";
 import Mapping from "../images/IndexMapping.png";
 import AnalyzerTool from "../components/AnalyzerTool";
@@ -265,6 +267,55 @@ const Lesson9 = () => {
           </div>
         </div>
         <AnalyzerTool />
+        <div className="flex w-full  my-10 justify-evenly mx-auto items-center">
+          <div className="w-1/2">
+            So, when configuring your search index:
+            <ul className="my-8 space-y-2 ml-10">
+              <li>
+                ✳️ Think about your data first. Knowing your data, how will you
+                be querying it? What do you want your tokens to be?{" "}
+              </li>
+              <li>✳️ Then, choose your analyzer accordingly.</li>
+              <li>
+                ✳️ Specify the best analyzer for your use case in your Atlas
+                Search index definition.{" "}
+              </li>
+              <li>✳️ Specify that index when writing your search query.</li>
+            </ul>
+          </div>
+          <div className="w-2/5 mx-auto">
+            <div className="mx-auto">
+              <img
+                src={RefineIndex}
+                alt="refineIndex"
+                className="rounded border-slate-700 border p-4"
+              />
+            </div>
+          </div>
+        </div>
+        <div className="flex mx-auto justify-evenly px-20 space-x-16 itens-center mb-20">
+          <div className="w-1/2 mx-auto">
+            <div className="mx-auto">
+              <img
+                src={SearchLayers}
+                alt="SeachLayers"
+                className="rounded shadow shadow-slate-700 p-4"
+              />
+            </div>
+          </div>
+          <div className="w-1/2 text-lg">
+            You can create many different search indexes for your use case, but
+            remember that you can only use one search index per search query.
+            <br></br>
+            <br></br>
+            So, now that we have analyzed the analyzers, you know why picking
+            the right analyzer matters. You can create the most efficient Atlas
+            Search index for accurate results and optimal results. So go forth,
+            search-warrior! Type in your application's search box with
+            confidence, not crossed fingers.
+            <div className="text-center text-6xl">🤞</div>
+          </div>
+        </div>
       </div>
     </LessonTemplate>
   );
