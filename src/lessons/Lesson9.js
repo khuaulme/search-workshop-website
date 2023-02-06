@@ -222,8 +222,8 @@ const Lesson9 = () => {
           <div className="w-1/2 flex flex-col text-base my-10 ">
             <div>
               Analyzers are policies that combine a tokenizer, which extracts
-              tokens from text, with filters that you define.Different analyzers
-              produce different tokens to be mapped in the
+              tokens from text, with filters that you define. Different
+              analyzers produce different tokens to be mapped in the
               <span className="text-teal-800 font-bold"> inverted index</span> .
               The <KeyWord type="">Lucene.English</KeyWord> for instance removes
               common words, or <KeyWord type="word">STOP WORDS</KeyWord> (i.e

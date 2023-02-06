@@ -58,9 +58,18 @@ const Lesson8 = () => {
           called by our application below.
         </div>
         {/***************** End Introduction ********************/}{" "}
-        <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson6/?fontsize=14&hidenavigation=1&theme=dark" />
-        <div className="w-full flex mx-auto my-10">
-          <div className="w-2/3"></div>
+        <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson8/?fontsize=14&hidenavigation=1&theme=dark" />
+        <div className="w-full flex mx-auto my-10 justify-evenly">
+          <div className="w-1/3 mx-auto mr-12">
+            <div className="p-2 shadow-lg shadow-gray-500">
+              {" "}
+              <div className="text-center bg-fuchsia-800 rounded-lg p-2 text-white uppercase">
+                autocomplete index definition
+              </div>
+              <CodeSnippetsCopy copyTextObject={autoIndexDef} />
+              <div className="text-black text-base"></div>
+            </div>
+          </div>
 
           <div className="w-1/3 mx-auto">
             <Reveal
@@ -80,10 +89,40 @@ const Lesson8 = () => {
             </Reveal>
             {!showVideo && <img src={VideoWalkThru} alt="video" />}
           </div>
+          <div className="w-1/3 mx-auto ml-12">
+            <div className="p-2 shadow-lg shadow-gray-500">
+              {" "}
+              <div className="text-center bg-fuchsia-800 rounded-lg p-2 text-white uppercase">
+                autocomplete query
+              </div>
+              <CodeSnippetsCopy copyTextObject={autocompleteSearchQuery} />
+              <div className="text-black text-base"></div>
+            </div>
+          </div>
         </div>
       </div>
     </LessonTemplate>
   );
+};
+
+const autocompleteSearchQuery = {
+  index: "autocomplete",
+  autocomplete: {
+    query: "",
+    path: "title",
+  },
+};
+
+const autoIndexDef = {
+  mappings: {
+    dynamic: false,
+    fields: {
+      title: {
+        maxGrams: 8,
+        type: "autocomplete",
+      },
+    },
+  },
 };
 
 export default Lesson8;
