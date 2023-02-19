@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import DeviceIdentifier from "react-device-identifier";
-import BestViewed from "../images/BestViewed.png";
+
 import NoPhone from "../images/NoPhone.png";
 //components
 import CodeSandbox from "../components/CodeSandbox";

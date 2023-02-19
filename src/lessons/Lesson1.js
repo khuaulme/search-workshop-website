@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 
-import SearchIcon from "../images/SearchIcon.png";
 import IndexCreation from "../images/Lesson1/IndexCreation.gif";
 import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import LessonTemplate from "../components/LessonTemplate";

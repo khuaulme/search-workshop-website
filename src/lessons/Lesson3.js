@@ -6,7 +6,6 @@ import Step from "../components/Step";
 
 import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import KeyWord from "../components/KeyWord";
-import Reveal from "../components/Reveal";
 import MoreAboutCard from "../components/MoreAboutCard";
 import CodeReveal from "../components/CodeReveal";
 

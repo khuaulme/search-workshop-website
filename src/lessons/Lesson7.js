@@ -1,12 +1,10 @@
 import React from "react";
 import LessonTemplate from "../components/LessonTemplate";
-import Footer from "../components/Footer";
-import TipCard from "../components/TipCard";
-import Step from "../components/Step";
+
 import ScoreModifierCard from "../components/ScoreModifierCard";
-import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
+
 import KeyWord from "../components/KeyWord";
-import CodeReveal from "../components/CodeReveal";
+
 import Score from "../images/lessonImages/Achievement.png";
 import Relevance from "../images/relevance.jpg";
 import Descending from "../images/descending.png";

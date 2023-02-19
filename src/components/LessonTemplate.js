@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import HeaderLesson from "./HeaderLesson";
 import Footer from "./Footer";
+import DeviceIdentifier from "react-device-identifier";
+import NoPhone from "../images/NoPhone.png";
 
 const LessonTemplate = ({ title, next, previous, children }) => {
   let nextText = "Next Lesson";
@@ -11,6 +13,15 @@ const LessonTemplate = ({ title, next, previous, children }) => {
   return (
     <div className="relative flex flex-col min-h-screen justify-between bg-white font-barlow text-xl text-center">
       <HeaderLesson title={title} />
+      <DeviceIdentifier isMobile={true} isTablet={true}>
+        <div className="flex space-x-8 px-4 py-2 items-center justify-center my-2 bg-slate-800 ">
+          <div className=" text-2xl text-white text-center uppercase">
+            Best Viewed on Desktops
+          </div>
+
+          <img src={NoPhone} className="w-28" alt="outline"></img>
+        </div>
+      </DeviceIdentifier>
       <div className="">{children}</div>
       <Link
         to={previous}

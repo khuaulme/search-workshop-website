@@ -11,7 +11,6 @@ import KeyWord from "../components/KeyWord";
 import SearchOperators from "../components/SearchOperators";
 
 //images
-import BasicFuzzy from "../images/Lesson2/BasicFuzzy.gif";
 
 import Pipeline from "../images/lessonImages/Pipeline.png";
 
