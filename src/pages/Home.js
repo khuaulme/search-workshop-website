@@ -2,7 +2,8 @@ import React, { useState } from "react";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import DeviceIdentifier from "react-device-identifier";
-
+import BestViewed from "../images/BestViewed.png";
+import NoPhone from "../images/NoPhone.png";
 //components
 import CodeSandbox from "../components/CodeSandbox";
 
@@ -19,13 +20,12 @@ function Home() {
     <div className="h-screen bg-white">
       <Header />
       <DeviceIdentifier isMobile={true} isTablet={true}>
-        <div className="flex justify-evenly px-4 py-2 bg-red-700 items-center  my-2">
-          {/* <img src={goalie} className="w-16" alt="outline"></img> */}
-          <div className=" text-white text-2xl text-center uppercase">
+        <div className="flex space-x-8 px-4 py-2 items-center justify-center my-2 bg-slate-800 ">
+          <div className=" text-2xl text-white text-center uppercase">
             Best Viewed on Desktops
           </div>
 
-          {/* <img src={player} className="w-16" alt="outline"></img> */}
+          <img src={NoPhone} className="w-28" alt="outline"></img>
         </div>
       </DeviceIdentifier>
       <div className="flex px-20">
