@@ -11,6 +11,7 @@
     "react": "^18.2.0",
     "react-collapse": "^5.1.1",
     "react-copy-to-clipboard": "^5.1.0",
+    "react-device-identifier": "^0.3.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.43.0",
     "react-icons": "^4.7.1",
