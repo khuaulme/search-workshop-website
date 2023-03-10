@@ -176,7 +176,7 @@ const Lesson8 = () => {
           {" "}
           <div className="w-1/3 shadow shadow-slate-400 p-4">
             <Step
-              title="Step 1. Autocomplete Query for $search Stage"
+              title="Step 1. Build Autocomplete $search Aggregation"
               className=""
             >
               Now that we have our new{" "}
@@ -184,7 +184,8 @@ const Lesson8 = () => {
               this index in a new query for autocompletion functionality in the{" "}
               <KeyWord type="operator">$search</KeyWord> stage.<br></br>Let's
               return to Compass and try the code below in the Aggregation
-              Pipeline Builder:
+              Pipeline Builder with <KeyWord type="operator">$search</KeyWord>{" "}
+              as the first stage:
             </Step>
             <div className="p-2 shadow-lg shadow-gray-500">
               {" "}
@@ -192,50 +193,45 @@ const Lesson8 = () => {
                 autocomplete query
               </div>
               <CodeSnippetsCopy copyTextObject={autocompleteSearchQuery} />
-              <div className="text-black text-base">
+              <div className="text-green-700 text-base text-center">
                 {" "}
-                Be sure to play around with different strings in the{" "}
-                <KeyWord type="code">query</KeyWord> field to see how the
-                resulting movie documents change.<br></br>* Notice I can still
-                use fuzzy as an option. *
+                * Notice I can still use fuzzy as an option. *
               </div>
+            </div>
+            <br></br>
+            Play around with different strings in the{" "}
+            <KeyWord type="code">query</KeyWord> field to see how they affect
+            the resulting documents in the right preview panel.{" "}
+            <div className="bg-fuchsia-800 h-1 mx-auto w-2/3 my-4"></div> Add{" "}
+            <KeyWord type="operator">$limit</KeyWord> and{" "}
+            <KeyWord type="operator">$project</KeyWord> stages to our
+            aggregation pipeline, as we did in Lesson 3. However, we only need
+            the <KeyWord type="title">title</KeyWord> field in the return
+            payload. Therefore our full aggregation for an autocompleted search
+            is:{" "}
+            <div className="p-2 shadow-lg shadow-gray-500">
+              {" "}
+              <div className="text-center bg-teal-700 rounded-lg p-2 text-white uppercase">
+                autocomplete query Aggregation
+              </div>
+              <CodeSnippetsCopy copyTextObject={completeAutoSearchQuery} />
+              <div className="text-black text-base"></div>
             </div>
           </div>
           <div className="w-1/3 shadow shadow-slate-400 p-4">
-            <Step
-              title="Step 2. Complete $search Aggregation Pipeline "
-              className=""
-            >
-              Add <KeyWord type="operator">$limit</KeyWord> and{" "}
-              <KeyWord type="operator">$project</KeyWord> stages to our
-              aggregation pipeline, as we did in Lesson 3. However, we will only
-              need the <KeyWord type="title">title</KeyWord> field in the return
-              payload. Therefore our full aggrgeation for an autcompleted search
-              is:{" "}
-              <div className="p-2 shadow-lg shadow-gray-500">
-                {" "}
-                <div className="text-center bg-teal-700 rounded-lg p-2 text-white uppercase">
-                  autocomplete query Aggregation
-                </div>
-                <CodeSnippetsCopy copyTextObject={completeAutoSearchQuery} />
-                <div className="text-black text-base"></div>
-              </div>
-            </Step>
-          </div>{" "}
-          <div className="w-1/3 shadow shadow-slate-400 p-4">
-            <Step title="Step 3. Create HTTPS Endpoint" className="">
+            <Step title="Step 2. Create HTTPS Endpoint" className="">
               On the left menu, select{" "}
               <KeyWord type="word">HTTPS Endpoint</KeyWord>, followed by the{" "}
               <KeyWord type="button">Add an Endpoint</KeyWord>. Select the HTTP
-              service, and name it movies.
+              service, and name it <KeyWord type="title">titles</KeyWord>.
               <ul className="ml-24 my-2">
                 <li>✔️ For Route, type /movies</li>
                 <li>✔️ Set your Operation Type to GET</li>
                 <li>✔️ Enable Respond with Result</li>
               </ul>
               Make note of your{" "}
-              <KeyWord type="word">BASIC ENDPOINT URL</KeyWord>. You will be
-              using this in your application.
+              <KeyWord type="word">AUTOCOMPLETE ENDPOINT URL</KeyWord>. You will
+              be using this in your application.
             </Step>
           </div>
         </div>{" "}
