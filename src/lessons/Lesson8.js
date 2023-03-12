@@ -171,7 +171,14 @@ const Lesson8 = () => {
             </TipCard>
           </div>
         </div>
-        <div className="bg-yellow-400 h-1 mx-auto w-2/3 mt-6"></div>
+        <div className="bg-yellow-400 h-1 mx-auto w-2/3 mb-4"></div>
+        <div className="w-2/3 mx-auto text-xl text-center text-green-800">
+          {" "}
+          Now that we have our $search index for autocomplete, the below Steps 1
+          - 4 will guide us through how to create an HTTPS endpoint to be called
+          from our application front end to retrieve autocompleted movie titles.
+        </div>
+        <div className="bg-yellow-400 h-1 mx-auto w-2/3 my-4"></div>
         <div className="2ND ROW flex space-x-8 mt-6">
           {" "}
           <div className="w-1/3 shadow shadow-slate-400 p-4">
@@ -215,17 +222,25 @@ const Lesson8 = () => {
                 autocomplete query Aggregation
               </div>
               <CodeSnippetsCopy copyTextObject={completeAutoSearchQuery} />
-              <div className="text-black text-base"></div>
+              <div className="text-green-700 text-base text-center">
+                This $search autocomplete aggregation will be the executed by an
+                HTTP endpoint.{" "}
+              </div>
             </div>
           </div>
-          <div className="w-1/3 shadow shadow-slate-400 p-4">
-            <Step title="Step 2. Create HTTPS Endpoint" className="">
-              On the left menu, select{" "}
-              <KeyWord type="word">HTTPS Endpoint</KeyWord>, followed by the{" "}
-              <KeyWord type="button">Add an Endpoint</KeyWord>. Select the HTTP
-              service, and name it <KeyWord type="title">titles</KeyWord>.
+          <div className="w-1 bg-fuchsia-800 rounded"></div>
+          <div className="w-3/5 shadow shadow-slate-400 p-4">
+            <Step
+              title="Step 2. Create HTTPS Endpoint to execute the autocomplete $search aggregation"
+              className=""
+            >
+              Returning to the Atlas App Services UI, as we did in Lesson 4,
+              select <KeyWord type="word">HTTPS Endpoint</KeyWord>, followed by
+              the <KeyWord type="button">Add an Endpoint</KeyWord>. Select the
+              HTTP service, and name it{" "}
+              <KeyWord type="title">autocompleteTitles</KeyWord>.
               <ul className="ml-24 my-2">
-                <li>✔️ For Route, type /movies</li>
+                <li>✔️ For Route, type /titles</li>
                 <li>✔️ Set your Operation Type to GET</li>
                 <li>✔️ Enable Respond with Result</li>
               </ul>
@@ -233,23 +248,85 @@ const Lesson8 = () => {
               <KeyWord type="word">AUTOCOMPLETE ENDPOINT URL</KeyWord>. You will
               be using this in your application.
             </Step>
+            <Step
+              title="Step 3. Incorporate Aggregation into New Function Logic"
+              className=""
+            >
+              This endpoint will be calling a{" "}
+              <KeyWord type="word">New Function</KeyWord>. Name the function
+              <KeyWord type="word">getTitles </KeyWord> and replace the code in
+              the Function Editor with code below:
+            </Step>
+            <div className="flex space-x-6">
+              <div className="w-3/4 mx-auto text-center bg-slateblue">
+                <div className="p-4">
+                  <div className="bg-sun  text-black uppercase text-xl py-2 rounded">
+                    Code for GetTitles Function
+                  </div>
+                  <CodeSnippetsCopy
+                    type="function"
+                    copyTextObject={functionCode}
+                  />{" "}
+                </div>
+              </div>
+              {/******END CODEBLOCK ***********/}
+            </div>
+            <div className="w-4/5 mx-auto text-left mb-8">
+              <br></br>
+              <ul className="space-y-2">
+                <li>
+                  <KeyWord>Line 4.</KeyWord> We use the global{" "}
+                  <code>context</code> variable to get a handle to the movies
+                  collection in the <KeyWord type="word">sample_mflix</KeyWord>{" "}
+                  database.
+                </li>
+                <li>
+                  <KeyWord>Line 7.</KeyWord> We get an argument from my function
+                  payload query and set it to the <code>searchTerm</code>{" "}
+                  variable.{" "}
+                  <span className="italic text-color-indigo-700">
+                    <span className="text-2xl">👈</span> This will be passed in
+                    from our application.{" "}
+                  </span>
+                </li>
+                <li>
+                  <KeyWord>Line 13.</KeyWord> Currently our searchAggregation is
+                  an empty array.
+                </li>
+                <li>
+                  <KeyWord>Line 16.</KeyWord> Finally we execute the aggregation
+                  against the movies collection and set the body of our response
+                  to that result.
+                </li>
+              </ul>
+              Save your Draft. Then{" "}
+              <KeyWord type="button">Review Draft & Deploy</KeyWord>.<br></br>
+              <br></br>
+              NOTE!! <span className="text-2xl">🛎️</span> We need to adjust the
+              settings of your new function. App Services supports multiple
+              authentication methods. Set the default Authentication method to{" "}
+              <KeyWord>System</KeyWord> to keep things simple and be sure to{" "}
+              <KeyWord type="button">Save</KeyWord>.
+            </div>
+            <Step title="Step 4. Paste in autocomplete $search aggregation">
+              Still in your Function Editor, and replace your searchAggregation
+              variable on <KeyWord>Line 13.</KeyWord> to your autocomplete query
+              aggregation from <KeyWord>Step 1</KeyWord>. Be sure to replace
+              your query of <KeyWord type="word">Harry</KeyWord> to the variable{" "}
+              <KeyWord>searchTerm</KeyWord> or else your function will be quite
+              limited. 🤣<br></br> Feel free to test this endpoint in the
+              browser as you did in Lesson 4, Step 5.
+            </Step>
           </div>
         </div>{" "}
-        <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson8/?fontsize=14&hidenavigation=1&theme=dark" />
-        <div className="w-full flex mx-auto my-10 justify-evenly">
-          <div className="w-1/3 mx-auto mr-12"></div>
-
-          <div className="w-1/3 mx-auto ml-12">
-            <div className="p-2 shadow-lg shadow-gray-500">
-              {" "}
-              <div className="text-center bg-fuchsia-800 rounded-lg p-2 text-white uppercase">
-                autocomplete query
-              </div>
-              <CodeSnippetsCopy copyTextObject={autocompleteSearchQuery} />
-              <div className="text-black text-base"></div>
-            </div>
-          </div>
+        <div className="bg-yellow-400 h-1 mx-auto w-2/3 my-4"></div>
+        <div className="w-2/3 mx-auto text-xl text-center text-green-800">
+          {" "}
+          Armed with the endpoint from Step 2, paste it into the Code Sandbox
+          below in the src/components/SeacrhBar/SearchBar.js file on line 21.
         </div>
+        <div className="bg-yellow-400 h-1 mx-auto w-2/3 my-4"></div>
+        <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson8/?fontsize=14&hidenavigation=1&theme=dark" />
       </div>
     </LessonTemplate>
   );
@@ -296,5 +373,24 @@ const completeAutoSearchQuery = [
     },
   },
 ];
+
+const functionCode = `exports = async function({ query, headers, body}, response) {
+  
+  // GET A HANDLE TO THE MOVIES COLLECTION
+  const moviesTitles = context.services.get("mongodb-atlas").db("sample_mflix").collection("movies");
+  
+  // GET SEARCHTERM FROM QUERY PARAMETER. IF NONE, RETURN EMPTY ARRAY
+  let searchTerm = query.searchTerm;
+  if (!query.searchTerm || searchTerm ===""){
+    return [];
+  }
+
+  //INSERT SEARCH AGGREGATION HERE
+  const searchAggregation =[];  
+  
+  // RUN SEARCH AGGREGATION ON MOVIES COLLECTION and RETURN
+  const titles = await moviesCollection.aggregate(searchAggregation).toArray();
+  return titles;
+}`;
 
 export default Lesson8;
