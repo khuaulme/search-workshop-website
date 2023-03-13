@@ -12,11 +12,22 @@ import Autocomplete from "../images/lessonImages/Autocomplete.png";
 import ACSearch from "../images/lessonImages/ACSearch.png";
 import CodeSandbox from "../components/CodeSandbox";
 import VideoWalkThru from "../images/VideoWalkThru.png";
+import Reminder from "../images/Reminder.png";
 
 const Lesson8 = () => {
   const [showVideo, setShowVideo] = useState(false);
   const toggleVideo = (showVideo) => {
     setShowVideo(!showVideo);
+  };
+
+  const [showFinalAggregation, setShowFinalAggregation] = useState(false);
+  const toggle = (showFinalAggregation) => {
+    setShowFinalAggregation(!showFinalAggregation);
+  };
+
+  const [showFinalFunction, setShowFinalFunction] = useState(false);
+  const toggleFunction = (showFinalFunction) => {
+    setShowFinalFunction(!showFinalFunction);
   };
   return (
     <LessonTemplate
@@ -25,12 +36,12 @@ const Lesson8 = () => {
       previous="/Lesson7"
     >
       <div className="LESSON PAGE flex flex-col  px-20 mt-auto text-base text-left">
-        <div className="flex w-full px-20 space-x-10">
+        <div className="flex w-full pr-20 space-x-10">
           <div className="w-1/3 mx-auto my-auto ">
             <img src={ACSearch} alt="autocomplete" />{" "}
           </div>
 
-          <div className=" font-barlow text-lg w-2/3 mt-16 text-left">
+          <div className=" font-barlow text-lg w-3/5 mt-16 text-left">
             My spelling stinks, and I blame Google. <br></br>
             <br></br>For better or for worse, Google has spoiled us.
             Autocomplete, autosuggest, search-as-you-type - whatever you call
@@ -42,20 +53,49 @@ const Lesson8 = () => {
                 <li>🛍️ find alternative products</li>
                 <li>🫶 reassure users they are in the right place</li>
               </ul>
-              <div className="w-1/3 mx-auto my-auto ">
-                <img src={Autocomplete} alt="autocomplete" />{" "}
-              </div>
             </div>
             Like loving yet indulgent parents, we want to give our users the
             best search experience possible - and if we have to sacrifice our
-            spelling skills to do so, then so be it. In this lesson, we will
-            learn how to implement autocomplete in order to find movies by their
-            title.
+            spelling skills to do so, then so be it.
+          </div>
+          <div className="w-1/4 mx-auto my-auto ">
+            <img src={Autocomplete} alt="autocomplete" />{" "}
           </div>
         </div>
         <div className="bg-yellow-400 h-1 mx-auto w-2/3 mt-8"></div>
+        <div className=" w-full px-20 space-x-10 mt-10 text-lg">
+          In this lesson, we will learn how to implement autocomplete in order
+          to find movies by their title. Although long, it goes by quickly
+          because we are repeating a lot of the same steps from Lessons 2-5. We
+          can break this Autocomplete Lesson down into 4 parts:
+          <ul className="ml-10 my-4 ">
+            <li>
+              ✅ Part 1: Indexing the movie titles with the{" "}
+              <KeyWord type="word">autocomplete</KeyWord> data type
+            </li>
+            <li>
+              ✅ Part 2: Building the <KeyWord type="operator">$search</KeyWord>{" "}
+              aggregation query using the{" "}
+              <KeyWord type="word">autocomplete</KeyWord> operator
+            </li>
+            <li>
+              ✅ Part 3: Creating the HTTPS endpoint to execute the{" "}
+              <KeyWord type="word">autocomplete</KeyWord> aggregation query
+            </li>
+            <li>
+              ✅ Part 4: Calling the HTTPS endpoint from the embedded
+              CodeSandbox front end
+            </li>
+          </ul>
+        </div>
+        <div className=" w-full mt-10 bg-yellow-300 py-4 px-8 rounded">
+          <div className=" mx-auto text-2xl text-center text-black uppercase">
+            Part 1: Indexing the movie titles with the{" "}
+            <span className="text-teal-700">autocomplete</span> data type
+          </div>
+        </div>
         {/***************** End Introduction ********************/}{" "}
-        <div className="w-full flex text-left mx-auto my-10 justify-evenly space-x-10">
+        <div className="w-full flex text-left mx-auto justify-evenly space-x-10">
           <div className="w-1/3 my-8 ">
             <div>
               In{" "}
@@ -179,77 +219,151 @@ const Lesson8 = () => {
           from our application front end to retrieve autocompleted movie titles.
         </div>
         <div className="bg-yellow-400 h-1 mx-auto w-2/3 my-4"></div>
-        <div className="2ND ROW flex space-x-8 mt-6">
+        <div className=" w-full mx-auto mt-10 bg-yellow-300 py-4 px-8 rounded">
+          <div className=" mx-auto text-2xl text-center text-black uppercase">
+            Part 2: Building the <KeyWord type="operator">$search</KeyWord>{" "}
+            aggregation query using the{" "}
+            <span className="text-teal-800">autocomplete</span> operator
+          </div>
+        </div>
+        {/***************** Part 2 ********************/}{" "}
+        <div className="PART2 flex space-x-8 mt-6">
           {" "}
-          <div className="w-1/3 shadow shadow-slate-400 p-4">
-            <Step
-              title="Step 1. Build Autocomplete $search Aggregation"
-              className=""
-            >
-              Now that we have our new{" "}
-              <KeyWord type="title">autocomplete</KeyWord> index, we can use
-              this index in a new query for autocompletion functionality in the{" "}
-              <KeyWord type="operator">$search</KeyWord> stage.<br></br>Let's
-              return to Compass and try the code below in the Aggregation
-              Pipeline Builder with <KeyWord type="operator">$search</KeyWord>{" "}
-              as the first stage:
-            </Step>
-            <div className="p-2 shadow-lg shadow-gray-500">
-              {" "}
-              <div className="text-center bg-teal-700 rounded-lg p-2 text-white uppercase">
-                autocomplete query
-              </div>
-              <CodeSnippetsCopy copyTextObject={autocompleteSearchQuery} />
-              <div className="text-green-700 text-base text-center">
-                {" "}
-                * Notice I can still use fuzzy as an option. *
+          <div className="PART2 COL1 w-1/2">
+            <div className="w-full shadow shadow-slate-400 p-4">
+              <Step title="Step 1. Use autocomplete operator in $search stage">
+                Now that we have our new{" "}
+                <KeyWord type="title">autocomplete</KeyWord> index, we can use
+                this index in a new query for autocompletion functionality in
+                the <KeyWord type="operator">$search</KeyWord> stage.<br></br>
+                Let's return to Compass and try the code below in the
+                Aggregation Pipeline Builder with{" "}
+                <KeyWord type="operator">$search</KeyWord> as the first stage:
+                <br></br>
+                <br></br>
+                <div className="p-2 shadow-lg shadow-gray-500">
+                  {" "}
+                  <div className="text-center bg-teal-700 rounded-lg p-2 text-white uppercase">
+                    autocomplete query
+                  </div>
+                  <CodeSnippetsCopy copyTextObject={autocompleteSearchQuery} />
+                  <div className="text-green-700 text-base text-center">
+                    {" "}
+                    * Notice I can still use fuzzy as an option. *
+                  </div>
+                </div>
+              </Step>
+              <div className="px-10 my-8 text-lg">
+                Play around with different strings in the{" "}
+                <KeyWord type="code">query</KeyWord> field to see how they
+                affect the resulting documents in the right preview panel.{" "}
+                <br></br>
               </div>
             </div>
-            <br></br>
-            Play around with different strings in the{" "}
-            <KeyWord type="code">query</KeyWord> field to see how they affect
-            the resulting documents in the right preview panel.{" "}
-            <div className="bg-fuchsia-800 h-1 mx-auto w-2/3 my-4"></div> Add{" "}
-            <KeyWord type="operator">$limit</KeyWord> and{" "}
-            <KeyWord type="operator">$project</KeyWord> stages to our
-            aggregation pipeline, as we did in Lesson 3. However, we only need
-            the <KeyWord type="title">title</KeyWord> field in the return
-            payload. Therefore our full aggregation for an autocompleted search
-            is:{" "}
-            <div className="p-2 shadow-lg shadow-gray-500">
-              {" "}
-              <div className="text-center bg-teal-700 rounded-lg p-2 text-white uppercase">
-                autocomplete query Aggregation
+            <div className="w-4/5 mx-auto mt-6 text-xl border-4 border-red-700 pb-8  rounded">
+              <div className="bg-red-700 py-1  text-white text-xl text-center w-full mb-4">
+                EXERCISE 1
               </div>
-              <CodeSnippetsCopy copyTextObject={completeAutoSearchQuery} />
-              <div className="text-green-700 text-base text-center">
-                This $search autocomplete aggregation will be the executed by an
-                HTTP endpoint.{" "}
+              <div className="flex"></div>
+              <div className="text-center text-6xl">❓</div>
+              <div className="text-2xl text-center text-indigo-900 px-16">
+                How many characters did you type before getting movie documents
+                returned and why?
+              </div>
+              <div className="text-center text-4xl my-6">🍿{"  "} 🎥</div>
+              <div className="text-lg text-center text-slate-700">
+                🤔 Hint! Check the index definition.
               </div>
             </div>
           </div>
-          <div className="w-1 bg-fuchsia-800 rounded"></div>
-          <div className="w-3/5 shadow shadow-slate-400 p-4">
+          <div className="PART2 COL2 w-1/2">
+            {" "}
+            <div className="w-full shadow shadow-slate-400 p-4">
+              <Step
+                title="Step 2. Complete $search aggregation with $limit and $project"
+                className=""
+              >
+                Add <KeyWord type="operator">$limit</KeyWord> and{" "}
+                <KeyWord type="operator">$project</KeyWord> stages to our
+                aggregation pipeline as we did in Lesson 3. However, we only
+                need the <KeyWord type="title">title</KeyWord> field in the
+                return payload.<br></br>
+                <br></br>
+                <div className="w-4/5 mx-auto mt-6 text-xl border-4 border-red-700 pb-8  rounded">
+                  <div className="bg-red-700 py-1  text-white text-xl text-center w-full mb-4">
+                    EXERCISE: Complete $search Autocomplete Aggregation
+                  </div>
+                  <div className="flex"></div>
+                  <div className="text-2xl text-center text-indigo-900 px-16 mb-6">
+                    Using the <KeyWord type="code">fuzzy</KeyWord> option,
+                    limiting to 12 movies 🎞️, and projecting in only the movie
+                    title, <br></br>what is the final $search aggregation for
+                    autocompleted movie titles?
+                  </div>
+                  <CodeReveal
+                    title="Reveal Full Aggregation"
+                    negTitle="Hide Full Aggregation"
+                    open={showFinalAggregation}
+                    toggle={toggle}
+                    copyTextObject={completeAutoSearchQuery}
+                  ></CodeReveal>{" "}
+                </div>
+              </Step>
+            </div>
+            <div className="bg-yellow-400 h-1 mx-auto w-2/3 mt-6"></div>
+            <div className="text-green-800 text-lg text-center w-2/3 mx-auto">
+              With our new $search aggregation to autosuggest movie titles for
+              our end users, let's now build out the HTTPS endpoint to execute
+              this functionality.
+            </div>
+            <div className="bg-yellow-400 h-1 mx-auto w-2/3 my-4"></div>
+          </div>
+        </div>
+        <div className=" w-full mx-auto mt-10 bg-yellow-300 py-4 px-8 rounded">
+          <div className=" mx-auto text-2xl text-center text-black uppercase">
+            Part 3: Creating the HTTPS endpoint to execute the{" "}
+            <span className="text-teal-800">autocomplete</span> aggregation
+            query
+          </div>
+        </div>
+        <div className="PART3  my-6">
+          <div className="w-5/6 mx-auto shadow shadow-slate-400 p-4">
             <Step
-              title="Step 2. Create HTTPS Endpoint to execute the autocomplete $search aggregation"
+              title="Step 1. Create HTTPS Endpoint to execute the autocomplete $search aggregation"
               className=""
             >
-              Returning to the Atlas App Services UI, as we did in Lesson 4,
-              select <KeyWord type="word">HTTPS Endpoint</KeyWord>, followed by
-              the <KeyWord type="button">Add an Endpoint</KeyWord>. Select the
-              HTTP service, and name it{" "}
-              <KeyWord type="title">autocompleteTitles</KeyWord>.
-              <ul className="ml-24 my-2">
-                <li>✔️ For Route, type /titles</li>
-                <li>✔️ Set your Operation Type to GET</li>
-                <li>✔️ Enable Respond with Result</li>
-              </ul>
-              Make note of your{" "}
-              <KeyWord type="word">AUTOCOMPLETE ENDPOINT URL</KeyWord>. You will
-              be using this in your application.
+              <div className="flex space-x-6 px-10">
+                <div className="w-3/5">
+                  Returning to the Atlas App Services UI, as we did in Lesson 4,
+                  select <KeyWord type="word">HTTPS Endpoint</KeyWord>, followed
+                  by the <KeyWord type="button">Add an Endpoint</KeyWord>.{" "}
+                  <br></br>
+                  Select the HTTP service, and name it{" "}
+                  <KeyWord type="title">autocompleteTitles</KeyWord>.
+                  <ul className="ml-24 my-2">
+                    <li>✔️ For Route, type /titles</li>
+                    <li>✔️ Set your Operation Type to GET</li>
+                    <li>✔️ Enable Respond with Result</li>
+                  </ul>
+                </div>
+                <div className="w-1/3 flex items-center space-x-4">
+                  <img
+                    src={Reminder}
+                    alt="reminder"
+                    className="w-32 object-contain"
+                  />
+                  <div>
+                    Make note of your{" "}
+                    <KeyWord type="word">
+                      AUTOCOMPLETETITLES ENDPOINT URL
+                    </KeyWord>
+                    . You will be using this in your application.
+                  </div>
+                </div>
+              </div>
             </Step>
             <Step
-              title="Step 3. Incorporate Aggregation into New Function Logic"
+              title="Step 2. Create Function Logic for Endpoint"
               className=""
             >
               This endpoint will be calling a{" "}
@@ -257,7 +371,7 @@ const Lesson8 = () => {
               <KeyWord type="word">getTitles </KeyWord> and replace the code in
               the Function Editor with code below:
             </Step>
-            <div className="flex space-x-6">
+            <div className="flex space-x-6 mb-8">
               <div className="w-3/4 mx-auto text-center bg-slateblue">
                 <div className="p-4">
                   <div className="bg-sun  text-black uppercase text-xl py-2 rounded">
@@ -270,60 +384,68 @@ const Lesson8 = () => {
                 </div>
               </div>
               {/******END CODEBLOCK ***********/}
+              <div className="w-4/5 mx-auto text-left mb-8">
+                <br></br>
+                <ul className="space-y-2">
+                  <li>
+                    <KeyWord>Line 4.</KeyWord> We use the global{" "}
+                    <code>context</code> variable to get a handle to the movies
+                    collection in the{" "}
+                    <KeyWord type="word">sample_mflix</KeyWord> database.
+                  </li>
+                  <li>
+                    <KeyWord>Line 7.</KeyWord> We get an argument from my
+                    function payload query and set it to the{" "}
+                    <code>searchTerm</code> variable.{" "}
+                    <span className="italic text-color-indigo-700">
+                      <span className="text-2xl">👈</span> This will be passed
+                      in from our application.{" "}
+                    </span>
+                  </li>
+                  <li>
+                    <KeyWord>Line 13.</KeyWord> Currently our searchAggregation
+                    is an empty array.
+                  </li>
+                  <li>
+                    <KeyWord>Line 16.</KeyWord> Finally we execute the
+                    aggregation against the movies collection and set the body
+                    of our response to that result.
+                  </li>
+                </ul>
+                Save your Draft. Then{" "}
+                <KeyWord type="button">Review Draft & Deploy</KeyWord>.<br></br>
+                <br></br>
+                NOTE!! <span className="text-2xl">🛎️</span> We need to adjust
+                the settings of your new function. App Services supports
+                multiple authentication methods. Set the default Authentication
+                method to <KeyWord>System</KeyWord> to keep things simple and be
+                sure to <KeyWord type="button">Save</KeyWord>.
+              </div>
             </div>
-            <div className="w-4/5 mx-auto text-left mb-8">
-              <br></br>
-              <ul className="space-y-2">
-                <li>
-                  <KeyWord>Line 4.</KeyWord> We use the global{" "}
-                  <code>context</code> variable to get a handle to the movies
-                  collection in the <KeyWord type="word">sample_mflix</KeyWord>{" "}
-                  database.
-                </li>
-                <li>
-                  <KeyWord>Line 7.</KeyWord> We get an argument from my function
-                  payload query and set it to the <code>searchTerm</code>{" "}
-                  variable.{" "}
-                  <span className="italic text-color-indigo-700">
-                    <span className="text-2xl">👈</span> This will be passed in
-                    from our application.{" "}
-                  </span>
-                </li>
-                <li>
-                  <KeyWord>Line 13.</KeyWord> Currently our searchAggregation is
-                  an empty array.
-                </li>
-                <li>
-                  <KeyWord>Line 16.</KeyWord> Finally we execute the aggregation
-                  against the movies collection and set the body of our response
-                  to that result.
-                </li>
-              </ul>
-              Save your Draft. Then{" "}
-              <KeyWord type="button">Review Draft & Deploy</KeyWord>.<br></br>
-              <br></br>
-              NOTE!! <span className="text-2xl">🛎️</span> We need to adjust the
-              settings of your new function. App Services supports multiple
-              authentication methods. Set the default Authentication method to{" "}
-              <KeyWord>System</KeyWord> to keep things simple and be sure to{" "}
-              <KeyWord type="button">Save</KeyWord>.
-            </div>
-            <Step title="Step 4. Paste in autocomplete $search aggregation">
+            <Step title="Step 3. Paste in autocomplete $search aggregation">
               Still in your Function Editor, and replace your searchAggregation
               variable on <KeyWord>Line 13.</KeyWord> to your autocomplete query
-              aggregation from <KeyWord>Step 1</KeyWord>. Be sure to replace
+              aggregation from <KeyWord>Part 2</KeyWord>. Be sure to replace
               your query of <KeyWord type="word">Harry</KeyWord> to the variable{" "}
               <KeyWord>searchTerm</KeyWord> or else your function will be quite
               limited. 🤣<br></br> Feel free to test this endpoint in the
-              browser as you did in Lesson 4, Step 5.
+              browser as you did in Lesson 4, Step 5.<br></br>
+              <CodeReveal
+                title="Reveal Final GetTitles Function "
+                negTitle="Hide GetTitles Function"
+                open={showFinalFunction}
+                toggle={toggleFunction}
+                lesson="8"
+                copyTextObject={finalFunctionCode}
+              ></CodeReveal>{" "}
             </Step>
           </div>
         </div>{" "}
         <div className="bg-yellow-400 h-1 mx-auto w-2/3 my-4"></div>
         <div className="w-2/3 mx-auto text-xl text-center text-green-800">
           {" "}
-          Armed with the endpoint from Step 2, paste it into the Code Sandbox
-          below in the src/components/SeacrhBar/SearchBar.js file on line 21.
+          Armed with the endpoint from Part 3, paste it into the Code Sandbox
+          below in the src/components/SearchBar/SearchBar.js file on line 21.
         </div>
         <div className="bg-yellow-400 h-1 mx-auto w-2/3 my-4"></div>
         <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson8/?fontsize=14&hidenavigation=1&theme=dark" />
@@ -387,6 +509,46 @@ const functionCode = `exports = async function({ query, headers, body}, response
 
   //INSERT SEARCH AGGREGATION HERE
   const searchAggregation =[];  
+  
+  // RUN SEARCH AGGREGATION ON MOVIES COLLECTION and RETURN
+  const titles = await moviesCollection.aggregate(searchAggregation).toArray();
+  return titles;
+}`;
+
+const finalFunctionCode = `exports = async function({ query, headers, body}, response) {
+  
+  // GET A HANDLE TO THE MOVIES COLLECTION
+  const moviesTitles = context.services.get("mongodb-atlas").db("sample_mflix").collection("movies");
+  
+  // GET SEARCHTERM FROM QUERY PARAMETER. IF NONE, RETURN EMPTY ARRAY
+  let searchTerm = query.searchTerm;
+  if (!query.searchTerm || searchTerm ===""){
+    return [];
+  }
+
+  //INSERT SEARCH AGGREGATION HERE
+  const searchAggregation =[
+  {
+    "$search": {
+      "index": "autocomplete",
+      "autocomplete": {
+        "query": searchTerm,
+        "path": "title",
+        "fuzzy": {
+          "maxEdits": 1
+        }
+      }
+    }
+  },
+  {
+    "$limit": 12
+  },
+  {
+    "$project": {
+      "title": 1
+    }
+  }
+];  
   
   // RUN SEARCH AGGREGATION ON MOVIES COLLECTION and RETURN
   const titles = await moviesCollection.aggregate(searchAggregation).toArray();
