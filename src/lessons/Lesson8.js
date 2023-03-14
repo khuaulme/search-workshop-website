@@ -13,6 +13,7 @@ import ACSearch from "../images/lessonImages/ACSearch.png";
 import CodeSandbox from "../components/CodeSandbox";
 import VideoWalkThru from "../images/VideoWalkThru.png";
 import Reminder from "../images/Reminder.png";
+import Ticket from "../images/Ticket.png";
 
 const Lesson8 = () => {
   const [showVideo, setShowVideo] = useState(false);
@@ -227,96 +228,141 @@ const Lesson8 = () => {
           </div>
         </div>
         {/***************** Part 2 ********************/}{" "}
-        <div className="PART2 flex space-x-8 mt-6">
+        <div className="PART2 mt-6">
           {" "}
-          <div className="PART2 COL1 w-1/2">
-            <div className="w-full shadow shadow-slate-400 p-4">
-              <Step title="Step 1. Use autocomplete operator in $search stage">
-                Now that we have our new{" "}
-                <KeyWord type="title">autocomplete</KeyWord> index, we can use
-                this index in a new query for autocompletion functionality in
-                the <KeyWord type="operator">$search</KeyWord> stage.<br></br>
-                Let's return to Compass and try the code below in the
-                Aggregation Pipeline Builder with{" "}
-                <KeyWord type="operator">$search</KeyWord> as the first stage:
-                <br></br>
-                <br></br>
-                <div className="p-2 shadow-lg shadow-gray-500">
+          <div className="w-full shadow shadow-slate-400 p-4 text-lg">
+            <Step title="Step 1. Use autocomplete operator in $search stage">
+              <div className="flex space-x-10">
+                <div className="col1 w-1/3">
                   {" "}
-                  <div className="text-center bg-teal-700 rounded-lg p-2 text-white uppercase">
-                    autocomplete query
-                  </div>
-                  <CodeSnippetsCopy copyTextObject={autocompleteSearchQuery} />
-                  <div className="text-green-700 text-base text-center">
+                  Now that we have our new{" "}
+                  <KeyWord type="title">autocomplete</KeyWord> index, we can use
+                  this index in a new query for autocompletion functionality in
+                  the <KeyWord type="operator">$search</KeyWord> stage.<br></br>
+                  <div className="p-2 shadow-lg shadow-gray-500">
                     {" "}
-                    * Notice I can still use fuzzy as an option. *
+                    <div className="text-center bg-teal-700 rounded-lg p-2 text-white uppercase">
+                      autocomplete syntax
+                    </div>
+                    <CodeSnippetsCopy copyTextObject={autocompleteSyntax} />
                   </div>
                 </div>
-              </Step>
-              <div className="px-10 my-8 text-lg">
-                Play around with different strings in the{" "}
-                <KeyWord type="code">query</KeyWord> field to see how they
-                affect the resulting documents in the right preview panel.{" "}
-                <br></br>
+
+                <div className="w-1 bg-fuchsia-800 rounded-lg h-80 my-auto"></div>
+                <div className="col2 w-1/3">
+                  Knowing this, let's return to Compass and try the code below
+                  in the Aggregation Pipeline Builder with{" "}
+                  <KeyWord type="operator">$search</KeyWord> as the first stage:
+                  <br></br>
+                  <br></br>
+                  <div className="p-2 shadow-lg shadow-gray-500">
+                    {" "}
+                    <div className="text-center bg-teal-700 rounded-lg p-2 text-white uppercase">
+                      autocomplete query
+                    </div>
+                    <CodeSnippetsCopy
+                      copyTextObject={autocompleteSearchQuery}
+                    />
+                    <div className="text-green-700 text-base text-center">
+                      {" "}
+                      * Notice the use of fuzzy as an option. *
+                    </div>
+                  </div>
+                </div>
+                <div className="w-1 bg-fuchsia-800 rounded-lg h-80 my-auto"></div>
+                <div className="w-1/3 mx-auto">
+                  Play around with different strings in the{" "}
+                  <KeyWord type="code">query</KeyWord> field to see how they
+                  affect the resulting documents in the right preview panel.{" "}
+                  <br></br>
+                  <img
+                    src={"https://kwh-demos.s3.amazonaws.com/autoTitles.gif"}
+                    alt="autoTitles"
+                    className="border shadow shadow-slate-800 w-full border-slate-700 mt-8"
+                  />
+                </div>
               </div>
-            </div>
-            <div className="w-4/5 mx-auto mt-6 text-xl border-4 border-red-700 pb-8  rounded">
-              <div className="bg-red-700 py-1  text-white text-xl text-center w-full mb-4">
-                EXERCISE 1
-              </div>
-              <div className="flex"></div>
-              <div className="text-center text-6xl">❓</div>
-              <div className="text-2xl text-center text-indigo-900 px-16">
-                How many characters did you type before getting movie documents
-                returned and why?
-              </div>
-              <div className="text-center text-4xl my-6">🍿{"  "} 🎥</div>
-              <div className="text-lg text-center text-slate-700">
-                🤔 Hint! Check the index definition.
-              </div>
-            </div>
+            </Step>
           </div>
-          <div className="PART2 COL2 w-1/2">
-            {" "}
-            <div className="w-full shadow shadow-slate-400 p-4">
-              <Step
-                title="Step 2. Complete $search aggregation with $limit and $project"
-                className=""
-              >
-                Add <KeyWord type="operator">$limit</KeyWord> and{" "}
-                <KeyWord type="operator">$project</KeyWord> stages to our
-                aggregation pipeline as we did in Lesson 3. However, we only
-                need the <KeyWord type="title">title</KeyWord> field in the
-                return payload.<br></br>
-                <br></br>
-                <div className="w-4/5 mx-auto mt-6 text-xl border-4 border-red-700 pb-8  rounded">
-                  <div className="bg-red-700 py-1  text-white text-xl text-center w-full mb-4">
-                    EXERCISE: Complete $search Autocomplete Aggregation
+          <div className="w-full shadow shadow-slate-400 p-4 text-lg">
+            <Step
+              title="Step 2. Complete $search aggregation with $limit and $project"
+              className=""
+            >
+              <div className="flex space-x-10">
+                <div className="col1 w-2/5">
+                  Add <KeyWord type="operator">$limit</KeyWord> and{" "}
+                  <KeyWord type="operator">$project</KeyWord> stages to our
+                  aggregation pipeline as we did in Lesson 3. However, we only
+                  need the <KeyWord type="title">title</KeyWord> field in the
+                  return payload.<br></br>
+                  <div className="w-4/5 mx-auto mt-6 text-xl border-4 border-slateblue pb-8  rounded">
+                    <div className="bg-slateblue py-1  text-white text-xl text-center w-full mb-4">
+                      EXERCISE 2: Complete $search Autocomplete Aggregation
+                    </div>
+                    <div className="flex"></div>
+                    <div className="text-xl text-center text-indigo-900 px-16 mb-6">
+                      Using the <KeyWord type="code">fuzzy</KeyWord> option,
+                      limiting to 12 movies 🎞️, and projecting in only the movie
+                      title, <br></br>what is the final $search aggregation for
+                      autocompleted movie titles?
+                    </div>
+                    <CodeReveal
+                      title="Reveal Full Aggregation"
+                      negTitle="Hide Full Aggregation"
+                      open={showFinalAggregation}
+                      toggle={toggle}
+                      copyTextObject={completeAutoSearchQuery}
+                    ></CodeReveal>{" "}
                   </div>
-                  <div className="flex"></div>
-                  <div className="text-2xl text-center text-indigo-900 px-16 mb-6">
-                    Using the <KeyWord type="code">fuzzy</KeyWord> option,
-                    limiting to 12 movies 🎞️, and projecting in only the movie
-                    title, <br></br>what is the final $search aggregation for
-                    autocompleted movie titles?
-                  </div>
-                  <CodeReveal
-                    title="Reveal Full Aggregation"
-                    negTitle="Hide Full Aggregation"
-                    open={showFinalAggregation}
-                    toggle={toggle}
-                    copyTextObject={completeAutoSearchQuery}
-                  ></CodeReveal>{" "}
                 </div>
-              </Step>
-            </div>
-            <div className="bg-yellow-400 h-1 mx-auto w-2/3 mt-6"></div>
-            <div className="text-green-800 text-lg text-center w-2/3 mx-auto">
-              With our new $search aggregation to autosuggest movie titles for
-              our end users, let's now build out the HTTPS endpoint to execute
-              this functionality.
-            </div>
-            <div className="bg-yellow-400 h-1 mx-auto w-2/3 my-4"></div>
+                <div className="w-1/3">
+                  {" "}
+                  <div className="bg-yellow-400 h-1 mx-auto w-2/3 mt-12"></div>
+                  <div className="text-green-800 text-2xl text-center w-2/3 mx-auto">
+                    With our new $search aggregation to autosuggest movie titles
+                    for our end users, let's now build out the HTTPS endpoint to
+                    execute this functionality.
+                  </div>
+                  <div className="bg-yellow-400 h-1 mx-auto w-2/3 my-4"></div>
+                </div>
+
+                <div className="w-1/3 ">
+                  {" "}
+                  <TipCard side="right">
+                    <div className="flex items-center text-lg leading-6">
+                      <div>
+                        Exact title matches may receive a lower score and
+                        returned after non-exact matches. This is because Atlas
+                        Search can't determine if a query string is an exact
+                        match for an indexed text if you specify just the
+                        autocomplete-indexed token substrings.{" "}
+                        <div className=" w-2/3 mx-auto my-4 bg-cyan-800 h-1 rounded"></div>
+                        To score exact matches higher, try the following
+                        workaround:
+                        <ul className="text-left ml-20 mb-4">
+                          <li>
+                            ✳️ Index the field as both autocomplete and string
+                            types.
+                          </li>
+                          <li>✳️ Query using the compound operator.</li>
+                        </ul>
+                        <div className="text-left mr-auto">
+                          Check out an{" "}
+                          <a
+                            className="text-green-600 font-bold underline"
+                            href="https://www.mongodb.com/docs/atlas/atlas-search/autocomplete/#std-label-autocomplete-compound"
+                          >
+                            example{" "}
+                          </a>{" "}
+                          of this implementation:
+                        </div>
+                      </div>
+                    </div>
+                  </TipCard>
+                </div>
+              </div>
+            </Step>
           </div>
         </div>
         <div className=" w-full mx-auto mt-10 bg-yellow-300 py-4 px-8 rounded">
@@ -423,35 +469,104 @@ const Lesson8 = () => {
               </div>
             </div>
             <Step title="Step 3. Paste in autocomplete $search aggregation">
-              Still in your Function Editor, and replace your searchAggregation
-              variable on <KeyWord>Line 13.</KeyWord> to your autocomplete query
-              aggregation from <KeyWord>Part 2</KeyWord>. Be sure to replace
-              your query of <KeyWord type="word">Harry</KeyWord> to the variable{" "}
-              <KeyWord>searchTerm</KeyWord> or else your function will be quite
-              limited. 🤣<br></br> Feel free to test this endpoint in the
-              browser as you did in Lesson 4, Step 5.<br></br>
-              <CodeReveal
-                title="Reveal Final GetTitles Function "
-                negTitle="Hide GetTitles Function"
-                open={showFinalFunction}
-                toggle={toggleFunction}
-                lesson="8"
-                copyTextObject={finalFunctionCode}
-              ></CodeReveal>{" "}
+              <div className="flex space-x-10">
+                <div className="col1 w-1/3 text-lg">
+                  Still in your Function Editor, and replace your
+                  searchAggregation variable on <KeyWord>Line 13.</KeyWord> with
+                  your autocomplete query aggregation from{" "}
+                  <KeyWord>Part 2</KeyWord>. <br></br>
+                  <br></br>Be sure to replace your query of{" "}
+                  <KeyWord type="word">Harry</KeyWord> to the variable{" "}
+                  <KeyWord>searchTerm</KeyWord> or else your function will be
+                  quite limited. 🤣<br></br> Feel free to test this endpoint in
+                  the browser as you did in Lesson 4, Step 5.
+                </div>
+                <div className="w-2/3">
+                  <CodeReveal
+                    title="Reveal Final GetTitles Function "
+                    negTitle="Hide GetTitles Function"
+                    open={showFinalFunction}
+                    toggle={toggleFunction}
+                    lesson="8"
+                    copyTextObject={finalFunctionCode}
+                  ></CodeReveal>{" "}
+                </div>
+              </div>
             </Step>
           </div>
         </div>{" "}
-        <div className="bg-yellow-400 h-1 mx-auto w-2/3 my-4"></div>
-        <div className="w-2/3 mx-auto text-xl text-center text-green-800">
-          {" "}
-          Armed with the endpoint from Part 3, paste it into the Code Sandbox
-          below in the src/components/SearchBar/SearchBar.js file on line 21.
+        <div className=" w-full mx-auto mt-10 bg-yellow-300 py-4 px-8 rounded">
+          <div className=" mx-auto text-2xl text-center text-black uppercase">
+            Part 4: Calling the HTTPS endpoint from the embedded front end
+          </div>
         </div>
-        <div className="bg-yellow-400 h-1 mx-auto w-2/3 my-4"></div>
+        <div className="w-2/3 flex mx-auto text-xl text-center text-green-800 items-center">
+          {" "}
+          <img src={Reminder} alt="reminder" className="w-32 object-contain" />
+          <div>
+            Armed with your
+            <KeyWord type="word">AUTOCOMPLETETITLES ENDPOINT URL</KeyWord>from
+            Part 3, paste it into the Code Sandbox below in the
+            src/components/SearchBar/SearchBar.js file on line 21.
+          </div>
+        </div>
         <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson8/?fontsize=14&hidenavigation=1&theme=dark" />
+        <div className="CONCLUSION mt-6 flex space-x-10 justify-evenly px-20 text-lg text-left mb-10">
+          <div className="w-1/3">
+            <ul className="space-y-2">
+              <li>
+                <KeyWord>Line 21.</KeyWord> Paste{" "}
+                <KeyWord type="word">AUTOCOMPLETETITLES ENDPOINT URL</KeyWord>{" "}
+                you created in App Services for the <code>TITLES_ENDPOINT</code>{" "}
+                variable.
+              </li>
+              <li>
+                <KeyWord>Line 30.</KeyWord> We append the{" "}
+                <code>searchTerm</code> from the search box to the endpoint as a
+                url parameter.{" "}
+              </li>
+              <li>
+                <KeyWord>Lines 33 and 34.</KeyWord> We retrieve the movies
+                titles from the endpoint and set the <code>suggestions</code>{" "}
+                state value.
+              </li>
+              <li>
+                <KeyWord>Line 83.</KeyWord> If we have values for the{" "}
+                <code>suggestions</code> state, we list those values in{" "}
+                <KeyWord type="word">AutoSuggestions.js</KeyWord> component.
+              </li>
+            </ul>
+          </div>
+
+          <div className="w-1/6 mx-auto items-start">
+            <img src={Ticket} alt="ticket" />{" "}
+          </div>
+          <div className="w-1/3">
+            Congratulations! In not a lot of time, we indexed our movie
+            collection titles and built our new
+            <KeyWord type="operator">$search</KeyWord> aggregation query to help
+            our users find that movie whose exact name they can't quite
+            remember. <br></br>
+            <br></br>Atlas Search's autcomplete functionality is just the ticket
+            to grant our users the best search experience possible.
+          </div>
+        </div>
       </div>
     </LessonTemplate>
   );
+};
+
+const autocompleteSyntax = {
+  $search: {
+    index: "<index name>", // optional, defaults to "default"
+    autocomplete: {
+      query: "<search-string>",
+      path: "<field-to-search>",
+      tokenOrder: "any|sequential",
+      fuzzy: "options",
+      score: "options",
+    },
+  },
 };
 
 const autocompleteSearchQuery = {
@@ -499,7 +614,7 @@ const completeAutoSearchQuery = [
 const functionCode = `exports = async function({ query, headers, body}, response) {
   
   // GET A HANDLE TO THE MOVIES COLLECTION
-  const moviesTitles = context.services.get("mongodb-atlas").db("sample_mflix").collection("movies");
+  const movies = context.services.get("mongodb-atlas").db("sample_mflix").collection("movies");
   
   // GET SEARCHTERM FROM QUERY PARAMETER. IF NONE, RETURN EMPTY ARRAY
   let searchTerm = query.searchTerm;
@@ -511,14 +626,14 @@ const functionCode = `exports = async function({ query, headers, body}, response
   const searchAggregation =[];  
   
   // RUN SEARCH AGGREGATION ON MOVIES COLLECTION and RETURN
-  const titles = await moviesCollection.aggregate(searchAggregation).toArray();
+  const titles = await movies.aggregate(searchAggregation).toArray();
   return titles;
 }`;
 
 const finalFunctionCode = `exports = async function({ query, headers, body}, response) {
   
   // GET A HANDLE TO THE MOVIES COLLECTION
-  const moviesTitles = context.services.get("mongodb-atlas").db("sample_mflix").collection("movies");
+  const movies = context.services.get("mongodb-atlas").db("sample_mflix").collection("movies");
   
   // GET SEARCHTERM FROM QUERY PARAMETER. IF NONE, RETURN EMPTY ARRAY
   let searchTerm = query.searchTerm;
@@ -551,7 +666,7 @@ const finalFunctionCode = `exports = async function({ query, headers, body}, res
 ];  
   
   // RUN SEARCH AGGREGATION ON MOVIES COLLECTION and RETURN
-  const titles = await moviesCollection.aggregate(searchAggregation).toArray();
+  const titles = await movies.aggregate(searchAggregation).toArray();
   return titles;
 }`;
 

@@ -20,7 +20,7 @@ const CodeReveal = ({
     codeStyle = `bg-slate-800 text-white py-2 px-4 flex justify-evenly items-center cursor-pointer shadow-2xl text-xl h-12 rounded `;
   }
   if (lesson === "8") {
-    codeStyle = `bg-cyan-700 text-white py-4 px-10 flex justify-evenly items-center cursor-pointer shadow-2xl text-xl h-16 rounded `;
+    codeStyle = `bg-cyan-700 text-white py-4 px-10 flex justify-evenly items-center cursor-pointer shadow-2xl text-xl h-16 w-4/5 rounded `;
   }
   return (
     <div className="Wrapper p-2 ">
