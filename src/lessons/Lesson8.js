@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import LessonTemplate from "../components/LessonTemplate";
 import { Link } from "react-router-dom";
 import TipCard from "../components/TipCard";
@@ -16,6 +17,14 @@ import Reminder from "../images/Reminder.png";
 import Ticket from "../images/Ticket.png";
 
 const Lesson8 = () => {
+  const { register, handleSubmit, errors, reset } = useForm();
+
+  const [endpointURL, setEndpointURL] = useState("");
+  const onSubmit = (endpoint) => {
+    console.log("ENDPOINT", endpoint.endpointURL);
+    setEndpointURL(endpoint.endpointURL);
+  };
+
   const [showVideo, setShowVideo] = useState(false);
   const toggleVideo = (showVideo) => {
     setShowVideo(!showVideo);
@@ -298,7 +307,7 @@ const Lesson8 = () => {
                   return payload.<br></br>
                   <div className="w-4/5 mx-auto mt-6 text-xl border-4 border-slateblue pb-8  rounded">
                     <div className="bg-slateblue py-1  text-white text-xl text-center w-full mb-4">
-                      EXERCISE 2: Complete $search Autocomplete Aggregation
+                      EXERCISE: Complete $search Autocomplete Aggregation
                     </div>
                     <div className="flex"></div>
                     <div className="text-xl text-center text-indigo-900 px-16 mb-6">
@@ -392,19 +401,44 @@ const Lesson8 = () => {
                     <li>✔️ Enable Respond with Result</li>
                   </ul>
                 </div>
-                <div className="w-1/3 flex items-center space-x-4">
-                  <img
-                    src={Reminder}
-                    alt="reminder"
-                    className="w-32 object-contain"
-                  />
-                  <div>
-                    Make note of your{" "}
-                    <KeyWord type="word">
-                      AUTOCOMPLETETITLES ENDPOINT URL
-                    </KeyWord>
-                    . You will be using this in your application.
+                <div className="w-1/3  space-x-4">
+                  <div className="flex  items-center">
+                    <img
+                      src={Reminder}
+                      alt="reminder"
+                      className="w-32 object-contain"
+                    />
+                    <div>
+                      Make note of your{" "}
+                      <KeyWord type="word">
+                        AUTOCOMPLETETITLES ENDPOINT URL
+                      </KeyWord>{" "}
+                      by pasting in the box below:
+                    </div>
                   </div>
+                  <form className="flex mt-2" onSubmit={handleSubmit(onSubmit)}>
+                    <div className="flex items-center bg-white w-full px-6 text-lg text-black placeholder-green-500 duration-700 ease-in-out transform border border-green-800 rounded transition-width hover:shadow-xl">
+                      <input
+                        type="text"
+                        name="term"
+                        id="endpoint"
+                        placeholder="paste your HTTPS endpoint here"
+                        autoComplete="off"
+                        className="text-black outline-none w-full"
+                        {...register("endpointURL", {
+                          onChange: (e) => {
+                            setEndpointURL(e.target.value);
+                          },
+                        })}
+                      ></input>
+                    </div>
+                  </form>
+                  <br></br>
+                  <div>
+                    After we build out the functionality, we will be using it in
+                    our front end application.
+                  </div>
+                  <CodeSnippetsCopy type="line" copyTextObject={endpointURL} />
                 </div>
               </div>
             </Step>
@@ -506,7 +540,9 @@ const Lesson8 = () => {
           <div>
             Armed with your
             <KeyWord type="word">AUTOCOMPLETETITLES ENDPOINT URL</KeyWord>from
-            Part 3, paste it into the Code Sandbox below in the
+            Part 3: <br></br>{" "}
+            <CodeSnippetsCopy type="line" copyTextObject={endpointURL} /> Paste
+            it into the Code Sandbox below in the
             src/components/SearchBar/SearchBar.js file on line 21.
           </div>
         </div>

@@ -113,7 +113,7 @@ const bundles = [
     youTubeLink: "https://www.youtube.com/embed/1uTmDNTdgaw",
     gitLink: "https://github.com/mongodb-developer/atlas-search-soccer",
     features:
-      "wildcard, autcomplete, facets, faceting, autocomplete, numbers, dates, keyword analyzer",
+      "wildcard, autocomplete, facets, faceting, moreLikeThis, numbers, dates, keyword analyzer",
     blogLink: "",
   },
   {
@@ -122,7 +122,7 @@ const bundles = [
     previewImage: "https://kwh-demos.s3.amazonaws.com/SearchIndexes.gif",
     youTubeLink: "https://www.youtube.com/embed/2oJuXx6mceE",
     gitLink: "",
-    features: `Demonstrates the importance of choosing the right one for your searches.`,
+    features: `Demonstrates the importance of choosing the right analyzer for your searches.`,
     blogLink:
       "https://www.mongodb.com/developer/products/atlas/analyzing-analyzers-build-search-index-app/",
   },

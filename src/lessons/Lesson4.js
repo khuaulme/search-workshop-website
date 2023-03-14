@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import LessonTemplate from "../components/LessonTemplate";
 
 import TipCard from "../components/TipCard";
@@ -11,12 +12,21 @@ import Reveal from "../components/Reveal";
 //images
 import Developer from "../images/lessonImages/Developer.png";
 import VideoWalkThru from "../images/VideoWalkThru.png";
+import Reminder from "../images/Reminder.png";
 
 const Lesson4 = () => {
   const [showVideo, setShowVideo] = useState(false);
   const toggle = (showVideo) => {
     setShowVideo(!showVideo);
   };
+  const { register, handleSubmit, errors, reset } = useForm();
+
+  const [endpointURL, setEndpointURL] = useState("");
+  const onSubmit = (endpoint) => {
+    console.log("ENDPOINT", endpoint.endpointURL);
+    setEndpointURL(endpoint.endpointURL);
+  };
+
   return (
     <LessonTemplate
       title="Lesson 4. Create a RESTful API"
@@ -121,21 +131,46 @@ const Lesson4 = () => {
                 <li>✔️ Set your Operation Type to GET</li>
                 <li>✔️ Enable Respond with Result</li>
               </ul>
-              Make note of your{" "}
-              <KeyWord type="word">BASIC ENDPOINT URL</KeyWord>. You will be
-              using this in your application.
             </Step>
           </div>
           <div className="w-1/3 shadow shadow-slate-400 p-4">
-            <Step
-              title="Step 3. Write New Function logic for Endpoint"
-              className=""
-            >
-              This endpoint will be calling a{" "}
-              <KeyWord type="word">New Function</KeyWord>. Name the function
-              <KeyWord type="word">getMovies </KeyWord> and replace the code in
-              the Function Editor with code below:
+            <Step title="Step 3. Make Note of New Custom Endpoint" className="">
+              <div className="w-full flex items-center space-x-4">
+                <img
+                  src={Reminder}
+                  alt="reminder"
+                  className="w-32 object-contain"
+                />
+                <div>
+                  Make note of your{" "}
+                  <KeyWord type="word">BASIC ENDPOINT URL</KeyWord> by pasting
+                  it in the box below:{" "}
+                </div>
+              </div>
             </Step>
+            <form className="flex mx-2" onSubmit={handleSubmit(onSubmit)}>
+              <div className="flex w-full space-x-2">
+                <div className="flex items-center bg-white w-full px-6 text-lg text-black placeholder-green-500 duration-700 ease-in-out transform border border-green-800 rounded transition-width hover:shadow-xl">
+                  <input
+                    type="text"
+                    name="term"
+                    id="endpoint"
+                    placeholder="paste your HTTPS endpoint here"
+                    autoComplete="off"
+                    className="text-black outline-none w-full"
+                    {...register("endpointURL", {
+                      onChange: (e) => {
+                        setEndpointURL(e.target.value);
+                      },
+                    })}
+                  ></input>
+                </div>
+              </div>
+            </form>
+            <br></br>
+            After we build out the functionality, we will be using it in our
+            front end application.
+            <CodeSnippetsCopy type="line" copyTextObject={endpointURL} />
           </div>{" "}
         </div>{" "}
         {/****************END ROW 2 ****************************/}
@@ -150,6 +185,15 @@ const Lesson4 = () => {
           </div>
           {/******END CODEBLOCK ***********/}
           <div className="w-1/2 text-left">
+            <Step
+              title="Step 4. Write New Function logic for Endpoint"
+              className=""
+            >
+              This endpoint will be calling a{" "}
+              <KeyWord type="word">New Function</KeyWord>. Name the function
+              <KeyWord type="word">getMovies </KeyWord> and replace the code in
+              the Function Editor with code below:
+            </Step>
             Let's walk through the <code>getMovies</code> function. <br></br>
             <br></br>
             <ul className="space-y-2">
@@ -187,7 +231,7 @@ const Lesson4 = () => {
             <KeyWord>System</KeyWord> to keep things simple and be sure to{" "}
             <KeyWord type="button">Save</KeyWord>.
           </div>
-          <div className=" w-1/5 text-center absolute -bottom-0 -right-16">
+          <div className=" w-1/5 text-center absolute -bottom-20 -right-16">
             <TipCard side="right">
               <div>
                 <div className="font-bold">Quick Dev Tip!!</div>To save time in
@@ -200,7 +244,7 @@ const Lesson4 = () => {
         {/***************END ROW 3********************* */}
         <div className="3RD ROW flex space-x-8 my-6">
           <div className="w-1/3 shadow shadow-slate-400 p-4">
-            <Step title="Step 4. USE search aggregation query" className="">
+            <Step title="Step 5. USE search aggregation query" className="">
               Still in your Function Editor, and set your searchAggregation
               variable to what you built in Compass in Lesson 2. Be sure to
               replace your query of{" "}
@@ -210,21 +254,23 @@ const Lesson4 = () => {
             </Step>
           </div>
           <div className="w-1/3 shadow shadow-slate-400 p-4">
-            <Step title="Step 5. Test Newly created endpoint" className="">
+            <Step title="Step 6. Test Newly created endpoint" className="">
               Now the big "Tada!" moment! We can now test our new App Services
               endpoint in the browser. Get the HTTP endpoint from the UI and
-              paste it in your web browser. Then append{" "}
+              paste it in your web browser:
+              <CodeSnippetsCopy type="line" copyTextObject={endpointURL} /> Then
+              append{" "}
               <code className="border px-2 py-1">?searchTerm=Harry Potter</code>{" "}
               to the end of the url.<br></br>
               <br></br>Ours looks like this:
               <CodeSnippetsCopy type="line" copyTextObject={EndpointSample} />
-              Now paste into your browser to see the results. If you are coding
+              Now look at your browser to see the results. If you are coding
               along and receive an output, CONGRATULATIONS! You have
               successfully created a movie search API that you can call from
               anywhere! <span className="text-2xl">🎉🎊</span>
             </Step>
           </div>
-          <div className="w-1/4 mt-12 text-center text-4xl -skew-x-12">
+          <div className="w-1/4 my-auto text-center text-4xl -skew-x-12">
             Have a toast while you pop the popcorn, and get ready for calling
             this API from our hosted front end.
             <span className="text-2xl">🥂🍿</span>
