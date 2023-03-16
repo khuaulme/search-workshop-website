@@ -8,6 +8,7 @@ import Step from "../components/Step";
 import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import KeyWord from "../components/KeyWord";
 import Reveal from "../components/Reveal";
+import CodeReveal from "../components/CodeReveal";
 
 //images
 import Developer from "../images/lessonImages/Developer.png";
@@ -18,6 +19,11 @@ const Lesson4 = () => {
   const [showVideo, setShowVideo] = useState(false);
   const toggle = (showVideo) => {
     setShowVideo(!showVideo);
+  };
+
+  const [showFinalAggregation, setShowFinalAggregation] = useState(false);
+  const toggleAggregation = (showFinalAggregation) => {
+    setShowFinalAggregation(!showFinalAggregation);
   };
   const { register, handleSubmit, errors, reset } = useForm();
 
@@ -246,8 +252,15 @@ const Lesson4 = () => {
           <div className="w-1/3 shadow shadow-slate-400 p-4">
             <Step title="Step 5. USE search aggregation query" className="">
               Still in your Function Editor, and set your searchAggregation
-              variable to what you built in Compass in Lesson 2. Be sure to
-              replace your query of{" "}
+              variable to what you built in Compass in Lesson 2.
+              <CodeReveal
+                title="Reveal Full Aggregation"
+                negTitle="Hide Full Aggregation"
+                open={showFinalAggregation}
+                toggle={toggleAggregation}
+                copyTextObject={Final}
+              ></CodeReveal>
+              Be sure to replace your query of{" "}
               <KeyWord type="word">Harrry Pottter</KeyWord> to the variable{" "}
               <KeyWord>searchTerm</KeyWord> or else your function will be quite
               limited. 🤣
@@ -303,3 +316,41 @@ const functionCode = `exports = async function({ query, headers, body}, response
   const results = await moviesCollection.aggregate(searchAggregation).toArray();
   return results;
 }`;
+
+const Final = [
+  {
+    $search: {
+      index: "default",
+      text: {
+        query: "Harry Potter",
+        path: "fullplot",
+        fuzzy: {
+          maxEdits: 1,
+        },
+      },
+      highlight: {
+        path: "fullplot",
+      },
+    },
+  },
+  {
+    $limit: 12,
+  },
+  {
+    $project: {
+      title: 1,
+      year: 1,
+      "imdb.rating": 1,
+      fullplot: 1,
+      poster: 1,
+      released: 1,
+      genres: 1,
+      score: {
+        $meta: "searchScore",
+      },
+      highlights: {
+        $meta: "searchHighlights",
+      },
+    },
+  },
+];

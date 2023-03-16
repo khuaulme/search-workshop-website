@@ -21,7 +21,7 @@ const CodeSnippetsCopy = ({ copyTextObject, type = "text" }) => {
   } else if (type === "line") {
     copyText = copyTextObject;
   } else if (type === "limit") {
-    copyText = `{ 12 }`;
+    copyText = ` 12 `;
   } else copyText = JSON.stringify(copyTextObject, null, 2);
 
   const [isCopied, setIsCopied] = useState(false);

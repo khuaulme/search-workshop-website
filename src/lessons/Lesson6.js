@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useForm } from "react-hook-form";
 import LessonTemplate from "../components/LessonTemplate";
 
 import TipCard from "../components/TipCard";
@@ -19,6 +20,14 @@ import Guy from "../images/lessonImages/GuyPoint.png";
 import VideoWalkThru from "../images/VideoWalkThru.png";
 
 const Lesson6 = () => {
+  const { register, handleSubmit, errors, reset } = useForm();
+
+  const [endpointURL, setEndpointURL] = useState("");
+  const onSubmit = (endpoint) => {
+    console.log("ENDPOINT", endpoint.endpointURL);
+    setEndpointURL(endpoint.endpointURL);
+  };
+
   const [showResults, setShowResults] = useState(false);
   const [showCompound, setShowCompound] = useState(false);
   const toggle = (showResults) => {
@@ -91,6 +100,9 @@ const Lesson6 = () => {
             <div className="bg-rhino h-1 w-3/5 mx-auto mt-4 rounded"></div>
           </div>
           <div className=" w-1/2 text-left px-16 items-center">
+            <div className="text-2xl text-center mb-4 text-green-700">
+              Introducing the COMPOUND Operator
+            </div>
             So we could simply combine these queries in a larger{" "}
             <KeyWord>$search</KeyWord>
             stage using the <KeyWord type="operator">compound</KeyWord>. But
@@ -231,12 +243,11 @@ const Lesson6 = () => {
             </div>*/}
         </div>{" "}
         {/*************END 3RD ROW **********/}
-        <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson6/?fontsize=14&hidenavigation=1&theme=dark" />
         <div className="bg-rhino rounded ml-auto w-full py-2 text-center text-white uppercase text-3xl my-8 mx-auto ">
           CREATING THE BACKEND
         </div>
         <div className="w-full flex mx-auto justify-evenly space-x-8 mb-20 text-lg">
-          <div className="w-1/3  p-4">
+          <div className="w-1/4  p-4">
             In the code sandbox above, we now have an interface for more search
             parameters -{" "}
             <ul className="ml-4 my-2">
@@ -260,7 +271,7 @@ const Lesson6 = () => {
             together into a new
             <KeyWord type="operator">compound</KeyWord> search query.
           </div>
-          <div className="w-1/3 shadow-md shadow-slate-700 rounded p-4">
+          <div className="w-2/5 shadow-md shadow-slate-700 rounded p-4">
             <Step
               title="Step 1. CREATE NEW HTTPS Endpoint in Netflixclone"
               className=""
@@ -276,12 +287,35 @@ const Lesson6 = () => {
                 <li>✔️ Set your Operation Type to POST</li>
                 <li>✔️ Enable Respond with Result</li>
               </ul>
-              Once again, remember your{" "}
-              <KeyWord type="word">ENDPOINT URL</KeyWord>.<br></br>
               <div className="text-center mt-2 italic text-green-900">
                 Notice this now uses a <KeyWord type="variable">POST</KeyWord>{" "}
                 request.
               </div>
+              Once again, remember your{" "}
+              <KeyWord type="word">ENDPOINT URL</KeyWord>.<br></br>
+              <form className="flex mx-2" onSubmit={handleSubmit(onSubmit)}>
+                <div className="flex w-full space-x-2">
+                  <div className="flex items-center bg-white w-full px-6 text-lg text-black placeholder-green-500 duration-700 ease-in-out transform border border-green-800 rounded transition-width hover:shadow-xl">
+                    <input
+                      type="text"
+                      name="term"
+                      id="endpoint"
+                      placeholder="paste your HTTPS endpoint here"
+                      autoComplete="off"
+                      className="text-black outline-none w-full"
+                      {...register("endpointURL", {
+                        onChange: (e) => {
+                          setEndpointURL(e.target.value);
+                        },
+                      })}
+                    ></input>
+                  </div>
+                </div>
+              </form>
+              <br></br>
+              After we build out the functionality, we will be using it in our
+              front end application.
+              <CodeSnippetsCopy type="line" copyTextObject={endpointURL} />
             </Step>
           </div>
           <div className="w-1/3 mx-auto">
@@ -388,6 +422,7 @@ const Lesson6 = () => {
             <KeyWord type="button">Save</KeyWord>.<br></br>
           </div>
         </div>
+        <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson6/?fontsize=14&hidenavigation=1&theme=dark" />
         <div className="w-full flex mx-auto justify-evenly space-x-8  text-lg">
           <div className=" w-1/2 space-y-10">
             <div className="shadow-md shadow-slate-700 rounded p-4">
@@ -401,6 +436,7 @@ const Lesson6 = () => {
                     <KeyWord>Home.js</KeyWord> file found in the src/components
                     directory.
                   </div>
+                  Retrieve your endpoint and
                   <ul className="my-4">
                     {" "}
                     <li>
@@ -413,6 +449,7 @@ const Lesson6 = () => {
                       variable on <KeyWord type="line">line 12</KeyWord>.
                     </li>{" "}
                   </ul>
+                  <CodeSnippetsCopy type="line" copyTextObject={endpointURL} />
                   <img
                     src={Insert}
                     alt="home screen"
@@ -424,7 +461,7 @@ const Lesson6 = () => {
               </Step>
             </div>{" "}
           </div>
-          <div className=" bg-white  text-green-900 mx-auto w-2/5 my-auto mb-10  px-12 rounded">
+          <div className=" bg-white  text-green-900 mx-auto w-2/5 mt-24 mb-10  px-12 rounded">
             {" "}
             <div className="text-lg leading-loose  ">
               At this point, you can interact with the application, but still
@@ -436,7 +473,8 @@ const Lesson6 = () => {
               <br></br> Let's put our
               <KeyWord type="operator">compound</KeyWord> operator knowledge to
               work and build out the <KeyWord>$search</KeyWord> aggregation for{" "}
-              <KeyWord>Line 17.</KeyWord>
+              <KeyWord>Line 17</KeyWord> in the{" "}
+              <KeyWord type="title">getMoviesCompound</KeyWord> function.
               <br></br>
               <br></br>For this, let's create another App Services function:{" "}
               <KeyWord type="variable">createSearchAggregation</KeyWord>.
@@ -507,8 +545,9 @@ const Lesson6 = () => {
                 title="Step 6. Call createSearchAggregation from getMOVIEscompound "
                 className=""
               >
-                Return to your <KeyWord type="title">getMoviesCompound</KeyWord>{" "}
-                function. Uncomment <KeyWord>line 20</KeyWord>:
+                <span className="text-4xl mr-4">🛎️</span>Return to your{" "}
+                <KeyWord type="title">getMoviesCompound</KeyWord> function.
+                Uncomment <KeyWord>line 21</KeyWord>:
                 <CodeSnippetsCopy
                   type="function"
                   copyTextObject={functionCallCode}

@@ -30,7 +30,7 @@ const KeyWord = ({ children, type = "stage" }) => {
 
   if (type === "code" || type === "variable") {
     return (
-      <span className="bg-indigo-100 border border-indigo-800 p-1 rounded ">
+      <span className="bg-indigo-100 border border-indigo-800 p-1 rounded whitespace-nowrap ">
         <code>{children}</code>
       </span>
     );

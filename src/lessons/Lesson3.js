@@ -307,17 +307,25 @@ const Lesson3 = () => {
               <div className="w-1/4 mx-auto">
                 <CodeSnippetsCopy copyTextObject={projectText} type="limit" />
               </div>
-              <div className="px-8">
+              <div className="px-8 relative ">
                 If you see results in the right preview panel, your aggregation
                 pipeline is working properly!{" "}
-                <span className="text-2xl">💪</span>. Let's grab that
-                aggregation code with the <br></br>
-                <KeyWord type="button">Export Pipeline to Language</KeyWord>
-                feature by clicking the button in the top toolbar.
+                <span className="text-2xl">💪</span>.
+                <div className=" w-5/6">
+                  <TipCard side="center">
+                    {" "}
+                    Since the movies are already sorted for score, let's move
+                    the $limit stage above $project so we do not need to project
+                    across all 23k movies.
+                  </TipCard>
+                </div>
               </div>
             </div>
-            <div className="w-1/2">
+            <div className="w-1/2 mt-4">
               {" "}
+              Let's grab that aggregation code with the <br></br>
+              <KeyWord type="button">Export Pipeline to Language</KeyWord>
+              feature by clicking the button in the top toolbar.{" "}
               <img
                 src={Export}
                 alt="export"
