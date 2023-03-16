@@ -49,10 +49,12 @@ const Intro = ({ showSetUpPDF, setShowSetUpPDF }) => {
         <div className="mx-4  mt-4 mb-10 w-full">
           This workshop is broken down into different lessons. In Lessons 1-5,
           you will get up and running by building out the basic Netflix clone.
-          The later lessons can all stand on their own. So you can start from
-          the absolute beginning or jump directly to the more advanced features.
-          The frontend application is hosted on GitHub and CodeSandbox.io and
-          sits ready for you to fork.
+          We start getting fancy in Lessons 6 and 7 by building out more complex
+          queries and playing with the score modifiers. The later lessons can
+          all stand on their own. So you can start from the absolute beginning
+          or jump directly to the more advanced features. The frontend
+          application is hosted on GitHub and CodeSandbox.io and sits ready for
+          you to fork.
         </div>
         <hr
           style={{

@@ -105,21 +105,21 @@ const lessonData = [
     linkedPage: "Lesson6",
     iconImage: Score,
   },
-
   {
-    title: '8. "Autocom... " : How to Implement Autocomplete',
-    description: `Allowing our application to predict what our users 
-      are searching for is a MUST! This lesson will first index our movie titles with the autocomplete data type before using the autocomplete operator in a $search query.`,
-    linkedPage: "Lesson7",
-    iconImage: Autocomplete,
-  },
-  {
-    title: "9. Indexes and Analyzers",
+    title: "8. Indexes and Analyzers",
     description:
       "Lucene analyzers are important — but why? How do they work? How do you choose the right one? In this lesson, we analyze Atlas Search indexes and the Lucene analyzers used to build them.",
-    linkedPage: "Lesson8",
+    linkedPage: "Lesson7",
     iconImage: FTS,
   },
+  {
+    title: '9. "Autocom... " : How to Implement Autocomplete',
+    description: `Allowing our application to predict what our users 
+      are searching for is a MUST! This lesson will first index our movie titles with the autocomplete data type before using the autocomplete operator in a $search query.`,
+    linkedPage: "Lesson8",
+    iconImage: Autocomplete,
+  },
+
   {
     title: "10. Facets",
     description:
