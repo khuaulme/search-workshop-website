@@ -197,11 +197,12 @@ const Lesson1 = () => {
                 <div className="flex mx-auto space-x-8">
                   <div className="w-1/4">
                     Then Atlas Search would find all the movies with{" "}
-                    <span className="italic uppercase">either</span>{" "}
+                    <span className="italic uppercase">either</span> token
                     <KeyWord type="title">harry</KeyWord>{" "}
                     <span className="italic uppercase">or</span>{" "}
                     <KeyWord type="title">potter</KeyWord> in the title to
                     return these movies (among others): <br></br>
+                    <br></br>
                     <br></br>
                     <br></br>
                     And just like with a treasure map{" "}
@@ -263,7 +264,7 @@ const Lesson1 = () => {
                   </div>
                 </TipCard>
               </div>
-              <div className="flex justify-center w-full mt-12">
+              <div className="flex justify-center w-full mt-10">
                 <MoreAboutCard
                   open={showMoreInfo}
                   toggle={toggle}
@@ -285,10 +286,26 @@ const Lesson1 = () => {
                     know now that Atlas Search indexes are{" "}
                     <span className="italic font-bold">FAST!</span>
                     <br></br>
-                    <br></br>To learn more about indexes, see lesson 9 or visit
-                    the docs.
+                    <br></br>To learn more about indexes, see lesson 8 or visit
+                    <a
+                      className="underline decoration-indigo-500"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      href="https://www.mongodb.com/docs/atlas/atlas-search/create-index/"
+                    >
+                      the docs.
+                    </a>
                   </div>
                 </MoreAboutCard>
+              </div>
+              <div className="text-2xl text-center mt-20 px-10">
+                Congrats! With just a few simple clicks in the Atlas UI, we did
+                a lot. <br></br>
+                <br></br>Now let's take our new{" "}
+                <span className="text-teal-700 text-2xl italic">
+                  DYNAMICALLY MAPPED SEARCH INDEX
+                </span>{" "}
+                to the following lesson and build our first search query.
               </div>
             </div>
           </div>
