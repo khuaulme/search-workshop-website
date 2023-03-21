@@ -8,6 +8,8 @@ import MoreAboutCard from "../components/MoreAboutCard";
 import KeyWord from "../components/KeyWord";
 import SearchHero from "../images/SearchSpot2.png";
 import CodeReveal from "../components/CodeReveal.js";
+import Movies from "../images/PotterMovies.png";
+import TipCard from "../components/TipCard";
 
 const Lesson1 = () => {
   const [showMoreInfo, setShowMoreInfo] = useState(false);
@@ -106,52 +108,121 @@ const Lesson1 = () => {
         <div className="bg-slateblue text-white mt-6 text-center py-4">
           NOW WE HAVE AN ATLAS CLUSTER, SAMPLE DATA AND SEARCH INDEX!! <br></br>
           <br></br>
-          And that’s all you need to do to start taking advantage of Apache
-          Lucene on top of your MongoDB Atlas data! 👊
+          And that’s all you need to do to take advantage of Apache Lucene and
+          query across all of your MongoDB Atlas data! 👊
         </div>
         <div className="MAPPING DESCRIPTION mx-20 space-x-8">
-          <div className="DYNAMIC text-base text-left w-full my-8 flex justify-center space-x-20">
-            <div className="w-1/3 px-8 shadow shadow-gray-500 py-4">
+          <div className="DYNAMIC text-base text-left w-full my-8 flex justify-center space-x-10">
+            <div className="w-1/2 px-8 shadow shadow-gray-500 py-4">
               <div className="bg-teal-600 py-2 w-full text-white text-center rounded mt-1">
-                but what <span className="italic">Exactly</span> did we just do?
-              </div>
-              By creating a search index, we created a{" "}
-              <KeyWord type="title">mapping</KeyWord> to the terms in our
-              documents.
-              <div className="text-center text-6xl skew-y-6">🗺️</div> Mapping is
-              simply how we define how the fields on our documents are indexed
-              and stored. If a field's value looks like a string, we'll treat it
-              as a full-text field, similarly for numbers and dates. This suits
-              MongoDB's flexible data model perfectly. As you add new data to
-              your collection and your schema evolves, dynamic mapping
-              accommodates those changes in your schema and adds that new data
-              to the Atlas Search index automatically.{" "}
-              <span className="italic">No re-indexing! 🎉🙌</span>
-              <br></br>
-              <br></br>And just like with a treasure map 🗺️, Atlas Search
-              indexes will enable to find what we are looking for{" "}
-              <span className="italic">FAST!</span>
-            </div>
-            <div className="w-1/3 px-8 shadow shadow-gray-500 py-4">
-              <div className="bg-teal-600 py-2 w-full text-white text-center rounded mt-1">
-                Sample Movie Document
+                but what{" "}
+                <span className="text-sun text-2xl italic">EXACTLY</span> did we
+                just do?
               </div>
               Each movie document contains a single movie, and information such
               as its title, release year, and cast stored as strings arrays,
-              dates, numbers, embedded objects. Now that we have created a
-              search index, we can immediately start querying across all of
-              them.
+              dates, numbers, embedded objects.
               <CodeReveal
                 open={showDocument}
                 toggle={toggleDoc}
-                title="Show Movie Document"
+                title="Show Sample Movie Document"
                 negTitle="Hide Movie Document"
                 copyTextObject={movieDocumentObject}
                 lesson="1"
-              />
+              />{" "}
+              By creating a search index, we created a special data structure
+              that categorizes data in our movie documents in an easily
+              searchable format. This search index structure allows us to easily
+              <KeyWord type="title">map</KeyWord> the terms in our search query
+              to the movie documents containing those terms. If a field's value
+              looks like a string, we map it as a full-text field, similarly for
+              numbers and dates.
+              <div className="w-3/4 mx-auto mt-8 ">
+                <TipCard side="center">
+                  <div className="flex space-x-6 items-center text-lg">
+                    {" "}
+                    <div>
+                      <KeyWord type="title">Mapping</KeyWord> simply defines how
+                      the fields on our documents are indexed and stored.{" "}
+                    </div>
+                    <div className="text-center text-6xl skew-y-6">🗺️</div>{" "}
+                  </div>
+                </TipCard>
+              </div>
+              <br></br>
+              <div className="mt-4">
+                Now once the search index is created and all of the document
+                fields are mapped, we can then quickly search through those
+                indexed fields. For example, let's say I were to look through
+                all the <KeyWord type="code">title </KeyWord>fields in my
+                sample_mflix.movies collection for the text:
+                <KeyWord type="title">Harry Potter</KeyWord>. Atlas Search would
+                first break this down into these two individual terms{" "}
+                <span className="italic text-green-700 whitespace-nowrap">
+                  ( or tokens )
+                </span>{" "}
+                {"  "}for our search index :{" "}
+                <KeyWord type="title">harry</KeyWord> &{" "}
+                <KeyWord type="title">potter</KeyWord>
+                <div className="flex mx-auto space-x-4 justify-evenly mt-8">
+                  {" "}
+                  <div className="w-2/5 text-center text-lg text-green-800">
+                    {" "}
+                    ORIGINAL SEARCH TERM
+                    <div className="mb-8 mt-4 text-center mx-auto px-4 text-xl text-green-700 font-bold  border-2 shadow-md shadow-slate-700 border-slate-700 rounded py-4 ">
+                      Harry Potter
+                    </div>
+                  </div>
+                  <div className="w-1/5  text-center text-lg ">
+                    {" "}
+                    <div className="my-8 text-center mx-auto  text-6xl text-green-700 font-bold  ">
+                      ➡
+                    </div>
+                  </div>
+                  <div className="w-2/5 text-center text-lg text-green-800">
+                    {" "}
+                    TOKENS
+                    <div className="flex mt-4">
+                      <div className="mb-8 text-center mx-auto px-4 text-xl text-green-700 font-bold  border-2 shadow-md shadow-slate-700 border-slate-700 rounded py-4">
+                        harry
+                      </div>
+
+                      <div className="mb-8 text-center mx-auto px-4 text-xl text-green-700 font-bold  border-2 shadow-md shadow-slate-700 border-slate-700 rounded py-4">
+                        potter
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div className="my-4 mx-auto flex justify-evenly px-20 items-center space-x-4"></div>{" "}
+                <div className="flex mx-auto space-x-8">
+                  <div className="w-1/4">
+                    Then Atlas Search would find all the movies with{" "}
+                    <span className="italic uppercase">either</span>{" "}
+                    <KeyWord type="title">harry</KeyWord>{" "}
+                    <span className="italic uppercase">or</span>{" "}
+                    <KeyWord type="title">potter</KeyWord> in the title to
+                    return these movies (among others): <br></br>
+                    <br></br>
+                    <br></br>
+                    And just like with a treasure map{" "}
+                    <span className="text-3xl">🗺️</span>, Atlas Search indexes
+                    will enable to find what we are looking for{" "}
+                    <span className="italic">FAST!</span>
+                  </div>
+
+                  <div className=" p-2 w-3/4 mx-auto bg-slateblue">
+                    {" "}
+                    <img
+                      src={Movies}
+                      alt="HarryPotter"
+                      className="w-full  rounded my-4"
+                    />
+                  </div>
+                </div>
+              </div>
             </div>
 
-            <div className="w-1/3 px-8 shadow shadow-gray-500 py-4">
+            <div className="w-1/2 px-8 shadow shadow-gray-500 py-4">
               <div className="bg-teal-600 py-2 w-full text-white text-center rounded mt-1">
                 and what is{" "}
                 <span className="text-sun text-2xl italic">
@@ -179,30 +250,48 @@ const Lesson1 = () => {
                 index configuration:{" "}
               </div>
               <CodeSnippetsCopy copyTextObject={copyTextObject} />
+              <div className="w-5/6 mx-auto mt-8 ">
+                <TipCard side="right">
+                  <div className=" items-center text-lg">
+                    {" "}
+                    Dynamic mapping suits MongoDB's flexible data model very
+                    well. As you add new data to your collection and your schema
+                    evolves, dynamic mapping accommodates those changes in your
+                    schema and adds that new data to the Atlas Search index
+                    automatically.
+                    <div className="italic">No re-indexing! 🎉🙌</div>
+                  </div>
+                </TipCard>
+              </div>
+              <div className="flex justify-center w-full mt-12">
+                <MoreAboutCard
+                  open={showMoreInfo}
+                  toggle={toggle}
+                  subject="Indexes"
+                >
+                  <div className="text-base">
+                    Indexes are special data structures that enable ultra-fast
+                    querying and retrieval of documents based on certain
+                    identifiers. <br></br>
+                    <br></br>Bear in mind that Atlas Search indexes are
+                    different from regular MongoDB indexes. Whereas the
+                    traditional MongoDB index is a b-tree index, Atlas Search
+                    uses{" "}
+                    <span className="italic font-bold text-green-700 uppercase">
+                      inverted indexes
+                    </span>{" "}
+                    - which are much faster and more powerful for full-text.
+                    We'll re-visit this more in-depth in a future lesson. Just
+                    know now that Atlas Search indexes are{" "}
+                    <span className="italic font-bold">FAST!</span>
+                    <br></br>
+                    <br></br>To learn more about indexes, see lesson 9 or visit
+                    the docs.
+                  </div>
+                </MoreAboutCard>
+              </div>
             </div>
           </div>
-        </div>
-        <div className="flex justify-center w-full">
-          <MoreAboutCard open={showMoreInfo} toggle={toggle} subject="Indexes">
-            <div className="text-base">
-              Indexes are special data structures that enable ultra-fast
-              querying and retrieval of documents based on certain identifiers.{" "}
-              <br></br>
-              <br></br>Bear in mind that Atlas Search indexes are different from
-              regular MongoDB indexes. Whereas the traditional MongoDB index is
-              a b-tree index, Atlas Search uses{" "}
-              <span className="italic font-bold text-green-700 uppercase">
-                inverted indexes
-              </span>{" "}
-              - which are much faster and more powerful for full-text. We'll
-              re-visit this more in-depth in a future lesson. Just know now that
-              Atlas Search indexes are{" "}
-              <span className="italic font-bold">FAST!</span>
-              <br></br>
-              <br></br>To learn more about indexes, see lesson 9 or visit the
-              docs.
-            </div>
-          </MoreAboutCard>
         </div>
       </div>{" "}
       {/******************************* END LESSON PAGE ********************************/}

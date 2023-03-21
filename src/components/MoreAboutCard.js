@@ -3,7 +3,7 @@ import { Collapse } from "react-collapse";
 import { AiFillMinusCircle, AiFillPlusCircle } from "react-icons/ai";
 
 const MoreAboutCard = ({ open, toggle, subject, children }) => {
-  let classStyle = `bg-fuchsia-800 text-white py-4 px-10 flex justify-evenly items-center cursor-pointer shadow-2xl h-16 rounded-xl w-1/3 `;
+  let classStyle = `bg-fuchsia-800 text-white py-4 px-10 flex justify-evenly items-center cursor-pointer shadow-2xl h-16 rounded-xl w-3/4 `;
   let borderStyle =
     "EXPANDED flex font-barlow items-center border bg-zinc-100 border-fuchsia-700 mt-1 relative drop-shadow-2xl rounded w-3/4";
   if (subject === "Highlights") {
