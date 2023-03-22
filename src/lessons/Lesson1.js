@@ -250,19 +250,24 @@ const Lesson1 = () => {
                 all the fields in the collection as indicated in the default
                 index configuration:{" "}
               </div>
-              <CodeSnippetsCopy copyTextObject={copyTextObject} />
-              <div className="w-5/6 mx-auto mt-8 ">
-                <TipCard side="right">
-                  <div className=" items-center text-lg">
-                    {" "}
-                    Dynamic mapping suits MongoDB's flexible data model very
-                    well. As you add new data to your collection and your schema
-                    evolves, dynamic mapping accommodates those changes in your
-                    schema and adds that new data to the Atlas Search index
-                    automatically.
-                    <div className="italic">No re-indexing! 🎉🙌</div>
-                  </div>
-                </TipCard>
+              <div className="w-1/3 mx-auto">
+                {" "}
+                <CodeSnippetsCopy copyTextObject={copyTextObject} />
+              </div>
+              <div class="relative mt-10 h-48 w-full">
+                <div className="absolute w-5/6 -right-16">
+                  <TipCard side="right">
+                    <div className=" items-center text-lg">
+                      {" "}
+                      Dynamic mapping suits MongoDB's flexible data model very
+                      well. As you add new data to your collection and your
+                      schema evolves, dynamic mapping accommodates those changes
+                      in your schema and adds that new data to the Atlas Search
+                      index automatically.
+                      <div className="italic">No re-indexing! 🎉🙌</div>
+                    </div>
+                  </TipCard>
+                </div>
               </div>
               <div className="flex justify-center w-full mt-10">
                 <MoreAboutCard
