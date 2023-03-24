@@ -420,14 +420,19 @@ const Lesson6 = () => {
             authentication methods. Set the default Authentication method to{" "}
             <KeyWord>System</KeyWord> to keep things simple and be sure to{" "}
             <KeyWord type="button">Save</KeyWord>.<br></br>
+            <br></br>
+            <br></br>
           </div>
+        </div>
+        <div className="italic text-2xl text-green-700 text-center">
+          Use the following CodeSandbox to continue with Step 3.
         </div>
         <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson6/?fontsize=14&hidenavigation=1&theme=dark" />
         <div className="w-full flex mx-auto justify-evenly space-x-8  text-lg">
           <div className=" w-1/2 space-y-10">
             <div className="shadow-md shadow-slate-700 rounded p-4">
               <Step
-                title="Step 3. Paste endpoint into codesandbox front End"
+                title="Step 3. Paste endpoint into CodeSandbox front End"
                 className=""
               >
                 <div className="w-full flex flex-col text-left">
@@ -436,27 +441,26 @@ const Lesson6 = () => {
                     <KeyWord>Home.js</KeyWord> file found in the src/components
                     directory.
                   </div>
-                  Retrieve your endpoint and
-                  <ul className="my-4">
+                  <div>
                     {" "}
-                    <li>
-                      ✅ Paste your new App Services HTTP endpoint as the value
-                      for{" "}
-                      <KeyWord type="variable">
-                        {" "}
-                        MOVIES_ENDPOINT_COMPOUND
-                      </KeyWord>
-                      variable on <KeyWord type="line">line 12</KeyWord>.
-                    </li>{" "}
-                  </ul>
-                  <CodeSnippetsCopy type="line" copyTextObject={endpointURL} />
+                    Recall the endpoint you created in Step 1?
+                    <CodeSnippetsCopy
+                      type="line"
+                      copyTextObject={endpointURL}
+                    />
+                    Paste your that new App Services HTTP endpoint as the value
+                    for{" "}
+                    <KeyWord type="variable"> MOVIES_ENDPOINT_COMPOUND</KeyWord>{" "}
+                    variable on <KeyWord>line 12</KeyWord>.
+                  </div>
                   <img
                     src={Insert}
                     alt="home screen"
                     className="w-full mx-auto mb-4 mt-2"
                   />
-                  ✅ This is all you need to do in the app. Now we just return
-                  our focus to the back end. <span className="2xl">🔎📽️🍿</span>
+                  This is all you need to do in the app. ✅ Now we just return
+                  our focus to the back end.{" "}
+                  <div className="text-3xl text-center">🔎📽️🍿</div>
                 </div>
               </Step>
             </div>{" "}

@@ -119,9 +119,9 @@ const Lesson1 = () => {
                 <span className="text-sun text-2xl italic">EXACTLY</span> did we
                 just do?
               </div>
-              Each movie document contains a single movie, and information such
-              as its title, release year, and cast stored as strings arrays,
-              dates, numbers, embedded objects.
+              Each movie document contains information about a single movie,
+              such as its title, release year, and cast stored as strings,
+              arrays, dates, numbers, embedded objects, etc.
               <CodeReveal
                 open={showDocument}
                 toggle={toggleDoc}
