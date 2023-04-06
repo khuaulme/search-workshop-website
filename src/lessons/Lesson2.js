@@ -73,7 +73,7 @@ const Lesson2 = () => {
                 {/****************DESCRIBE OUR SEARCH STAGE ************/}
 
                 <div className="w-1/3 text-left my-auto font-barlow px-8 py-4 ">
-                  To build our our first search query, let’s use the Aggregation
+                  To build our first search query, let’s use the Aggregation
                   Pipeline builder in the Atlas UI. Under the{" "}
                   <KeyWord type="tab">Collections</KeyWord> tab, click on
                   <KeyWord type="tab">Aggregation</KeyWord>. Here you will be

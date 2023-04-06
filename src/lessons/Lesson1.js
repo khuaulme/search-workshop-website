@@ -309,7 +309,8 @@ const Lesson1 = () => {
                 <br></br>Now let's take our new{" "}
                 <span className="text-teal-700 text-2xl italic">
                   DYNAMICALLY MAPPED SEARCH INDEX
-                </span>{" "}
+                </span>
+                {"  "}
                 to the following lesson and build our first search query.
               </div>
             </div>

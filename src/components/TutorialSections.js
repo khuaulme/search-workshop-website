@@ -123,7 +123,7 @@ const lessonData = [
   {
     title: "10. Facets",
     description:
-      "With Atlas Search, we have made it even easier to work with data by allowing you to build powerful, flexible, and sophisticated search capabilities into your MongoDB applications!",
+      "Faceted search is a powerful feature to show how search results are sliced and diced across different categories. This ability to show statistics and counts at-a-glance informs your users of their options and helps them navigate their search journey faster.",
     linkedPage: "Lesson9",
     iconImage: Facets,
   },
