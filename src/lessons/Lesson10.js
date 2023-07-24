@@ -167,17 +167,13 @@ const Lesson10 = () => {
                   alt="placeholder"
                   className="w-4/5 object-contain mx-auto"
                 />
-                Notice how the results are distrubuted across{" "}
-                <div className="flex space-x-6 mx-auto text-center">
+                Notice how the results are distrubuted across:{" "}
+                <div className=" mx-auto text-center text-teal-800 ">
                   {" "}
-                  <div className="  my-4  text-4xl text-teal-800">
-                    buckets
-                  </div>{" "}
-                  <div className=" my-4 text-6xl">🪣</div>{" "}
+                  <div className=" my-8 text-6xl">🪣 buckets</div>{" "}
                 </div>
-                <br></br>In each bucket, we can find the genre of movie and the
-                count.<br></br>
-                <br></br>The counts will be used in the front end.
+                In each bucket, we can find the genre of movie and the count.
+                The counts will be used in the front end.
               </div>
               <div className="w-1/2">
                 <CodeSnippetsCopy copyTextObject={result} />
