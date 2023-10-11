@@ -7,58 +7,49 @@ import Compass from "../images/Compass.png";
 import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import KeyWord from "../components/KeyWord";
 import CodeReveal from "../components/CodeReveal";
-import AirlineApp from "../images/lessonImages/AirlineApp.png";
+import AIBot from "../images/lessonImages/AI_Bot.png";
 import Haystack from "../images/lessonImages/haystack.png";
 import Drumroll from "../images/lessonImages/drumroll.gif";
 import CodeSandbox from "../components/CodeSandbox";
 
-const Lesson10 = () => {
+const Lesson11 = () => {
   return (
     <LessonTemplate
-      title="Lesson 10. Facets: How Many of What & Where"
-      next="/Lesson11"
-      previous="/Lesson9"
+      title="Lesson 11. Vector Search: Semantic Search and AI"
+      next="/"
+      previous="/Lesson10"
     >
       <div className="LESSON PAGE flex flex-col  px-20 mt-auto text-base text-left">
         <div className="flex w-full justify-around mt-20">
           <img
-            src={AirlineApp}
+            src={AIBot}
             alt="placeholder"
             className="w-1/4 object-contain mx-auto"
           />
 
-          <div className="w-3/4 text-2xl text-center my-auto">
+          <div className="w-3/5 text-2xl text-center my-auto">
             <div className="flex text-2xl space-x-6 mx-auto">
-              <div className="my-auto w-2/3">
-                Ever feel like you are looking for a needle in a hackstack?{" "}
-                Well, so have your users.
-                <br></br>
-                Facets are a powerful tool to help that needle{" "}
-                <span className="text-center my-6 text-4xl">🪡</span>
-                look like an elephant{" "}
-                <span className="text-center my-6 text-6xl">🐘</span>!
+              <div className="my-auto ">
+                Looking to power an artificial intelligence with long term
+                memory that could take over the world ?
               </div>
 
-              <img
+              {/* <img
                 src={Haystack}
                 alt="placeholder"
                 className="w-1/5 object-contain mx-auto"
-              />
+              /> */}
             </div>
 
             <div className="mt-8 text-lg text-center my-auto mr-40">
-              A smart and lightning-fast way to search, facets will show how
-              results are sliced and diced and distrubuted into different
-              buckets across different categories. This not only helps your
-              users to quickly hone in on what they want, but maybe they can
-              discover something they never knew they wanted. We’ve all used
-              facets in some way. Whether arranging travel to online shopping.
-              <span className="mx-auto my-4 italic text-2xl text-green-600">
-                "Gasp! 😲I didn’t know it came in black!! 😍 👕 "
-              </span>
+              Or even something simpler... In this lesson, you will learn to
+              create vector embeddings with machine learning models like OpenAI
+              and Hugging Face, and store them in Atlas for retrieval augmented
+              generation (RAG), semantic search, recommendation engines, dynamic
+              personalization, and other use cases.
               <div className="text-2xl my-8">
                 {" "}
-                In this lesson, let’s get fancy with facets!
+                LangChain LlamaIndex OpenAI Hugging Face Cohere
               </div>
             </div>
           </div>
@@ -202,7 +193,7 @@ const Lesson10 = () => {
   );
 };
 
-export default Lesson10;
+export default Lesson11;
 
 const defaultIndex = {
   mappings: {

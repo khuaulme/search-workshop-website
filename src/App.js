@@ -13,6 +13,7 @@ import Lesson7 from "./lessons/Lesson7";
 import Lesson8 from "./lessons/Lesson8";
 import Lesson9 from "./lessons/Lesson9";
 import Lesson10 from "./lessons/Lesson10";
+import Lesson11 from "./lessons/Lesson11";
 import Home from "./pages/Home";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -33,6 +34,7 @@ function App() {
         <Route exact path="Lesson8" element={<Lesson8 />} />
         <Route exact path="Lesson9" element={<Lesson9 />} />
         <Route exact path="Lesson10" element={<Lesson10 />} />
+        <Route exact path="Lesson11" element={<Lesson11 />} />
         <Route exact path="resources" element={<AdditionalResourcesPage />} />
       </Routes>
     </div>

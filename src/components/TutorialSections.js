@@ -9,6 +9,7 @@ import FTS from "../images/FTS.png";
 import Webhooks from "../images/Webhooks.png";
 import Score from "../images/Score.png";
 import Fuzzy from "../images/Fuzzy.png";
+import VectorSearch from "../images/VectorSearch.png";
 import Aggregation from "../images/Aggregation.png";
 import Synonyms from "../images/Synonyms.png";
 import Platform from "../images/Platform.png";
@@ -126,5 +127,11 @@ const lessonData = [
       "Faceted search is a powerful feature to show how search results are sliced and diced across different categories. This ability to show statistics and counts at-a-glance informs your users of their options and helps them navigate their search journey faster.",
     linkedPage: "Lesson9",
     iconImage: Facets,
+  },
+  {
+    title: "11. Vector Search",
+    description: "Learn how to build AI into your applications.",
+    linkedPage: "Lesson10",
+    iconImage: VectorSearch,
   },
 ];
