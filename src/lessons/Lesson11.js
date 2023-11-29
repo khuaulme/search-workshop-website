@@ -58,7 +58,7 @@ const Lesson11 = () => {
         <div className="SECTION2 flex mt-10  space-x-6">
           <div className="flex flex-col w-2/3 p-8 rounded shadow-md shadow-gray-700">
             <div className="bg-fuchsia-900 text-center py-2 rounded text-3xl text-white">
-              Step 1. Update Index for Facets
+              Step 1. Create Vector Embeddings for Your Data
             </div>
             <div className="flex">
               <div className="w-1/2 p-8 ">
@@ -84,7 +84,7 @@ const Lesson11 = () => {
                 another mapping.<br></br>
                 <br></br>
                 <div className="p-8 mx-auto text-center">
-                  <CodeSnippetsCopy copyTextObject={facetIndexAddition} />
+                  {/* <CodeSnippetsCopy copyTextObject={facetIndexAddition} /> */}
                   mapping of <KeyWord type="title">genres</KeyWord> in index to{" "}
                   <KeyWord type="code">stringFacet</KeyWord>
                 </div>
@@ -94,7 +94,7 @@ const Lesson11 = () => {
                 Return to the movies collection in the Atlas interface. Open
                 your default search index. It should have this definition in it:
                 <div className="p-8">
-                  <CodeSnippetsCopy copyTextObject={defaultIndex} />
+                  {/* <CodeSnippetsCopy copyTextObject={defaultIndex} /> */}
                 </div>
                 <br></br>
                 After adding the new mapping for the{" "}
@@ -102,7 +102,7 @@ const Lesson11 = () => {
                 index will be:
                 <div className="p-8 text-center">
                   new <KeyWord type="title">default</KeyWord> index
-                  <CodeSnippetsCopy copyTextObject={finalFacetIndex} />
+                  {/* <CodeSnippetsCopy copyTextObject={finalFacetIndex} /> */}
                 </div>
               </div>
             </div>
@@ -110,7 +110,7 @@ const Lesson11 = () => {
 
           <div className="w-1/3 p-8 rounded shadow-md shadow-gray-700">
             <div className="bg-fuchsia-900 text-center py-2 rounded text-3xl text-white mb-6">
-              Step 2. $searchMeta Query
+              Step 2. Index Vectorized Data Fields
             </div>
             Finally we will query using with the{" "}
             <span className="italic text-green-700">new</span>{" "}
@@ -124,8 +124,8 @@ const Lesson11 = () => {
               <div className="text-6xl">🤷🏻‍♀️</div>
             </div>
             <div className="p-8 text-center">
-              <KeyWord type="title">$searchMeta Query</KeyWord>
-              <CodeSnippetsCopy copyTextObject={searchMetaQuery} />
+              <KeyWord type="title">Vector Index Definition</KeyWord>
+              <CodeSnippetsCopy copyTextObject={vectorIndex} />
             </div>
             <div className="my-4">
               Please note in this query the also new operator:{" "}
@@ -195,27 +195,29 @@ const Lesson11 = () => {
 
 export default Lesson11;
 
-const defaultIndex = {
+const vectorIndex = {
   mappings: {
-    dynamic: true,
-  },
-};
-
-const facetIndexAddition = {
-  fields: {
-    genres: {
-      type: "stringFacet",
-    },
-  },
-};
-
-const finalFacetIndex = {
-  mappings: {
-    dynamic: true,
-  },
-  fields: {
-    genres: {
-      type: "stringFacet",
+    dynamic: false,
+    fields: {
+      plot_embedding: {
+        dimensions: 1536,
+        similarity: "cosine",
+        type: "knnVector",
+      },
+      genres: {
+        type: "string",
+      },
+      imdb: {
+        fields: {
+          rating: {
+            type: "number",
+          },
+        },
+        type: "document",
+      },
+      released: {
+        type: "date",
+      },
     },
   },
 };
