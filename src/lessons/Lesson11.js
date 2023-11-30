@@ -2,13 +2,18 @@ import React from "react";
 import LessonTemplate from "../components/LessonTemplate";
 
 import TipCard from "../components/TipCard";
-import Step from "../components/Step";
+
 import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import KeyWord from "../components/KeyWord";
 import CodeReveal from "../components/CodeReveal";
-import AIBot from "../images/lessonImages/AI_Bot.png";
-import Drumroll from "../images/lessonImages/drumroll.gif";
 import CodeSandbox from "../components/CodeSandbox";
+
+// images
+import AIBot from "../images/lessonImages/AI_Bot.png";
+import Embeddings from "../images/Embeddings.png";
+import Steps from "../images/Steps.png";
+import Git from "../images/GetGit.png";
+import Architecture from "../images/VectorSearchArchitecture.png";
 
 const Lesson11 = () => {
   return (
@@ -25,21 +30,13 @@ const Lesson11 = () => {
             className="w-1/4 object-contain mx-auto"
           />
 
-          <div className="w-3/5 text-2xl text-center my-auto">
-            <div className="flex text-2xl space-x-6 mx-auto">
-              <div className="my-auto ">
-                Looking to power an artificial intelligence with long term
-                memory that could take over the world ?
-              </div>
-
-              {/* <img
-                src={Haystack}
-                alt="placeholder"
-                className="w-1/5 object-contain mx-auto"
-              /> */}
+          <div className="w-3/5 text-2xl text-center my-auto mr-20">
+            <div className="flex text-2xl space-x-6 mx-auto px-10 text-green-800 font-bold">
+              Looking to power an artificial intelligence with long term memory
+              that could take over the world ?
             </div>
 
-            <div className="mt-8 text-lg text-center my-auto mr-40">
+            <div className="mt-8 text-lg text-center my-auto ">
               Or even something simpler... In this lesson, you will learn to
               create vector embeddings with machine learning models like OpenAI
               and Hugging Face, and store them in Atlas for retrieval augmented
@@ -48,145 +45,103 @@ const Lesson11 = () => {
               <div className="text-2xl my-8">
                 {" "}
                 LangChain - 🤖 - LlamaIndex - 🦾 - OpenAI - 🤗 - Hugging Face -
-                👨🏻‍💻 - Cohere
+                👨🏻‍💻 - Cohere<br></br>and so much more!
               </div>
             </div>
           </div>
         </div>
-        <div className="bg-teal-600 h-1 mx-auto w-2/3 mt-8"></div>
+
+        <div className="SECTION-ART flex mt-10 w-full rounded bg-slateblue  space-x-6">
+          <img
+            src={Embeddings}
+            alt="embeddings"
+            className="w-1/2 object-contain"
+          />
+          <img
+            src={Architecture}
+            alt="arch"
+            className=" rounded-lg w-1/2 object-contain"
+          />
+        </div>
+        <div className="w-full flex p-8 rounded shadow-md justify-around my-8 shadow-gray-700">
+          <div className="text-center text-xl w-2/5">
+            There are essentially 4 steps to implement <br></br>Atlas Vector
+            Search.
+            <img src={Steps} alt="steps" className="w-full object-contain" />
+          </div>
+          <div className="w-1 rounded bg-slateblue"></div>
+          <div className="text-center text-xl w-1/5">
+            <a
+              target="_blank"
+              rel="noopener noreferrer"
+              href="https://github.com/khuaulme/movie-vector-embedding-lab"
+            >
+              <img src={Git} alt="git" className="w-full object-contain" />
+            </a>
+          </div>
+
+          <div className="w-1 rounded bg-slateblue"></div>
+          <div className="w-1/4">
+            <CodeSnippetsCopy
+              type="line"
+              copyTextObject={`$ git clone  https://github.com/khuaulme/movie-vector-embedding-lab.git`}
+            ></CodeSnippetsCopy>{" "}
+            <CodeSnippetsCopy
+              type="line"
+              copyTextObject={`$ cd movie-vector-embedding-lab`}
+            ></CodeSnippetsCopy>{" "}
+            Use any IDE you prefer. To open in Visual Studio code:
+            <CodeSnippetsCopy
+              type="line"
+              copyTextObject={`$ code .`}
+            ></CodeSnippetsCopy>
+            <CodeSnippetsCopy
+              type="line"
+              copyTextObject={`$ npm install`}
+            ></CodeSnippetsCopy>
+          </div>
+        </div>
         <div className="SECTION2 flex mt-10  space-x-6">
-          <div className="flex flex-col w-2/3 p-8 rounded shadow-md shadow-gray-700">
-            <div className="bg-fuchsia-900 text-center py-2 rounded text-3xl text-white">
-              Step 1. Create Vector Embeddings for Your Data
+          <div className="flex flex-col w-1/3 p-8 rounded shadow-md shadow-gray-700">
+            <div className="bg-fuchsia-900 text-center mb-6 py-2 rounded text-3xl text-white">
+              Set-Up Environment Variables
             </div>
             <div className="flex">
-              <div className="w-1/2 p-8 ">
-                In order to prepare our data for facets, we need to index
-                appropriately. Since facets can be spread across different data
-                types, each are mapped differently in the index definition:
-                <ul className="ml-10 my-4 space-y-8 ">
-                  <li>
-                    ✅ Strings are mapped as{" "}
-                    <KeyWord type="code">stringFacet</KeyWord>
-                  </li>
-                  <li>
-                    ✅ Numerics are <KeyWord type="code">numberFacet</KeyWord>
-                  </li>
-                  <li>
-                    ✅ Dates as <KeyWord type="code">date</KeyWord>
-                  </li>
-                </ul>
-                In our movie application, we will implement facets on the{" "}
-                <KeyWord type="title">genres</KeyWord> field. Since this field
-                contains strings, we will additionally index this field with the
-                type <KeyWord type="code">stringFacet</KeyWord> by adding
-                another mapping.<br></br>
-                <br></br>
-                <div className="p-8 mx-auto text-center">
-                  {/* <CodeSnippetsCopy copyTextObject={facetIndexAddition} /> */}
-                  mapping of <KeyWord type="title">genres</KeyWord> in index to{" "}
-                  <KeyWord type="code">stringFacet</KeyWord>
-                </div>
-              </div>
-              <div className="bg-fuchsia-800 w-1 rounded h-3/4 my-auto"></div>
-              <div className="w-1/2 p-8 ">
-                Return to the movies collection in the Atlas interface. Open
-                your default search index. It should have this definition in it:
-                <div className="p-8">
-                  {/* <CodeSnippetsCopy copyTextObject={defaultIndex} /> */}
-                </div>
-                <br></br>
-                After adding the new mapping for the{" "}
-                <KeyWord type="title">genres</KeyWord> field, your new default
-                index will be:
-                <div className="p-8 text-center">
-                  new <KeyWord type="title">default</KeyWord> index
-                  {/* <CodeSnippetsCopy copyTextObject={finalFacetIndex} /> */}
-                </div>
+              {" "}
+              <div className="w-full">
+                In the root directory, create a{" "}
+                <KeyWord type="operator">.env</KeyWord> file for the following
+                sensitive environment variables:
+                <CodeSnippetsCopy type="line" copyTextObject={envVariables} />
               </div>
             </div>
           </div>
 
           <div className="w-1/3 p-8 rounded shadow-md shadow-gray-700">
             <div className="bg-fuchsia-900 text-center py-2 rounded text-3xl text-white mb-6">
-              Step 2. Index Vectorized Data Fields
+              Index Vectorized Data Fields
             </div>
-            Finally we will query using with the{" "}
-            <span className="italic text-green-700">new</span>{" "}
-            <KeyWord>$searchMeta</KeyWord> stage.{" "}
-            <div className="flex mt-10 space-x-8 text-center text-indigo-900 text-xl">
-              <div className=" w-2/3">
-                {" "}
-                Hmmmm.... I wonder how what types of movies have an
-                <KeyWord type="title">imdb.rating</KeyWord> of at least 9?
-              </div>
-              <div className="text-6xl">🤷🏻‍♀️</div>
-            </div>
+
             <div className="p-8 text-center">
               <KeyWord type="title">Vector Index Definition</KeyWord>
-              <CodeSnippetsCopy copyTextObject={vectorIndex} />
-            </div>
-            <div className="my-4">
-              Please note in this query the also new operator:{" "}
-              <KeyWord type="code">facet</KeyWord> which is an object with 2
-              fields:
-              <ul className="ml-8 space-y-4">
-                <li>
-                  - <KeyWord type="title">operator</KeyWord> - which takes the
-                  $search operation
-                </li>
-                <li>
-                  - <KeyWord type="title">facets</KeyWord> - a newly defined
-                  field to count results for the film genre categories.
-                </li>
-              </ul>
+              <CodeSnippetsCopy copyTextObject={HF_Vector_Index} />
             </div>
           </div>
-        </div>
-        <div className="bg-teal-600 h-1 mx-auto w-2/3 my-8"></div>
-        <div className="flex space-x-12">
-          {" "}
-          <div className="w-1/2 p-8 rounded shadow-md ml-0 shadow-gray-700">
-            {" "}
-            <div className="flex mx-auto">
-              {" "}
-              <div className="w-1/2 space-y-10">
-                and the result is...
-                <img
-                  src={Drumroll}
-                  alt="placeholder"
-                  className="w-4/5 object-contain mx-auto"
-                />
-                Notice how the results are distrubuted across:{" "}
-                <div className=" mx-auto text-center text-teal-800 ">
-                  {" "}
-                  <div className=" my-8 text-6xl">🪣 buckets</div>{" "}
-                </div>
-                In each bucket, we can find the genre of movie and the count.
-                The counts will be used in the front end.
-              </div>
-              <div className="w-1/2">
-                <CodeSnippetsCopy copyTextObject={result} />
-              </div>
+          <div className="w-1/3 p-8 rounded shadow-md shadow-gray-700">
+            <div className="bg-fuchsia-900 text-center py-2 rounded text-3xl text-white mb-6">
+              $vectorSearch Query
             </div>
-          </div>
-          <div className="w-1/2 p-8 rounded ">
-            <div className="relative w-full text-xl border-4 border-teal-700 pb-8  rounded">
-              <div className="bg-teal-700 py-3  text-white text-2xl text-center w-full mb-4">
-                EXERCISE 1: CREATE NEW ENDPOINT
-              </div>
-              <div className="px-10">
-                You know the drill by now... <br></br>
-                <br></br>Let's create an endpoint using our new{" "}
-                <KeyWord>$searchMeta</KeyWord> stage... 🎗️don't forget to use
-                the updated index.
-                <div className="text-center text-4xl">🍿{"  "} 🎥</div>
-              </div>
+
+            <div className="p-8 text-center">
+              <KeyWord type="title">$vectorSearch</KeyWord>
+              <CodeSnippetsCopy copyTextObject={HF_Aggregation} />
             </div>
           </div>
         </div>
 
-        <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/facets/?fontsize=14&hidenavigation=1&theme=dark" />
+        <div className="px-20">
+          <CodeSandbox appLink="https://codesandbox.io/embed/github/khuaulme/atlas-search-workshop-netflix/tree/lesson4/?fontsize=14&hidenavigation=1&theme=dark" />
+        </div>
       </div>
     </LessonTemplate>
   );
@@ -194,17 +149,54 @@ const Lesson11 = () => {
 
 export default Lesson11;
 
+const envVariables = `MONGODB_CONNECTION_STRING=<INSERT NODE CONNECTION STRING>
+HF_ACCESS_TOKEN=<INSERT HUGGING FACE READ TOKEN>
+OPENAI_KEY=<INSERT OPENAI API TOKEN>`;
+
+const HF_Vector_Index = {
+  mappings: {
+    dynamic: false,
+    fields: {
+      plot_embedding_hf: {
+        dimensions: 384,
+        similarity: "cosine",
+        type: "knnVector",
+      },
+    },
+  },
+};
+
+const HF_Aggregation = [
+  {
+    $vectorSearch: {
+      index: "vectorIndex",
+      queryVector: "await generateEmbeddings(query)",
+      path: "plot_embedding_hf",
+      numCandidates: 100,
+      limit: 8,
+    },
+  },
+  {
+    $project: {
+      _id: 0,
+      title: 1,
+      plot: 1,
+    },
+  },
+];
+
 const vectorIndex = {
   mappings: {
     dynamic: false,
     fields: {
-      plot_embedding: {
+      fullplot_embedding: {
         dimensions: 1536,
-        similarity: "cosine",
+        similarity: "dotProduct",
         type: "knnVector",
       },
       genres: {
-        type: "string",
+        normalizer: "lowercase",
+        type: "token",
       },
       imdb: {
         fields: {
@@ -214,62 +206,6 @@ const vectorIndex = {
         },
         type: "document",
       },
-      released: {
-        type: "date",
-      },
-    },
-  },
-};
-
-const searchMetaQuery = {
-  index: "facetIndex",
-  facet: {
-    operator: {
-      range: {
-        gte: 9,
-        lte: 10,
-        path: "imdb.rating",
-      },
-    },
-    facets: {
-      genresFacet: {
-        type: "string",
-        path: "genres",
-      },
-    },
-  },
-};
-
-const result = {
-  count: {
-    lowerBound: 31,
-  },
-  facet: {
-    genresFacet: {
-      buckets: [
-        { _id: "Documentary", count: 16 },
-        {
-          _id: "Drama",
-          count: 13,
-        },
-        {
-          _id: "History",
-          count: 7,
-        },
-        {
-          _id: "Crime",
-          count: 6,
-        },
-        {
-          _id: "Comedy",
-          count: 4,
-        },
-        {
-          _id: "Action",
-          count: 3,
-        },
-        //...
-      ],
     },
   },
 };

@@ -130,7 +130,8 @@ const lessonData = [
   },
   {
     title: "11. Vector Search",
-    description: "Learn how to build AI into your applications.",
+    description:
+      "Vector embeddings are the basic building blocks to build AI into your applications. Learn how to create vectors, store, index, and query for any type of data with Atlas Vector Search.",
     linkedPage: "Lesson10",
     iconImage: VectorSearch,
   },
