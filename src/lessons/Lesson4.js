@@ -132,10 +132,11 @@ const Lesson4 = () => {
               <KeyWord type="word">HTTPS Endpoint</KeyWord>, followed by the{" "}
               <KeyWord type="button">Add an Endpoint</KeyWord>. Select the HTTP
               service, and name it movies.
-              <ul className="ml-24 my-2">
+              <ul className="ml-24 my-4 space-y-2">
                 <li>✔️ For Route, type /movies</li>
                 <li>✔️ Set your Operation Type to GET</li>
                 <li>✔️ Enable Respond with Result</li>
+                <li>✔️ Set Return Type to JSON</li>
               </ul>
             </Step>
           </div>
@@ -286,7 +287,7 @@ const Lesson4 = () => {
           <div className="w-1/4 my-auto text-center text-4xl -skew-x-12">
             Have a toast while you pop the popcorn, and get ready for calling
             this API from our hosted front end.
-            <span className="text-2xl">🥂🍿</span>
+            <span className="text-4xl">🥂🍿</span>
           </div>
         </div>
       </div>

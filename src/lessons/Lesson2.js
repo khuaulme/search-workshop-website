@@ -13,8 +13,10 @@ import SearchOperators from "../components/SearchOperators";
 //images
 
 import Pipeline from "../images/lessonImages/Pipeline.png";
-
+import NoResults from "../images/EmptySign.png";
 import Typos from "../images/Typos.gif";
+import Quiz from "../images/Quiz.png";
+import Stars from "../images/Stars.png";
 
 const Lesson2 = () => {
   return (
@@ -116,27 +118,42 @@ const Lesson2 = () => {
                   </TipCard>
                 </div>
               </div>
-              <div className="FUZZY w-full text-left items-center flex mx-auto px-40">
-                <div className="flex w-1/2">
-                  <div className="w-full object-contain px-8 z-10">
-                    <img src={Typos} alt="typos" />
+
+              <div className="FUZZY w-full text-left items-end flex mx-auto">
+                <div className="flex flex-col w-1/2 mx-auto">
+                  <div className="flex items-center">
+                    <div className="w-1/3 -skew-y-12 ">
+                      <div className="bg-teal-600 py-2  text-white text-center rounded-lg mt-1 text-lg space-x-4 ">
+                        <span className="text-sun text-2xl italic">FUZZY?</span>
+                        {"  "}
+                        <div className="uppercase"> What is this sorcery?</div>
+                        <span className="text-6xl">🪄</span>
+                      </div>
+                    </div>
+                    <div className="py-4 px-4 text-lg text-center">
+                      {" "}
+                      Our first bit of magic is the{" "}
+                      <span className="text-xl text-green-600">fuzzy</span>{" "}
+                      option. Notice that if you misspell "Harry" or "Potter,"
+                      the $search operator will return no movies.
+                    </div>
                   </div>
-                  <div className="w-1/3 pt-20 -skew-y-12 ">
-                    <div className="bg-teal-600 py-8  text-white text-center rounded mt-1 text-lg space-x-4 ">
-                      <span className="text-sun text-2xl italic">FUZZY?</span>
-                      {"  "}
-                      <div className="uppercase"> What is this sorcery?</div>
-                      <span className="text-4xl">🪄</span>
+
+                  <div className="w-full mx-auto flex items-center space-x-4">
+                    <div className="w-1/2">
+                      {" "}
+                      <CodeSnippetsCopy copyTextObject={basicTextTypo} />
+                    </div>
+
+                    <div className="w-1/3 object-contain z-10">
+                      <img src={NoResults} alt="empty" />
                     </div>
                   </div>
                 </div>
-                <div className="w-1/2 py-4 px-20 text-center">
-                  {" "}
-                  Our first bit of magic is the{" "}
-                  <span className="text-xl text-green-600">fuzzy</span> option.
-                  Notice that if you misspell "Harry" or "Potter," the $search
-                  operator will return no movies. Simply adding the line
-                  <div className="w-1/2 mx-auto">
+
+                <div className="w-2/5 py-4 px-8 text-center">
+                  Simply adding the line
+                  <div className="w-2/3 mx-auto">
                     <CodeSnippetsCopy
                       type="line"
                       copyTextObject={`fuzzy: { "maxEdits":1 }`}
@@ -145,6 +162,11 @@ const Lesson2 = () => {
                   to our text operator enables finding similar terms.
                   <div className="w-2/3 mx-auto  py-4">
                     <CodeSnippetsCopy copyTextObject={fuzzyText} />
+                  </div>
+                </div>
+                <div className="w-1/6 flex items-end">
+                  <div className="w-full object-contain my-auto z-10">
+                    <img src={Typos} alt="typos" />
                   </div>
                 </div>
 
@@ -168,7 +190,7 @@ const Lesson2 = () => {
                   </TipCard>
                 </div>
               </div>
-              <div className="LINE bg-teal-600 h-2 w-2/3 mr-auto rounded-2xl mb-10"></div>
+              <div className="LINE bg-teal-600 h-2 w-5/6 mx-auto rounded-2xl mb-10"></div>
             </Step>
             <div className="flex flex-col mb-10">
               <div className=" text-green-900 text-lg py-2 px-4 text-center w-1/2 mx-auto rounded shadow-md shadow-gray-700">
@@ -206,6 +228,26 @@ const Lesson2 = () => {
                 </div>
               </div>
             </div>
+            {/* <div className="bg-teal-600 rounded w-full h-2"></div> */}
+            <div className="w-4/5 mx-auto flex mb-10">
+              <div className="w-1/4 mx-auto">
+                <img src={Quiz} alt="quiz" />
+              </div>
+              <div className="relative w-1/2 mt-6 text-xl border-4 border-teal-800 pb-8 mx-auto rounded">
+                <div className="bg-teal-800 py-3  text-white text-2xl text-center w-full mb-4">
+                  Test Your Search Operator Knowledge
+                </div>
+                <div className="px-10 text-teal-900 mt-8">
+                  Create a <KeyWord>$search</KeyWord> query to find the number
+                  of movies in our database with an imdb rating of 9 or more.
+                  <img src={Stars} alt="stars" className="w-1/2 mx-auto my-6" />
+                  <div className="text-3xl text-center text-indigo-900 ">
+                    What was the name and rating of the highest rated movie
+                    result?
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -219,6 +261,14 @@ const basicText = {
   index: "default",
   text: {
     query: "Harry Potter",
+    path: "fullplot",
+  },
+};
+
+const basicTextTypo = {
+  index: "default",
+  text: {
+    query: "Harrry Pottter",
     path: "fullplot",
   },
 };

@@ -20,7 +20,7 @@ const Instructions = ({ showSetUpPDF, setShowSetUpPDF }) => {
               className="underline decoration-indigo-500"
               target="_blank"
               rel="noopener noreferrer"
-              href="https://cloud.mongodb.com"
+              href="https://mongodb.com/try?utm_campaign=devrel&utm_source=workshop&utm_medium=cta&utm_content=Online%20Search%20Workshop&utm_term=karen.huaulme"
             >
               MongoDB Atlas account and free cluster
             </a>

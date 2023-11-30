@@ -1,21 +1,19 @@
 import React from "react";
 import LessonTemplate from "../components/LessonTemplate";
-import Footer from "../components/Footer";
+
 import TipCard from "../components/TipCard";
 import Step from "../components/Step";
-import Compass from "../images/Compass.png";
 import CodeSnippetsCopy from "../components/CodeSnippetsCopy";
 import KeyWord from "../components/KeyWord";
 import CodeReveal from "../components/CodeReveal";
 import AIBot from "../images/lessonImages/AI_Bot.png";
-import Haystack from "../images/lessonImages/haystack.png";
 import Drumroll from "../images/lessonImages/drumroll.gif";
 import CodeSandbox from "../components/CodeSandbox";
 
 const Lesson11 = () => {
   return (
     <LessonTemplate
-      title="Lesson 11. Vector Search: Semantic Search and AI"
+      title="Lesson 11. Vector Search: Semantic Search & AI 🧐"
       next="/"
       previous="/Lesson10"
     >
@@ -49,7 +47,8 @@ const Lesson11 = () => {
               personalization, and other use cases.
               <div className="text-2xl my-8">
                 {" "}
-                LangChain LlamaIndex OpenAI Hugging Face Cohere
+                LangChain - 🤖 - LlamaIndex - 🦾 - OpenAI - 🤗 - Hugging Face -
+                👨🏻‍💻 - Cohere
               </div>
             </div>
           </div>
